@@ -1,0 +1,22 @@
+﻿using AutoMapper;
+using ONS.SGIPMO.Domain.Entities;
+
+
+namespace ONS.WEBPMO.WebSite.AutoMapper
+{
+    public class ChaveDescricaoMapper : Profile
+    {
+        protected override void Configure()
+        {
+            CreateMap<ChaveDescricaoDTO<int>, SelectListItem>()
+                .ForMember(e => e.Value, a => a.MapFrom(e => e.Chave))
+                .ForMember(e => e.Text, a => a.MapFrom(e => e.Descricao));
+
+            CreateMap<ChaveDescricaoDTO<string>, SelectListItem>()
+                .ForMember(e => e.Value, a => a.MapFrom(e => e.Chave))
+                .ForMember(e => e.Text, a => a.MapFrom(e => e.Descricao));
+
+            base.Configure();
+        }
+    }
+}

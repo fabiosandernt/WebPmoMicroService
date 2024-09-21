@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ONS.WEBPMO.Application.DTO
+{
+    public class DadosPesquisaGeracaoBlocosDTO
+    {
+        public DadosPesquisaGeracaoBlocosDTO()
+        {
+            ArquivosDadoNaoEstruturado = new List<InsumoArquivoDTO>();
+            ArquivosGeracaoBlocos = new List<ArquivoDTO>();
+        }
+
+        public IList<InsumoArquivoDTO> ArquivosDadoNaoEstruturado { get; set; }
+        public IList<ArquivoDTO> ArquivosGeracaoBlocos { get; set; }
+        public SituacaoSemanaOperativaEnum SituacaoSemanaOperativa { get; set; }
+    }
+}
