@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Application.Profile.Usina
         {
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.DadoConvergencia, DadoConvergencia>();
 
-            
+
         }
     }
 }

@@ -9,6 +9,6 @@ namespace ONS.WEBPMO.Application.DTO
 
         public string NomeRevisao { get; set; }
 
-        public IEnumerable<TParticipantes> ParticipantesDTOList { get; set;}
+        public IEnumerable<TParticipantes> ParticipantesDTOList { get; set; }
     }
 }

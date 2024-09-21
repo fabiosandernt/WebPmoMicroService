@@ -1,7 +1,7 @@
 
 namespace ONS.WEBPMO.Domain.Entities.Usina
 {
-    
+
     public class Insumo : BaseObject
     {
         private string nome;

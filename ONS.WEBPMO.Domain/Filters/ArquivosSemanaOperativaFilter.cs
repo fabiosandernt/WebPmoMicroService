@@ -3,7 +3,7 @@ using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
-{   
+{
 
     public class ArquivosSemanaOperativaFilter : ICustomQueryable, IQueryPaging, IQuerySort
     {

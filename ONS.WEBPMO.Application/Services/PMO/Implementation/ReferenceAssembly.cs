@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
     public class ReferenceAssembly
     {

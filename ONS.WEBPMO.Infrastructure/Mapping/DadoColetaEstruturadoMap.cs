@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class DadoColetaEstruturadoMap : EntityTypeConfiguration<DadoColetaEstruturado>
     {
         public DadoColetaEstruturadoMap()

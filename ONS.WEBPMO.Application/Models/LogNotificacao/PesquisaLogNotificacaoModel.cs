@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.LogNotificacao
-{  
-    
+{
+
 
     //[ModelBinder(typeof(EnumerableValueBinder))]
     public class PesquisaLogNotificacaoModel

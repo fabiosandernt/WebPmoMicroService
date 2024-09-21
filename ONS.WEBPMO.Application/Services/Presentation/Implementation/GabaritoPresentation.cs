@@ -1,12 +1,4 @@
-﻿using System;
-using ONS.Common.Util;
-using ONS.Common.Util.Collection;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Repositories;
-using System.Collections.Generic;
-using System.Linq;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl

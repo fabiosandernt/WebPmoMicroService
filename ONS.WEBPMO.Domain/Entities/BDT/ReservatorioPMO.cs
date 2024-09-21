@@ -5,7 +5,7 @@ namespace ONS.WEBPMO.Domain.Entities.BDT
 {
     public class ReservatorioPMO : BaseEntity<string>
     {
-        public int Codigo { get; set; }        
+        public int Codigo { get; set; }
         public string NomeLongo { get; set; }
         public string NomeCurto { get; set; }
         public string NomeExibicao { get; set; }

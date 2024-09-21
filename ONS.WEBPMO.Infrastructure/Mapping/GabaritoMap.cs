@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class GabaritoMap : EntityTypeConfiguration<Gabarito>
     {
         public GabaritoMap()
@@ -38,7 +34,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                 .HasForeignKey(t => t.OrigemColetaId);
 
             Property(t => t.SemanaOperativaId)
-                .HasColumnName("id_semanaoperativa");            
+                .HasColumnName("id_semanaoperativa");
 
             Ignore(t => t.NomeAgentePerfil);
         }

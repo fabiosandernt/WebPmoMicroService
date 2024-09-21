@@ -1,12 +1,4 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ServiceModel;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     [ServiceContract]
     public interface ISemanaOperativaService : IService

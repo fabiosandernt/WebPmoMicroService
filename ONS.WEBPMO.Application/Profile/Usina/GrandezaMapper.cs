@@ -9,6 +9,6 @@ namespace ONS.WEBPMO.Application.Profile.Usina
             CreateMap<ManutencaoGrandezaDTO, ONS.WEBPMO.Domain.Entities.PMO.Grandeza>();
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.Grandeza, ONS.WEBPMO.Domain.Entities.Usina.Grandeza>();
         }
-        
+
     }
 }

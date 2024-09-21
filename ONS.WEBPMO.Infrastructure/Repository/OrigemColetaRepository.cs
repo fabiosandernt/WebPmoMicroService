@@ -1,12 +1,5 @@
-﻿using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
-    using Common.Util.Pagination;
     using Entities.Filters;
 
     public class OrigemColetaRepository : Repository<OrigemColeta>, IOrigemColetaRepository
@@ -111,20 +104,20 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             var query = from coleta in Context.Set<ColetaInsumo>()
                         join gabarito in Context.Set<Gabarito>()
                             on new
-                                {
-                                    idInsumo = coleta.Insumo.Id,
-                                    idAgente = coleta.Agente.Id,
-                                    codigoPerfil = coleta.CodigoPerfilONS,
-                                    idSemana = coleta.SemanaOperativa.Id
-                                }
+                            {
+                                idInsumo = coleta.Insumo.Id,
+                                idAgente = coleta.Agente.Id,
+                                codigoPerfil = coleta.CodigoPerfilONS,
+                                idSemana = coleta.SemanaOperativa.Id
+                            }
                             equals
                             new
-                                {
-                                    idInsumo = gabarito.Insumo.Id,
-                                    idAgente = gabarito.Agente.Id,
-                                    codigoPerfil = gabarito.CodigoPerfilONS,
-                                    idSemana = gabarito.SemanaOperativa.Id
-                                }
+                            {
+                                idInsumo = gabarito.Insumo.Id,
+                                idAgente = gabarito.Agente.Id,
+                                codigoPerfil = gabarito.CodigoPerfilONS,
+                                idSemana = gabarito.SemanaOperativa.Id
+                            }
                         join unidadeGeradora in Context.Set<UnidadeGeradora>()
                             on gabarito.OrigemColeta.Id equals unidadeGeradora.Id
                         where coleta.Id == idColetaInsumo
@@ -213,7 +206,8 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
                             on gabarito.OrigemColeta.Id equals unidadeGeradora.Id
                         where idColetaInsumos.Contains(coleta.Id)
                         orderby unidadeGeradora.Nome
-                        select new UnidadeGeradoraManutencaoSGIDTO() {
+                        select new UnidadeGeradoraManutencaoSGIDTO()
+                        {
                             NomeUnidadeGeradora = unidadeGeradora.Nome,
                             IdUnidadeGeradora = unidadeGeradora.Id,
                             IdColetaInsumo = coleta.Id,

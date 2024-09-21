@@ -1,5 +1,5 @@
 namespace ONS.WEBPMO.Domain.Entities.PMO
-{   
+{
     public class DadoColetaNaoEstruturado : DadoColeta
     {
 

@@ -5,7 +5,7 @@ using ONS.WEBPMO.Infrastructure.DataBase;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
-   
+
 
     public class AgenteRepository : Repository<Agente>, IAgenteRepository
     {

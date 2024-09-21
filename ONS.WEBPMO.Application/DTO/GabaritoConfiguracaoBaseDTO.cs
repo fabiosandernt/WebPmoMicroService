@@ -1,6 +1,6 @@
 namespace ONS.WEBPMO.Application.DTO
 {
-    
+
     public class GabaritoConfiguracaoBaseDTO<TOrigemColetaConfig>
     {
         public GabaritoConfiguracaoBaseDTO()
@@ -10,6 +10,6 @@ namespace ONS.WEBPMO.Application.DTO
 
         public string NomeRevisao { get; set; }
 
-        public IEnumerable<TOrigemColetaConfig> ConfiguracaoDTOList { get; set;}
+        public IEnumerable<TOrigemColetaConfig> ConfiguracaoDTOList { get; set; }
     }
 }

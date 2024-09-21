@@ -1,30 +1,28 @@
-﻿using ONS.Common.Exceptions;
-using ONS.Common.Services.Impl;
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Repositories;
+﻿using AspNetCore.IQueryable.Extensions;
+using AutoMapper;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Filters;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class ParametroService : Service, IParametroService
+    public class ParametroService : IParametroService
     {
-        private IParametroRepository ParametroRepository { get; set; }
+        private readonly IMapper _mapper;
+        private readonly IParametroRepository _parametroRepository;
 
-        public ParametroService(IParametroRepository ParametroRepository)
+        public ParametroService(IMapper mapper, IParametroRepository parametroRepository)
         {
-            this.ParametroRepository = ParametroRepository;
+            _mapper = mapper;
+            _parametroRepository = parametroRepository;
         }
 
-        public Parametro ObterParametro(ParametroEnum parametroEnum)
+        public async ValueTask<ParametroDTO> ObterParametroPorFiltro(ParametroFilter filter)
         {
-            Parametro parametro = ParametroRepository.ObterPorTipo(parametroEnum);
-            if (parametro == null || string.IsNullOrEmpty(parametro.Valor))
-            {
-                string mensagem = string.Format("Parâmetro {0} não cadastrado", parametroEnum.ToDescription());
-                throw new ONSInfraException(mensagem);
-            }
-            return parametro;
+            var parametro = _parametroRepository.FindOneByCriterioAsync(x=>x.Nome == filter.Nome);            
+            return _mapper.Map<ParametroDTO>(parametro);
+           
         }
     }
 }

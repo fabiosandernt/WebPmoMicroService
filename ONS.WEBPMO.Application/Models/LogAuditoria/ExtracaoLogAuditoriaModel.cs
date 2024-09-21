@@ -2,7 +2,7 @@
 using System.Text;
 
 namespace ONS.WEBPMO.Application.Models.LogAuditoria
-{  
+{
     //[ModelBinder(typeof(EnumerableValueBinder))]
     public class ExtracaoLogAuditoriaModel
     {
@@ -17,8 +17,10 @@ namespace ONS.WEBPMO.Application.Models.LogAuditoria
 
         public bool Reservado { get { return Exportar; } }
 
-        public string IdLogico {
-            get { 
+        public string IdLogico
+        {
+            get
+            {
                 var info = new StringBuilder();
                 info.AppendLine(this.Id);
                 info.AppendLine(this.Estudo);

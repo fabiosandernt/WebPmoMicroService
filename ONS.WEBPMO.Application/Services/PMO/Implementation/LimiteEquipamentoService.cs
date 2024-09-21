@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Pitang.ONS.Common.Services.Impl;
-using Pitang.ONS.Gerlim.Domain.Entities;
-using Pitang.ONS.Common.Services;
-using Pitang.ONS.Gerlim.Domain.Repositories;
-using Pitang.ONS.Gerlim.Domain.Services.Resources;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
     public class LimiteEquipamentoService : Service<LimiteEquipamento, int>, ILimiteEquipamentoService
     {

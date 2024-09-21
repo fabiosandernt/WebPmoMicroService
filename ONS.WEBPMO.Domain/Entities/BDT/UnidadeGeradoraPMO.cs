@@ -3,7 +3,7 @@
 namespace ONS.WEBPMO.Domain.Entities.BDT
 {
     public class UnidadeGeradoraPMO : BaseEntity<string>
-    {        
+    {
         public int? IdDPP { get; set; }
         public string UsiBDTId { get; set; }
         public string Nome { get; set; }

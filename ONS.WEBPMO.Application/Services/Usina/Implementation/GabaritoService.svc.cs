@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using ONS.Common.IoC;
-using AutoMapper;
-using ONS.SGIPMO.Domain.Entities;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.Servico.Usina
 {

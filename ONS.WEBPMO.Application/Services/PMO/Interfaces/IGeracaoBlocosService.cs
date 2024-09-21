@@ -1,8 +1,4 @@
-﻿using System.ServiceModel;
-using ONS.Common.Services;
-using ONS.Common.Wcf;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     [ServiceContract]
     public interface IGeracaoBlocosService : IService

@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-
-namespace ONS.WEBPMO.Api.Controllers
+﻿namespace ONS.WEBPMO.Api.Controllers
 {
-    using ONS.Common.Seguranca;
-    using ONS.Common.Util.Pagination;
-    
-    using ONS.SGIPMO.Domain.Entities;
-    using ONS.SGIPMO.Domain.Entities.Filters;
-    using ONS.SGIPMO.Domain.Services;
-    using ONS.SGIPMO.WebSite.Models;
-
     using global::AutoMapper;
     [WebPermission("ConfigurarGabarito")]
     public class ParticipantesGabaritoController : ControllerBase
@@ -52,7 +38,7 @@ namespace ONS.WEBPMO.Api.Controllers
         public ActionResult CarregarGridAgentesParticipantesGabarito(GridSettings gridSettings, GabaritoConsultaModel model)
         {
             GabaritoParticipantesFilter filter = Mapper.DynamicMap<GabaritoParticipantesFilter>(model);
-            
+
             Mapper.DynamicMap(gridSettings, filter);
 
             PagedResult<Agente> result = agenteService.ConsultarAgentesParticipamGabaritoPaginado(filter);
@@ -63,7 +49,7 @@ namespace ONS.WEBPMO.Api.Controllers
         public ActionResult CarregarGridOrigensColetasParticipanteGabarito(GridSettings gridSettings, GabaritoConsultaModel model)
         {
             GabaritoParticipantesFilter filter = Mapper.DynamicMap<GabaritoParticipantesFilter>(model);
-            
+
             Mapper.DynamicMap(gridSettings, filter);
 
             PagedResult<OrigemColeta> result = this.origemColetaService.ConsultarOrigemColetasGabaritoPaginado(filter);
@@ -73,7 +59,7 @@ namespace ONS.WEBPMO.Api.Controllers
         public ActionResult CarregarGridUnidadesGeradorasParticipanteGabarito(GridSettings gridSettings, GabaritoConsultaModel model, string idUsinaPai)
         {
             GabaritoParticipantesFilter filter = Mapper.DynamicMap<GabaritoParticipantesFilter>(model);
-            
+
             Mapper.DynamicMap(gridSettings, filter);
 
             filter.IdUsinaPai = idUsinaPai;
@@ -82,7 +68,7 @@ namespace ONS.WEBPMO.Api.Controllers
 
             return JsonToPagedGrid(result, gridSettings.PageIndex);
         }
-        
+
 
     }
 }

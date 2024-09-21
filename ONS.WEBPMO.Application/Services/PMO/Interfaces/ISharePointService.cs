@@ -1,10 +1,4 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using System.Collections.Generic;
-using System.ServiceModel;
-using ONS.SGIPMO.Domain.Entities;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     [ServiceContract]
     public interface ISharePointService : IService

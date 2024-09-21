@@ -1,9 +1,6 @@
-﻿
+﻿using ONS.WEBPMO.Domain.Enumerations;
 
-using ONS.WEBPMO.Domain.Entities.PMO;
-using ONS.WEBPMO.Domain.Enumerations;
-
-namespace ONS.WEBPMO.Application.DTO
+namespace ONS.WEBPMO.Domain.Entities.PMO
 {
     public class DadoColetaBloco : IComparable<DadoColetaBloco>
     {
@@ -15,7 +12,7 @@ namespace ONS.WEBPMO.Application.DTO
         public TipoLimiteEnum? TipoLimite { get; set; }
         public string Estagio { get; set; }
 
-        public DadoColetaBloco() {}
+        public DadoColetaBloco() { }
 
         public DadoColetaBloco(DadoColetaBloco dadoColetaBloco)
         {

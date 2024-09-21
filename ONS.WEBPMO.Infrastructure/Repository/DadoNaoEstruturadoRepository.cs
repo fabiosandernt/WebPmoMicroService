@@ -1,17 +1,5 @@
-﻿using System.Data.Entity;
-using ONS.Common.Repositories.Impl;
-using ONS.Common.Util.Pagination;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
-    using System.Security.Cryptography;
-    using System.Security.Cryptography.Xml;
-
     public class DadoColetaNaoEstruturadoRepository : Repository<DadoColetaNaoEstruturado>, IDadoColetaNaoEstruturadoRepository
     {
         public DadoColetaNaoEstruturado ObterDadoColetaNaoEstruturado(DadoColetaInsumoNaoEstruturadoFilter filtros)

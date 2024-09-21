@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    using Common.Services;
-    using Entities;
-    using System.ServiceModel;
-
     [ServiceContract]
     public interface IHistoricoService : IService
     {

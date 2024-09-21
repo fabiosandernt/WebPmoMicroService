@@ -1,9 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Models.Mapping
 {
-    using Entities;
     using ONS.WEBPMO.Domain.Entities.PMO;
 
     public class TipoDadoGrandezaMap : EntityTypeConfiguration<TipoDadoGrandeza>

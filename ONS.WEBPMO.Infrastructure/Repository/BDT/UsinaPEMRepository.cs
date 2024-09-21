@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Repositories.BDT;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {
-    using ONS.SGIPMO.Domain.Entities;
-    using ONS.SGIPMO.Domain.Entities.BDT;
-
     [UseDbContext(ConnectionStringsNames.BDTModel)]
     public class UsinaPEMRepository : Repository<UsinaPEM>, IUsinaPEMRepository
     {
@@ -19,7 +9,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
         /// <returns>Lista de Usinas do PEM</returns>
         public IList<UsinaPEM> ConsultarDadosUsinasVisaoPEM()
         {
-            string sql = 
+            string sql =
                 "SELECT "
                 //--############################################################
                 //--Dados de USINA

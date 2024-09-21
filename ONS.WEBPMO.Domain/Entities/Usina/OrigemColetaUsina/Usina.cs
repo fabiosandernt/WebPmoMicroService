@@ -1,11 +1,11 @@
 ﻿namespace ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina
 {
-        public class Usina : OrigemColeta
+    public class Usina : OrigemColeta
     {
-        
+
         public virtual string TipoUsina { get; set; }
 
-        public virtual Subsistema Subsistema { get; set; }        
+        public virtual Subsistema Subsistema { get; set; }
 
         public virtual IList<UnidadeGeradora> UnidadesGeradoras { get; set; }
 

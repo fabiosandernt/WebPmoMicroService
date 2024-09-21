@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ONS.Common.Services.Impl;
-using ONS.Common.Util.Diagnostics;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Repositories;
-using ONS.SGIPMO.Domain.Services.Impl.SGIExternalServices;
-using log4net;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

@@ -1,11 +1,4 @@
 ﻿using AutoMapper;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.WebSite.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {

@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Application.DTO
 {
-    
+
     public class GabaritoConfiguracaoDTO
     {
         public GabaritoConfiguracaoDTO()
@@ -27,7 +27,7 @@ namespace ONS.WEBPMO.Application.DTO
         public int? IdSemanaOperativa { get; set; }
         public bool IsPadrao { get; set; }
         public string CodigoPerfilONS { get; set; }
-        
+
         public TipoOrigemColetaEnum TipoOrigemColeta { get; set; }
         public TipoInsumoEnum TipoInsumo { get; set; }
 

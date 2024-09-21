@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class InsumoNaoEstruturadoMap : EntityTypeConfiguration<InsumoNaoEstruturado>
     {
         public InsumoNaoEstruturadoMap()
@@ -15,7 +11,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             Property(t => t.IsUtilizadoConvergencia).HasColumnName("flg_utilizadoconvergencia");
             Property(t => t.IsUtilizadoPublicacao).HasColumnName("flg_utilizadopublicacao");
             Property(t => t.IsUtilizadoProcessamento).HasColumnName("flg_utilizadoprocessamento");
-            
+
         }
     }
 }

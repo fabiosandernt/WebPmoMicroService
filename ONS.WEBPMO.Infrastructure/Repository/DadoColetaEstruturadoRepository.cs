@@ -1,14 +1,4 @@
-﻿using System.Data.Entity;
-using System.Data.SqlClient;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class DadoColetaEstruturadoRepository : Repository<DadoColetaEstruturado>, IDadoColetaEstruturadoRepository
     {
@@ -78,10 +68,10 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             var query = (from g in Context.Set<Grandeza>()
                          join ie in Context.Set<InsumoEstruturado>() on g.Insumo.Id equals ie.Id
                          join ga in Context.Set<Gabarito>() on ie.Id equals ga.Insumo.Id
-                         join ci in Context.Set<ColetaInsumo>() on 
+                         join ci in Context.Set<ColetaInsumo>() on
                              new
                              {
-                                 InsumoId = ga.Insumo.Id, 
+                                 InsumoId = ga.Insumo.Id,
                                  AgenteId = ga.Agente.Id,
                                  CodigoPerfilONS = ga.CodigoPerfilONS,
                                  SemanaOperativaId = ga.SemanaOperativa.Id
@@ -92,7 +82,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
                                  AgenteId = ci.Agente.Id,
                                  CodigoPerfilONS = ci.CodigoPerfilONS,
                                  SemanaOperativaId = ci.SemanaOperativa.Id
-                             } 
+                             }
                          where ci.Id == idColetaInsumo
                                 && g.Ativo
                          select g);

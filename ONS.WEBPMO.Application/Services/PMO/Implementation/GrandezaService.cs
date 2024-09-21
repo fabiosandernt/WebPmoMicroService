@@ -1,11 +1,4 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Repositories;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

@@ -1,7 +1,7 @@
 ﻿
 namespace ONS.WEBPMO.Domain.Enumerations
 {
-    [Flags] 
+    [Flags]
     public enum TipoPatamarEnum
     {
         Pesado = 1,

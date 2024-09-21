@@ -3,7 +3,7 @@ using ONS.WEBPMO.Domain.Enumerations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO
-{    
+{
     public class Usina : OrigemColeta, IConjuntoGerador
     {
         public Usina()

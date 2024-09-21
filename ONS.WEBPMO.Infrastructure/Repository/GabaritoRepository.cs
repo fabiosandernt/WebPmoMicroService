@@ -1,17 +1,5 @@
-﻿using ONS.Common.Repositories.Impl;
-using ONS.Common.Util.Collection;
-using ONS.SGIPMO.Domain.Entities;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data.Entity;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
-    using Common.IoC;
-    using Common.Util.Pagination;
-    using System.Data.Objects.SqlClient;
-
     public class GabaritoRepository : Repository<Gabarito>, IGabaritoRepository
     {
         public DbContext _Context2;
@@ -374,7 +362,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             {
                 return null;
             }
-            
+
             if (isPadrao)
             {
                 IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>> gabaritoPadraoList = new List<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>>();
@@ -595,7 +583,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
                         {
                             NomeRevisao = groupGab.Key.Nome,
                             ConfiguracaoDTOList =
-                                (from g in _Context2.Set<Gabarito>() 
+                                (from g in _Context2.Set<Gabarito>()
                                  join s in _Context2.Set<SemanaOperativa>() on g.SemanaOperativaId equals s.Id
                                  join i in _Context2.Set<InsumoNaoEstruturado>() on g.InsumoId equals i.Id
                                  join a in _Context2.Set<Agente>() on g.AgenteId equals a.Id

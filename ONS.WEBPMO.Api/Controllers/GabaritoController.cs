@@ -1,30 +1,16 @@
 ﻿using AutoMapper;
 
-using ONS.Common.Util;
-
 namespace ONS.WEBPMO.Api.Controllers
 {
-    using Domain.Presentations;
-    using Domain.Services;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Common.Util.Pagination;
-    using Common.Web;
-    using Domain.Entities;
-    using Models;
-
-    using Common.Exceptions;
-    using Common.Seguranca;
     using Domain.Entities.Filters;
-
-    using ONS.Common.Entities;
-    using ONS.WEBPMO.Domain.Entities.PMO;
-    using ONS.WEBPMO.Domain.Entities.Base;
-    using ONS.SGIPMO.Domain.Entities;
-    using ONS.WEBPMO.Domain.Enumerations;
+    using Domain.Presentations;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+    using ONS.WEBPMO.Domain.Entities.Base;
+    using ONS.WEBPMO.Domain.Entities.PMO;
+    using ONS.WEBPMO.Domain.Enumerations;
+    using System.Collections.Generic;
+    using System.Linq;
 
     //[WebPermission("ConfigurarGabarito")]
     public class GabaritoController : ControllerBase
@@ -69,7 +55,7 @@ namespace ONS.WEBPMO.Api.Controllers
             {
                 model.IsPadrao = true;
             }
-            
+
             return View(model);
         }
 
@@ -245,7 +231,7 @@ namespace ONS.WEBPMO.Api.Controllers
         }
 
         [HttpPost]
-        [Auditoria("Configurar Gabarito","Salvar Gabarito", typeof(Gabarito))]
+        [Auditoria("Configurar Gabarito", "Salvar Gabarito", typeof(Gabarito))]
         public ActionResult SalvarGabaritoUsina(ConfiguracaoGabaritoUsinaModel model)
         {
             SetViewError("SalvarGabaritoUsina", model, CarregarConfiguracaoGabaritoModel);

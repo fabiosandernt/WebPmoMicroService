@@ -4,8 +4,8 @@ using AspNetCore.IQueryable.Extensions.Sort;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
 {
-    
-    public class GabaritoDadoColetaNaoEstruturadoFilter :  ICustomQueryable, IQueryPaging, IQuerySort
+
+    public class GabaritoDadoColetaNaoEstruturadoFilter : ICustomQueryable, IQueryPaging, IQuerySort
     {
         public int IdInsumo { get; set; }
 

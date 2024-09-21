@@ -1,10 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class DadoColetaMap : EntityTypeConfiguration<DadoColeta>
     {
         public DadoColetaMap()
@@ -18,7 +13,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasMaxLength(1);
-            
+
             // Relationships
             Property(t => t.ColetaInsumoId)
                 .HasColumnName("id_coletainsumo");

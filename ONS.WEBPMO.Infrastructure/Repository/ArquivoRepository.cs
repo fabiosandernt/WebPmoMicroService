@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Policy;
-using ONS.Common.Repositories.Impl;
-using ONS.Common.Util.Files;
-using ONS.SGIPMO.Domain.Entities;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class ArquivoRepository : Repository<Arquivo>, IArquivoRepository
     {
         public void DeletarPorIdGabarito(IList<int> idsGabarito)
         {
             var query = from g in Context.Set<Gabarito>()
-                join dc in Context.Set<DadoColetaNaoEstruturado>() on g.Id equals dc.Gabarito.Id
-                where idsGabarito.Contains(g.Id)
-                select dc;
+                        join dc in Context.Set<DadoColetaNaoEstruturado>() on g.Id equals dc.Gabarito.Id
+                        where idsGabarito.Contains(g.Id)
+                        select dc;
 
             var arquivos = query.SelectMany(d => d.Arquivos);
 
@@ -36,7 +26,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             (Context as IObjectContextAdapter).ObjectContext.CommandTimeout = 999999999;
             byte[] retorno = arquivo.Content.Data;
             (Context as IObjectContextAdapter).ObjectContext.CommandTimeout = commandTimeoutAnterior; // Atribuindo o timeout que estava antes
-            
+
             return retorno;
         }
 
@@ -67,17 +57,17 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         public IList<Arquivo> ConsultarArquivosAssociadosGabaritos(IList<int> idsGabarito)
         {
             var query = from g in Context.Set<Gabarito>()
-                join sem in Context.Set<SemanaOperativa>() on g.SemanaOperativa.Id equals sem.Id
-                join arqSem in Context.Set<ArquivoSemanaOperativa>() on sem.Id equals arqSem.SemanaOperativa.Id
-                join arq in Context.Set<Arquivo>() on arqSem.Arquivo.Id equals arq.Id
-                where idsGabarito.Contains(g.Id)
-                select arq;
+                        join sem in Context.Set<SemanaOperativa>() on g.SemanaOperativa.Id equals sem.Id
+                        join arqSem in Context.Set<ArquivoSemanaOperativa>() on sem.Id equals arqSem.SemanaOperativa.Id
+                        join arq in Context.Set<Arquivo>() on arqSem.Arquivo.Id equals arq.Id
+                        where idsGabarito.Contains(g.Id)
+                        select arq;
 
             return query.ToList();
         }
 
         public override void Delete(Arquivo arquivo)
-        {   
+        {
             arquivo.Deleted = true;
             Context.SaveChanges();
         }

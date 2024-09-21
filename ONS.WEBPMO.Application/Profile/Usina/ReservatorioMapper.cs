@@ -5,7 +5,7 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class ReservatorioMapper : AutoMapper.Profile
     {
-        public  ReservatorioMapper()
+        public ReservatorioMapper()
         {
             CreateMap<ReservatorioPMO, ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.Reservatorio>()
                .ForMember(r => r.Id, opt => opt.MapFrom(rPmo => rPmo.Id))
@@ -20,7 +20,7 @@ namespace ONS.WEBPMO.Application.Profile.Usina
                 .ForMember(r => r.CodUsiPlanejamentoJusante, opt => opt.MapFrom(rPmo => rPmo.CodUsiPlanejamentoJusante));
 
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.Reservatorio, ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Reservatorio>();
-                        
+
         }
     }
 }

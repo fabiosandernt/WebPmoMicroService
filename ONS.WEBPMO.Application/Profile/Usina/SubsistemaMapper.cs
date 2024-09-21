@@ -12,7 +12,7 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.Subsistema, ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Subsistema>();
 
-          
+
         }
     }
 }

@@ -1,11 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class AgenteMap : EntityTypeConfiguration<Agente>
     {
         public AgenteMap()

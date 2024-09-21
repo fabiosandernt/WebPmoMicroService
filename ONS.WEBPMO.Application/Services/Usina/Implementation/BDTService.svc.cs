@@ -1,13 +1,4 @@
-﻿    using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using ONS.Common.IoC;
-using AutoMapper;
-using ONS.SGIPMO.Domain.Entities.BDT;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.Servico.Usina
 {
@@ -26,7 +17,7 @@ namespace ONS.WEBPMO.Servico.Usina
         {
             var service = ApplicationContext.Resolve<ONS.SGIPMO.Domain.Services.Integrations.IBDTService>();
             var lista = service.ConsultarReservatoriosEquivalentesDeEnergiaAtivos();
-           
+
             return lista;
         }
         #endregion
@@ -170,7 +161,7 @@ namespace ONS.WEBPMO.Servico.Usina
         {
             var service = ApplicationContext.Resolve<ONS.SGIPMO.Domain.Services.Integrations.IBDTService>();
             var lista = service.ConsultarTodosSubsistemas();
-            var result = Mapper.Map<IList<Subsistema>>(lista);            
+            var result = Mapper.Map<IList<Subsistema>>(lista);
             return result;
         }
 
@@ -213,7 +204,8 @@ namespace ONS.WEBPMO.Servico.Usina
         {
             int[] chavesInt = null;
             if (chaves != null)
-                chavesInt = chaves.Select(c => {
+                chavesInt = chaves.Select(c =>
+                {
                     var valor = -1;
                     int.TryParse(c, out valor);
                     return valor;
@@ -236,11 +228,12 @@ namespace ONS.WEBPMO.Servico.Usina
             if (origens != null)
             {
                 var service = ApplicationContext.Resolve<ONS.SGIPMO.Domain.Services.IOrigemColetaService>();
-                origens.ToList().ForEach(o => {
+                origens.ToList().ForEach(o =>
+                {
                     T aux = service.ObterOrigemColetaPorChave<T>(o.Id);
                     if (aux != null)
                     {
-                        o.Gabaritos = new HashSet<SGIPMO.Domain.Entities.Gabarito>( aux.Gabaritos.Take(1) );
+                        o.Gabaritos = new HashSet<SGIPMO.Domain.Entities.Gabarito>(aux.Gabaritos.Take(1));
                     }
                 });
 

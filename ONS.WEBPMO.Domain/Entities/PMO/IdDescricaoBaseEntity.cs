@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Domain.Entities.PMO
 {
-    
+
     public class IdDescricaoBaseEntity : BaseEntity<int>
     {
         public string Descricao { get; set; }

@@ -1,12 +1,10 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Common.Util;
-    using Entities;
-    using Enums;
+﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Enumerations;
 
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
+{
     public class BlocoMP : BlocoMontador
     {
         public BlocoMP(IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)

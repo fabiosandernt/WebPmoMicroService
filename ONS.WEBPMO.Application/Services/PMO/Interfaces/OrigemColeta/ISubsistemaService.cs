@@ -1,10 +1,4 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using System.Collections.Generic;
-using System.ServiceModel;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta
 {
     [ServiceContract]
     public interface ISubsistemaService : IService

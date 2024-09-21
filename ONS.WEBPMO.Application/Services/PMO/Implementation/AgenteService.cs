@@ -1,20 +1,7 @@
-﻿using ONS.Common.Seguranca;
-using ONS.Common.Services.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    using Common.Util.Pagination;
-    using Entities.Filters;
-    using Services.Integrations;
-    using Repositories;
-    using System.Linq.Expressions;
-    using System;
-    using System.Reflection;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-
     public class AgenteService : Service, IAgenteService
     {
         private readonly IAgenteRepository agenteRepository;

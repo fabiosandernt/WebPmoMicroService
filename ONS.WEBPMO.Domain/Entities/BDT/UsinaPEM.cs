@@ -3,7 +3,7 @@
 namespace ONS.WEBPMO.Domain.Entities.BDT
 {
     public class UsinaPEM : BaseEntity<string>
-    {        
+    {
         //############################################################
         //Dados de USINA
         //############################################################

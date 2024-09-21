@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
 namespace ONS.WEBPMO.Domain.Enumerations
-{   
-    [Flags] 
+{
+    [Flags]
     public enum AcaoLogNotificacaoEnum
     {
         Abertura = 1,

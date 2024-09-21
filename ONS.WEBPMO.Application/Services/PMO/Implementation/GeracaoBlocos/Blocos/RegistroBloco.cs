@@ -1,11 +1,9 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
+﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
+using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados;
+using System.Text;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
 {
-    using System;
-    using System.Text;
-
-    using Enums;
-    using Metadados;
-
     public class RegistroBloco
     {
         public string Chave { get; private set; }

@@ -1,34 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using ONS.Common.Entities;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Files;
-
-using ONS.Common.Web.Helpers;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Services;
-using System.Linq;
-
-using AutoMapper;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Presentations;
-using ONS.Common.Util.Pagination;
-using ONS.SGIPMO.WebSite.Models;
-using ONS.SGIPMO.WebSite.Models.ColetaInsumo;
-using Newtonsoft.Json;
-using System.Configuration;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using System.Data;
-using ONS.Common.Exceptions;
-using System.Drawing;
-using System.Web.UI.WebControls;
-using Microsoft.Ajax.Utilities;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-using ONS.WEBPMO.Domain.Presentations;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Presentations;
+using System.Data;
+using System.Drawing;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
@@ -1154,7 +1130,7 @@ namespace ONS.WEBPMO.Api.Controllers
         /// </summary>
         /// <param name="manutencao"></param>
         /// <returns></returns>
-        internal static List<InclusaoDadoColetaManutencaoDTO> TransformarDadosManutencao (InclusaoDadoColetaManutencaoDTO manutencao )
+        internal static List<InclusaoDadoColetaManutencaoDTO> TransformarDadosManutencao(InclusaoDadoColetaManutencaoDTO manutencao)
         {
             List<InclusaoDadoColetaManutencaoDTO> retList = new List<InclusaoDadoColetaManutencaoDTO>();
 
@@ -1237,7 +1213,7 @@ namespace ONS.WEBPMO.Api.Controllers
                         {
 
                             InclusaoDadoColetaManutencaoDTO confPartMesmoDia = manutencao;
-                          
+
                             DateTime dtIniAux = diaInicial.AddDays(dia);
                             DateTime dtIni = new DateTime(dtIniAux.Year, dtIniAux.Month, dtIniAux.Day
                                 , horaInicio, MinutoInicio, 0);
@@ -1281,7 +1257,7 @@ namespace ONS.WEBPMO.Api.Controllers
             dadoColeta.IdUnidadeGeradora = from.IdUnidadeGeradora;
             dadoColeta.IdColetaInsumo = from.IdColetaInsumo;
             dadoColeta.IdUsina = from.IdUsina;
-            dadoColeta.VersaoColetaInsumo = from.VersaoColetaInsumo;            
+            dadoColeta.VersaoColetaInsumo = from.VersaoColetaInsumo;
 
             return dadoColeta;
         }
@@ -1292,7 +1268,7 @@ namespace ONS.WEBPMO.Api.Controllers
         public ActionResult ImportarManutencoes(ExclusaoDadoColetaManutencaoModel model, IList<ImportacaoManutencaoModel> importarModel)
         {
             // Excluir dados de manutenção antigos
-            if ( null == model.ListaIdsDadoColeta )
+            if (null == model.ListaIdsDadoColeta)
             {
                 model.ListaIdsDadoColeta = string.Empty;
             }
@@ -1312,7 +1288,7 @@ namespace ONS.WEBPMO.Api.Controllers
                 idColetaInsumo = coletaInsumoModel.IdColetaInsumo,
                 versaoColetaInsumo = coletaInsumoModel.VersaoString
             });
- 
+
             // Importar novos dados de manutenção, se o modelo for válido
             if (ModelState.IsValid)
             {
@@ -1320,7 +1296,7 @@ namespace ONS.WEBPMO.Api.Controllers
                 foreach (ImportacaoManutencaoModel importacao in importarModel)
                 {
                     var tratado = TransformarDadosManutencao(Mapper.DynamicMap<InclusaoDadoColetaManutencaoDTO>(importacao));
-                    dtos = dtos.Concat ( tratado).ToList();
+                    dtos = dtos.Concat(tratado).ToList();
                 }
                 coletaInsumoService.IncluirDadoColetaManutencaoImportacao(dtos);
             }

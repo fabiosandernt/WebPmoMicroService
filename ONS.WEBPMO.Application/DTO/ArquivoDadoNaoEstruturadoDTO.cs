@@ -13,9 +13,9 @@ namespace ONS.WEBPMO.Application.DTO
 
         public int Tamanho { get; set; }
 
-        public int TamanhoEmKb { get { return Tamanho/1024; } }
+        public int TamanhoEmKb { get { return Tamanho / 1024; } }
 
-        public bool? IsPublicado { get; set;  }
+        public bool? IsPublicado { get; set; }
 
         public string IsPublicadoDescription
         {

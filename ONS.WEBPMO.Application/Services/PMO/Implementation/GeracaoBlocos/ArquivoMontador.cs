@@ -1,18 +1,13 @@
-﻿using ONS.Common.Util;
+﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos;
+using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
+using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using System.Reflection;
+using System.Text;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-    using System.Text;
-
-    using Entities;
-    using Blocos;
-    using Enums;
-    using Metadados;
-
+{    
     public class ArquivoMontador
     {
         public string Nome { get; set; }

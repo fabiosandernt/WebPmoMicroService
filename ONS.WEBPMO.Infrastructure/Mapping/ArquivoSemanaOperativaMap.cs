@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     public class ArquivoSemanaOperativaMap : EntityTypeConfiguration<ArquivoSemanaOperativa>
     {
         public ArquivoSemanaOperativaMap()

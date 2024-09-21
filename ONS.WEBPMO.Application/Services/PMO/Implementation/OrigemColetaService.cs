@@ -1,13 +1,6 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    using Common.Exceptions;
-    using Common.Services.Impl;
-    using Common.Util.Pagination;
-    using Entities;
-    using Entities.Filters;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
-    using Repositories;
-    using Services.Integrations;
     using System;
     using System.Collections.Generic;
     using System.Linq;

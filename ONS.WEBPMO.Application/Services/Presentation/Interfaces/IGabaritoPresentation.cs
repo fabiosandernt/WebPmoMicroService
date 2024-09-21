@@ -1,10 +1,4 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-
-using System.ServiceModel;
-
-namespace ONS.WEBPMO.Domain.Presentations
+﻿namespace ONS.WEBPMO.Domain.Presentations
 {
     using Entities.Filters;
 

@@ -2,7 +2,7 @@
 using ONS.WEBPMO.Domain.Entities.Base;
 
 namespace ONS.WEBPMO.Domain.Entities.PMO
-{   
+{
     public class LogDadosInformados : BaseEntity<int>
     {
         public int? Id_agenteinstituicao { get; set; }

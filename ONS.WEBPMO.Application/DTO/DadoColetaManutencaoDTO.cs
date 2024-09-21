@@ -10,7 +10,7 @@ namespace ONS.WEBPMO.Application.DTO
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
         public string TempoRetorno { get; set; }
-        public string Justificativa { get; set; }        
+        public string Justificativa { get; set; }
         public string SituacaoColetaInsumoDescricao { get; set; }
         public string ClassificacaoPorTipoEquipamento { get; set; }
         public string Periodicidade { get; set; }

@@ -1,14 +1,4 @@
-﻿using System.Data.Entity;
-using System.Data.Objects;
-using ONS.Common.Repositories.Impl;
-using ONS.Common.Util.Pagination;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class DadoColetaManutencaoRepository : Repository<DadoColetaManutencao>, IDadoColetaManutencaoRepository
     {
@@ -16,7 +6,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
             var query = EntitySet
                 .Include(dado => dado.Gabarito.OrigemColeta)
-              //  .Include(dado => dado.Periodicidade)
+                //  .Include(dado => dado.Periodicidade)
                 .Where(dado => dado.ColetaInsumo.Id == filter.IdColetaInsumo);
 
             int resutadosPorPagina = filter.PageSize;
@@ -79,7 +69,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             return new PagedResult<DadoColetaManutencaoDTO>(dtos, quantidadeTotal, filter.PageIndex, resutadosPorPagina);
         }
 
-        private DadoColetaManutencaoDTO ConvertParaDto (DadoColetaManutencao from)
+        private DadoColetaManutencaoDTO ConvertParaDto(DadoColetaManutencao from)
         {
             DadoColetaManutencaoDTO dto = new DadoColetaManutencaoDTO();
             dto.IdDadoColeta = from.Id;

@@ -1,38 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
 using System.Collections;
-using System.Collections.Generic;
-using ONS.Common.Entities;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Files;
-
-using ONS.Common.AutoMapper;
-using ONS.Common.Web.Helpers;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Services;
-using System.Linq;
-
-using AutoMapper;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Presentations;
-using ONS.Common.Util.Pagination;
-using ONS.SGIPMO.WebSite.Models;
-using ONS.SGIPMO.WebSite.Models.ColetaInsumo;
-using Newtonsoft.Json;
-using System.Configuration;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using System.IO;
 using System.Data;
-using ONS.Common.Exceptions;
 using System.Drawing;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Diagnostics;
-using ONS.Common.Services;
-using ONS.Common.Entities.Filters;
-using ONS.Common.IoC;
 using System.Xml.Linq;
 
 namespace ONS.WEBPMO.Api.Controllers
@@ -164,7 +133,8 @@ namespace ONS.WEBPMO.Api.Controllers
                     model.IdsInsumo = dto.Insumos.Select(i => i.Chave).ToList();
 
                 //processa lista de logs da aplicacao
-                listaLogs.List.ToList().ForEach(log => {
+                listaLogs.List.ToList().ForEach(log =>
+                {
 
                     // obtem xml opercao para analisar
                     log.LogXmlOperacao = serviceAuditoria.ObterOperacoesXmlPorChaveLogAuditoria(log.Id);
@@ -178,7 +148,8 @@ namespace ONS.WEBPMO.Api.Controllers
                     // processa objetos 
                     if (entidadesFiltered != null)
                     {
-                        entidadesFiltered.ToList().ForEach(entidade => {
+                        entidadesFiltered.ToList().ForEach(entidade =>
+                        {
 
                             if (entidade != null)
                             {

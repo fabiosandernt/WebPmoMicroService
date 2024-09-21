@@ -1,16 +1,4 @@
 ﻿using AutoMapper;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Pagination;
-
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Presentations;
-using ONS.SGIPMO.Domain.Services;
-using ONS.SGIPMO.WebSite.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 
 namespace ONS.WEBPMO.Api.Controllers
@@ -35,7 +23,7 @@ namespace ONS.WEBPMO.Api.Controllers
 
         [HttpPost]
         public ActionResult Pesquisar(PesquisaLogInformarDadosModel model)
-        {   
+        {
 
             return PartialView("_PesquisaLogDadosInformados", model);
         }

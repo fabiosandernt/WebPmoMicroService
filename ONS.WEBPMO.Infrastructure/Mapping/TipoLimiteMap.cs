@@ -1,7 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-using ONS.SGIPMO.Domain.Entities;
-
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
     public class TipoLimiteMap : EntityTypeConfiguration<TipoLimite>

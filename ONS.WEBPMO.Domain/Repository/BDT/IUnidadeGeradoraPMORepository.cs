@@ -11,11 +11,11 @@ namespace ONS.WEBPMO.Domain.Repository.BDT
         /// <returns>Lista de Unidades Geradoras do PMO</returns>
         IList<UnidadeGeradoraPMO> Consultar();
 
-       /// <summary>
-       /// Consulta unidades geradoras do PMO onde as chaves sejam iguais as passadas por parametro
-       /// </summary>
-       /// <param name="chaves">Nome de exibição para filtrar</param>
-       /// <returns>Lista de Unidades Geradoras do PMO</returns>
+        /// <summary>
+        /// Consulta unidades geradoras do PMO onde as chaves sejam iguais as passadas por parametro
+        /// </summary>
+        /// <param name="chaves">Nome de exibição para filtrar</param>
+        /// <returns>Lista de Unidades Geradoras do PMO</returns>
         IList<UnidadeGeradoraPMO> ConsultarPorChaves(string[] chaves);
 
         /// <summary>

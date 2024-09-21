@@ -2,7 +2,7 @@
 namespace ONS.WEBPMO.Domain.Enumerations
 {
     using System.ComponentModel;
-    [Flags] 
+    [Flags]
     public enum TipoNaoEstruturadoEnum
     {
         [Description("Não Estruturado")]

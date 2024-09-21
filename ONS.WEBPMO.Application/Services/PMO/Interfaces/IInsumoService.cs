@@ -1,14 +1,4 @@
-﻿using ONS.Common.Seguranca;
-using ONS.Common.Services;
-using ONS.Common.Util.Pagination;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using System.Collections.Generic;
-using System.ServiceModel;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     [ServiceContract]
     [ServicePermission("ConfigurarInsumo")]

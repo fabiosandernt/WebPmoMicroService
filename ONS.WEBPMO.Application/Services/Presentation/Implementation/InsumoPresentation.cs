@@ -1,6 +1,6 @@
 ﻿using ONS.WEBPMO.Application.DTO;
-using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl

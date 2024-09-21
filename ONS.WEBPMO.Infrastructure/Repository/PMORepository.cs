@@ -1,14 +1,4 @@
-﻿using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.Common.IoC;
-using System.Data.Entity;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class PMORepository : Repository<PMO>, IPMORepository
     {

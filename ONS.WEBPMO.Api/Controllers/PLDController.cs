@@ -1,17 +1,4 @@
-﻿using System;
-using System.Linq;
-
-using AutoMapper;
-using ONS.Common.Entities;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Files;
-
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Presentations;
-using ONS.SGIPMO.Domain.Services;
-using ONS.SGIPMO.WebSite.Models;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
@@ -23,7 +10,7 @@ namespace ONS.WEBPMO.Api.Controllers
         private readonly IArquivoService arquivoService;
 
         public PLDController(
-            ISemanaOperativaService semanaOperativaService, 
+            ISemanaOperativaService semanaOperativaService,
             IColetaInsumoPresentation coletaInsumoPresentation,
             IArquivoService arquivoService)
         {
@@ -41,7 +28,7 @@ namespace ONS.WEBPMO.Api.Controllers
         {
             ConsultaPLDModel model = new ConsultaPLDModel();
             return View(model);
-        
+
         }
 
         #region Pesquisas
@@ -80,7 +67,7 @@ namespace ONS.WEBPMO.Api.Controllers
                         IdSemanaOperativa = model.IdSemanaOperativa.Value,
                         SemanasOperativas = model.SemanasOperativas
                     };
-                    
+
                     CarregarConvergenciaPLD(modelView);
                     return View("ConvergirPLD", modelView);
                 }

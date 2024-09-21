@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ONS.Common.Services;
-using ONS.Common.Util.Files;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using System.ServiceModel;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     [ServiceContract]
     public interface IArquivoService : IService

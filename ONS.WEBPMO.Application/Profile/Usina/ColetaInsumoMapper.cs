@@ -5,7 +5,7 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class ColetaInsumoMapper : AutoMapper.Profile
     {
-        public  ColetaInsumoMapper()
+        public ColetaInsumoMapper()
         {
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.ColetaInsumo, ColetaInsumo>();
 

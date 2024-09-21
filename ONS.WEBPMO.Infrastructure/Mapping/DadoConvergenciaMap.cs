@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
     public class DadoConvergenciaMap : EntityTypeConfiguration<DadoConvergencia>
     {

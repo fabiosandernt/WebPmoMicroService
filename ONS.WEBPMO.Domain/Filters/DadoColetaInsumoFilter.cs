@@ -4,7 +4,7 @@ using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
-{    
+{
     public class DadoColetaInsumoFilter : ICustomQueryable, IQueryPaging, IQuerySort
     {
         public int IdColetaInsumo { get; set; }

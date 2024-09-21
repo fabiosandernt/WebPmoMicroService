@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.BDT;
-
-namespace ONS.WEBPMO.Servico.Usina
+﻿namespace ONS.WEBPMO.Servico.Usina
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     [ServiceKnownType(typeof(List<Subsistema>))]
     [ServiceKnownType(typeof(List<Reservatorio>))]
-    [ServiceKnownType(typeof(List<Usina>))]    
+    [ServiceKnownType(typeof(List<Usina>))]
     [ServiceKnownType(typeof(List<UnidadeGeradora>))]
     [ServiceKnownType(typeof(List<Agente>))]
     [ServiceKnownType(typeof(List<Gabarito>))]
@@ -39,7 +29,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        [OperationContract]        
+        [OperationContract]
         IList<Reservatorio> ConsultarReservatorioPorChaves(params string[] chaves);
 
         #endregion

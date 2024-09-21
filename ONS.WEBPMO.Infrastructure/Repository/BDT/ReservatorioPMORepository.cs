@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Repositories.BDT;
+﻿using System.Text;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {
-    using ONS.SGIPMO.Domain.Entities;
-    using ONS.SGIPMO.Domain.Entities.BDT;
-
     [UseDbContext(ConnectionStringsNames.BDTModel)]
     public class ReservatorioPMORepository : Repository<ReservatorioPMO>, IReservatorioPMORepository
     {

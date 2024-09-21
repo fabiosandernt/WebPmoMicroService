@@ -22,7 +22,8 @@
         public virtual SemanaOperativa SemanaOperativa { get; set; }
         public virtual Agente Agente { get; set; }
 
-        public object Version {
+        public object Version
+        {
             get
             {
                 return Versao;
@@ -45,12 +46,12 @@
             {
                 if (Versao != null)
                 {
-                    return Convert.ToBase64String(Versao);    
+                    return Convert.ToBase64String(Versao);
                 }
                 return string.Empty;
             }
         }
-        
+
         public int AgenteId { get; set; }
         public int InsumoId { get; set; }
         public int SemanaOperativaId { get; set; }

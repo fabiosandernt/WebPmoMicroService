@@ -1,13 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ONS.Common.Exceptions;
-using ONS.Common.Services.Impl;
-using ONS.Common.Temp;
-using ONS.Common.Util.Files;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Repositories;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

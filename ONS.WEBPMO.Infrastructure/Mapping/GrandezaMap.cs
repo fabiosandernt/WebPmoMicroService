@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using ONS.SGIPMO.Domain.Entities;
-
     internal class GrandezaMap : EntityTypeConfiguration<Grandeza>
     {
         public GrandezaMap()

@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Domain.Enumerations
 {
-    [Flags] 
+    [Flags]
     public enum TipoDadoGrandezaEnum
     {
         [Description("Numérico")]

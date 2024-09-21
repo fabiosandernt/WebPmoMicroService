@@ -1,5 +1,5 @@
 ﻿namespace ONS.WEBPMO.Application.Models.ColetaInsumo
-{   
+{
     public class InformaDadosColetaInsumoModel : FiltroPesquisaColetaInsumoModel
     {
         public int IdColetaInsumo { get; set; }

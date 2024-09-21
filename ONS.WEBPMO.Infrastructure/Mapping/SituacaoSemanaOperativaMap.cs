@@ -1,9 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using Entities;
     using ONS.WEBPMO.Domain.Entities.PMO;
 
     public class SituacaoSemanaOperativaMap : EntityTypeConfiguration<SituacaoSemanaOperativa>

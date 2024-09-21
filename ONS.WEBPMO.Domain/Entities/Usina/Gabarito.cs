@@ -27,10 +27,10 @@ namespace ONS.WEBPMO.Domain.Entities.Usina
             }
         }
 
-	    public int AgenteId { get; set; }
+        public int AgenteId { get; set; }
         public int InsumoId { get; set; }
         public string OrigemColetaId { get; set; }
         public int? SemanaOperativaId { get; set; }
-        
+
     }
 }

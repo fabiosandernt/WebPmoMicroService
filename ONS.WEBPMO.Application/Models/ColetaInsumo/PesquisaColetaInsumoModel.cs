@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
-    
+
 
     //[ModelBinder(typeof(EnumerableValueBinder))]
     public class PesquisaColetaInsumoModel : FiltroPesquisaColetaInsumoModel

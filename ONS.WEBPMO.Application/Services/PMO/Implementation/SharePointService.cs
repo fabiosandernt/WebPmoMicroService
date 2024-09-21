@@ -1,12 +1,5 @@
-﻿using ONS.Common.Services.Impl;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using System.Reflection;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.Common.Exceptions;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

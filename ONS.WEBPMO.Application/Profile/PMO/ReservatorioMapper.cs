@@ -16,7 +16,7 @@ namespace ONS.WEBPMO.Application.Profile.PMO
                 .ForMember(r => r.CodigoDPP, opt => opt.MapFrom(rPmo => rPmo.Codigo))
                 .ForMember(r => r.IdSubsistema, opt => opt.MapFrom(rPmo => (rPmo.SiglaSubsistema ?? string.Empty).PadRight(2)));
 
-           
+
         }
     }
 }

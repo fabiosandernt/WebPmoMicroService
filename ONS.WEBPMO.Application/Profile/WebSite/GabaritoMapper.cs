@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.WebSite.Models;
-using System.Collections.Generic;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {

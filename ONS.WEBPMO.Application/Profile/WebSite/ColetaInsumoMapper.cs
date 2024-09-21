@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using AutoMapper;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
@@ -31,8 +29,8 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                     .ForMember(model => model.IsSemanaPmo,
                              opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Revisao == 0))
                     .ForMember(model => model.IsGeracaoComplementar, opt => opt.ResolveUsing(
-                        coleta => coleta.Insumo is InsumoEstruturado 
-                            && ((InsumoEstruturado) coleta.Insumo).TipoColeta.Id == (int) TipoColetaEnum.GeracaoComplementar))
+                        coleta => coleta.Insumo is InsumoEstruturado
+                            && ((InsumoEstruturado)coleta.Insumo).TipoColeta.Id == (int)TipoColetaEnum.GeracaoComplementar))
                     .ForMember(model => model.IsInsumoParaDECOMP, opt => opt.MapFrom(coleta => coleta.IsInsumoDECOMP))
                     .ForMember(model => model.NomesGrandezasNaoEstagioAlteradas, opt => opt.MapFrom(coleta => coleta.NomesGrandezasNaoEstagioAlteradas));
 
@@ -110,7 +108,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                 .ForMember(model => model.IsInsumoParaDECOMP, opt => opt.MapFrom(coleta => ((InsumoNaoEstruturado)coleta.Insumo).IsUtilizadoDECOMP));
 
             CreateMap<Arquivo, UploadFileModel>()
-                .ForMember(model => model.Name, opt => opt.MapFrom(obj => obj.Nome ))
+                .ForMember(model => model.Name, opt => opt.MapFrom(obj => obj.Nome))
                 .ForMember(model => model.Database, opt => opt.MapFrom(obj => false))
                 .ForMember(model => model.TargetName, opt => opt.MapFrom(obj => UploadFileModel.PrefixDatabase + obj.Id))
                 .ForMember(model => model.IdStoredIntoDatabase, opt => opt.MapFrom(obj => obj.Id))

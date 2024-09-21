@@ -13,7 +13,7 @@ namespace ONS.WEBPMO.Application.Profile.PMO
                 .ForMember(r => r.Codigo, opt => opt.MapFrom(rPmo => rPmo.CodigoModeloEnergia))
                 .ForMember(r => r.Nome, opt => opt.MapFrom(rPmo => rPmo.NomeCurto));
 
-           
+
         }
     }
 }

@@ -1,7 +1,7 @@
 using ONS.WEBPMO.Domain.Entities.Base;
 
 namespace ONS.WEBPMO.Domain.Entities.PMO
-{    
+{
     public class SemanaOperativa : BaseEntity<int>, IComparable<SemanaOperativa>, IConcurrencyEntity
     {
         public SemanaOperativa()

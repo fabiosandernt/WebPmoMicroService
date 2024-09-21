@@ -1,13 +1,5 @@
-﻿using System.Globalization;
-using ONS.Common.Exceptions;
-using ONS.Common.Services.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using System.Globalization;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

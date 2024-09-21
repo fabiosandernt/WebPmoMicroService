@@ -1,15 +1,4 @@
-﻿using System.Data.Entity;
-using System.Data.SqlClient;
-using System.Security.Cryptography;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.Common.Util.Pagination;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class ColetaInsumoRepository : Repository<ColetaInsumo>, IColetaInsumoRepository
     {

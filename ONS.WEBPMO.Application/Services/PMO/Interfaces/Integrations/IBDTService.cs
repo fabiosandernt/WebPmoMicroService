@@ -1,13 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ServiceModel;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations
 {
-    using Common.Services;
-    using ONS.SGIPMO.Domain.Entities.BDT;
-
     [ServiceContract]
     public interface IBDTService : IService
     {

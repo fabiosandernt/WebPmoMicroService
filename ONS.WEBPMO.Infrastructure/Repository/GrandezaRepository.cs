@@ -1,13 +1,4 @@
-﻿using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using System.Data.Entity;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class GrandezaRepository : Repository<Grandeza>, IGrandezaRepository
     {
@@ -20,7 +11,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
             return EntitySet.Where(g => g.Insumo.Id == idInsumo).Any(g => g.IsPreAprovadoComAlteracao);
         }
-        
+
 
         public bool ExisteGrandezaPorPatamar(int idInsumo)
         {

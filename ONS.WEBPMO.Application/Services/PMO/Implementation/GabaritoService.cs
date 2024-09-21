@@ -1,19 +1,9 @@
-﻿using System;
-using ONS.Common.Seguranca;
-using ONS.Common.Util;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    using Common.Util.Pagination;
-    using Entities;
-    using Entities.Filters;
-    using Repositories;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Common.Exceptions;
-    using Common.Services.Impl;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class GabaritoService : Service, IGabaritoService
     {

@@ -1,25 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using AutoMapper;
-using Newtonsoft.Json;
-using ONS.Common.Entities;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Files;
-using ONS.Common.Util.Pagination;
-
-using ONS.Common.Web.Helpers;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Presentations;
-using ONS.SGIPMO.Domain.Services;
-using ONS.SGIPMO.WebSite.Models;
-using ONS.SGIPMO.WebSite.Models.ColetaInsumo;
-using System.Configuration;
-using ONS.Common.Exceptions;
-using ONS.Common.Util.Collection;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
@@ -494,7 +473,7 @@ namespace ONS.WEBPMO.Api.Controllers
                 Mapper.DynamicMap(gridSettings, filter);
 
                 IList<PesquisaDadoColetaManutencaoModel> dadosColetaList = new List<PesquisaDadoColetaManutencaoModel>();
-                var dadosColeta = coletaInsumoService.ConsultarDadoColetaManutencaoPorColetaInsumoPaginado(filter);                
+                var dadosColeta = coletaInsumoService.ConsultarDadoColetaManutencaoPorColetaInsumoPaginado(filter);
                 foreach (var dadoColetaManutencao in dadosColeta.List)
                 {
                     var dadoColetaModel = Mapper.DynamicMap<PesquisaDadoColetaManutencaoModel>(dadoColetaManutencao);

@@ -1,5 +1,5 @@
 namespace ONS.WEBPMO.Domain.Entities.Usina
-{   
+{
     public class SemanaOperativa : BaseObject
     {
         public SemanaOperativa()

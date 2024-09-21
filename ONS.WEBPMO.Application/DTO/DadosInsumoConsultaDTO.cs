@@ -10,6 +10,6 @@ namespace ONS.WEBPMO.Application.DTO
         }
 
         public IList<ChaveDescricaoDTO<int>> Categorias { get; set; }
-        public IList<ChaveDescricaoDTO<int>> TiposColeta { get; set; } 
+        public IList<ChaveDescricaoDTO<int>> TiposColeta { get; set; }
     }
 }

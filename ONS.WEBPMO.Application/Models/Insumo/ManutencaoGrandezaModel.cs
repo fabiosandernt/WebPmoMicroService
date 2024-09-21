@@ -51,7 +51,7 @@ namespace ONS.WEBPMO.Application.Models.Insumo
         {
             get
             {
-                return ((TipoDadoGrandezaEnum) TipoDadoGrandezaId).ToDescription();
+                return ((TipoDadoGrandezaEnum)TipoDadoGrandezaId).ToDescription();
             }
             set
             {

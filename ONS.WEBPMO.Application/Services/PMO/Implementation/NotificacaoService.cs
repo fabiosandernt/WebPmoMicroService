@@ -1,19 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using System.Net.Mail;
-using System.Threading;
-using ONS.Common.Entities.Pop;
-using ONS.Common.Seguranca;
-using ONS.Common.Services.Impl;
-using ONS.Common.Util;
-using ONS.Common.Util.Email;
-using ONS.SGIPMO.Domain.Entities.Enumerations;
-using ONS.SGIPMO.Domain.Entities;
-using log4net;
-using ons.common.schemas;
-using ons.common.providers.schemas;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation

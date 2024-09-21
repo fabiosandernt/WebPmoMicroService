@@ -1,15 +1,4 @@
-﻿using System.Data.Entity;
-using System.Data.SqlClient;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.Common.Util.Pagination;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class LogDadosInformadosRepository : Repository<LogDadosInformados>, ILogDadosInformadosRepository
     {

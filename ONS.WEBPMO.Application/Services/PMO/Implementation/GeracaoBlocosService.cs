@@ -1,20 +1,10 @@
-﻿using System;
-using ONS.Common.Util;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
+    using GeracaoBlocos;
+    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
-    using Common.Exceptions;
-    using Common.Services.Impl;
-    using Common.Temp;
-    using Common.Util.Files;
-    using Entities;
-    using Entities.Filters;
-    using Repositories;
-    using GeracaoBlocos;
     using System.Text;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
     public class GeracaoBlocosService : Service, IGeracaoBlocosService
     {

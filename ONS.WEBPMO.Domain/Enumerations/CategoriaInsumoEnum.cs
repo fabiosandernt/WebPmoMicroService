@@ -2,7 +2,7 @@
 {
     using System;
 
-    [Flags] 
+    [Flags]
     public enum CategoriaInsumoEnum
     {
         Hidreletrico = 1,

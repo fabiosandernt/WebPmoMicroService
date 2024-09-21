@@ -1,6 +1,6 @@
 
 namespace ONS.WEBPMO.Domain.Entities.PMO
-{    
+{
     public class Arquivo : BaseEntity<Guid>, ILogicalDeletion
     {
         public virtual BinaryData Content { get; set; }

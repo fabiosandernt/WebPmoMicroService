@@ -1,10 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class InsumoMap : EntityTypeConfiguration<Insumo>
     {
         public InsumoMap()

@@ -6,6 +6,6 @@ namespace ONS.WEBPMO.Domain.Repository
 {
     public interface ICategoriaInsumoRepository : IRepository<CategoriaInsumo>
     {
-        
+
     }
 }

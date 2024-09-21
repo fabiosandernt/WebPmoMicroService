@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class DadoColetaNaoEstruturadoMap : EntityTypeConfiguration<DadoColetaNaoEstruturado>
     {
         public DadoColetaNaoEstruturadoMap()
@@ -15,7 +11,8 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 
             HasMany(t => t.Arquivos)
                 .WithMany()
-                .Map(m => {
+                .Map(m =>
+                {
                     m.ToTable("tb_arqdadocoletanaoestruturado");
                     m.MapLeftKey("id_dadocoleta");
                     m.MapRightKey("id_arquivo");

@@ -2,14 +2,7 @@
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
 {
-    using Common.Instituicao.Services;
-    using Common.Services.Impl;
-    using Entities;
-    using Entities.BDT;
-    using ons.common.schemas.filters;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
-    using Repositories.BDT;
-    using Services.Integrations;
     using System.Collections.Generic;
     using System.Linq;
 

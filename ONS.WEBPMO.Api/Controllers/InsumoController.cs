@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Api.Controllers
 {
 
     [Route("api/[controller]")]
-    [ApiController]    
+    [ApiController]
     //[WebPermission("ConfigurarInsumo")]
     public class InsumoController : ControllerBase
     {

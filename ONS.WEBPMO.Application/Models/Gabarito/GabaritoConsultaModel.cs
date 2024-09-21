@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Gabarito
-{    public class GabaritoConsultaModel
+{
+    public class GabaritoConsultaModel
     {
         [Display(Name = "Gabarito")]
         [Required]

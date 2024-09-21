@@ -3,7 +3,7 @@ using ONS.WEBPMO.Domain.Repository.Base;
 
 namespace ONS.WEBPMO.Domain.Repository
 {
-    
+
     public interface IOrigemColetaRepository : IRepository<OrigemColeta>
     {
         IList<OrigemColeta> ConsultarPorTipo(TipoOrigemColetaEnum tipo);

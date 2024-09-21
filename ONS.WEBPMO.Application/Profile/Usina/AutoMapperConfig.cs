@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace ONS.WEBPMO.Application.Profile.Usina
+﻿namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public static class AutoMapperConfig
     {

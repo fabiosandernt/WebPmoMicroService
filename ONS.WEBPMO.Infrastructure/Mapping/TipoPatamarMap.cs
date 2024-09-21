@@ -1,7 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-using ONS.SGIPMO.Domain.Entities;
-
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
     public class TipoPatamarMap : EntityTypeConfiguration<TipoPatamar>
@@ -13,7 +9,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 
             // Table & Column Mappings
             ToTable("tb_tppatamar");
-            
+
             Property(t => t.Id).HasColumnName("id_tppatamar").HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(t => t.Descricao).HasColumnName("dsc_tppatamar").IsRequired().HasMaxLength(20);
             Property(t => t.ValorVermelho).HasColumnName("val_vermelho");

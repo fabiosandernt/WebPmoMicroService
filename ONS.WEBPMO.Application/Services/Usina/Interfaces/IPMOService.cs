@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using ONS.SGIPMO.Domain.Entities;
-
-namespace ONS.WEBPMO.Servico.Usina
+﻿namespace ONS.WEBPMO.Servico.Usina
 {
     [ServiceContract]
     [ServiceKnownType(typeof(List<CronogramaPMO>))]

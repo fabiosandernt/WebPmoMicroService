@@ -12,7 +12,7 @@ namespace ONS.WEBPMO.Application.DTO
         public int IdColetaInsumo { get; set; }
 
         public int IdAgente { get; set; }
-        
+
         public string Observacao { get; set; }
 
         public ISet<ArquivoDadoNaoEstruturadoDTO> Arquivos { get; set; }
@@ -24,6 +24,6 @@ namespace ONS.WEBPMO.Application.DTO
         public bool IsMonitorar { get; set; }
 
         public byte[] VersaoColetaInsumo { get; set; }
-        
+
     }
 }

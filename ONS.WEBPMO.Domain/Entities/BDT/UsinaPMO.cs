@@ -3,7 +3,7 @@
 namespace ONS.WEBPMO.Domain.Entities.BDT
 {
     public class UsinaPMO : BaseEntity<string>
-    {        
+    {
         public int CodUsinaPlanejamento { get; set; }
         public string NomeLongo { get; set; }
         public string NomeCurto { get; set; }

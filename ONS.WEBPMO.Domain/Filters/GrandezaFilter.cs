@@ -1,10 +1,10 @@
-﻿using AspNetCore.IQueryable.Extensions.Pagination;
+﻿using AspNetCore.IQueryable.Extensions;
+using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
-using AspNetCore.IQueryable.Extensions;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
 {
-   
+
     public class GrandezaFilter : ICustomQueryable, IQueryPaging, IQuerySort
     {
         public IList<int> IdsGrandeza { get; set; }

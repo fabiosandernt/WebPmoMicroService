@@ -1,15 +1,15 @@
 ﻿
 namespace ONS.WEBPMO.Domain.Entities.Usina
-{   
+{
 
     public class InsumoEstruturado : Insumo
     {
-    
+
         public InsumoEstruturado()
         {
             Grandezas = new List<Grandeza>();
         }
-    
+
         public int? QuantidadeMesesAdiante { get; set; }
         public string TipoBloco { get; set; }
         public virtual string CategoriaInsumo { get; set; }

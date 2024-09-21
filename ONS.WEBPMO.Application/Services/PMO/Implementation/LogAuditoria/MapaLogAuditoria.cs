@@ -1,16 +1,8 @@
 ﻿using System.Globalization;
-using ONS.Common.Configuration;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.LogAuditoria
 {
     using System;
-    using System.Linq;
-
-    using ons.common.auditoria.Models;
-
-    using ONS.Common.Entities;
-    using ONS.Common.Util;
-    using ONS.SGIPMO.Domain.Entities;
 
     public class MapaLogAuditoria : MapaLogAuditoriaBase
     {

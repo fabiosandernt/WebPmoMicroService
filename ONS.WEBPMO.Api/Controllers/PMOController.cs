@@ -1,23 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using AutoMapper;
-using ONS.Common.Entities;
-
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Services;
-using ONS.SGIPMO.WebSite.Models;
+﻿using AutoMapper;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
-    using System.Web.Routing;
-
-    using Common.Exceptions;
-
-    using ONS.Common.Seguranca;
-
     [WebPermission("ConfigurarPMO")]
     public class PMOController : ControllerBase
     {

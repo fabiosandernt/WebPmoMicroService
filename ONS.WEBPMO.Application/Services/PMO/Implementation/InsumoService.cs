@@ -1,15 +1,4 @@
-﻿using System;
-using System.Linq;
-using AutoMapper;
-using ONS.Common.Exceptions;
-using ONS.Common.Services.Impl;
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Repositories;
-using System.Collections.Generic;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.Common.Util.Pagination;
+﻿using AutoMapper;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 

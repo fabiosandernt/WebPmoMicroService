@@ -5,6 +5,6 @@ namespace ONS.WEBPMO.Domain.Repository
 {
     public interface ITipoColetaRepository : IRepository<TipoColeta>
     {
-        
+
     }
 }

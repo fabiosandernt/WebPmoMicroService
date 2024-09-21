@@ -7,7 +7,7 @@ namespace ONS.WEBPMO.Application.DTO
     {
         public ValorDadoColetaDTO()
         {
-            
+
         }
 
         public ValorDadoColetaDTO(DadoColetaDTO dadoColetaDto)

@@ -9,6 +9,6 @@ namespace ONS.WEBPMO.Application.Profile.Usina
         {
             CreateMap<ONS.WEBPMO.Domain.Entities.PMO.ArquivoSemanaOperativa, ArquivoSemanaOperativa>();
         }
-       
+
     }
 }

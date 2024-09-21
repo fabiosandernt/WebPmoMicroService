@@ -1,8 +1,7 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
 {
-    using System.Collections.Generic;
-    using Entities;
     using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos;
+    using System.Collections.Generic;
 
     public class BlocoTG : BlocoCadastroTermica
     {

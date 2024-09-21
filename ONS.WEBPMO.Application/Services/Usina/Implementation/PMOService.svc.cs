@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using ONS.Common.IoC;
-using AutoMapper;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.Filters;
-
-namespace ONS.WEBPMO.Servico.Usina
+﻿namespace ONS.WEBPMO.Servico.Usina
 {
     public class PMOService : IPMOService
     {
@@ -35,7 +23,8 @@ namespace ONS.WEBPMO.Servico.Usina
             {
                 foreach (SGIPMO.Domain.Entities.SemanaOperativa cron in pmo.SemanasOperativas)
                 {
-                    result.Add(new CronogramaPMO {
+                    result.Add(new CronogramaPMO
+                    {
                         DataReuniao = cron.DataReuniao.Date,
                         DataInicioSemana = cron.DataInicioSemana.Date,
                         DataFimSemana = cron.DataFimSemana.Date,

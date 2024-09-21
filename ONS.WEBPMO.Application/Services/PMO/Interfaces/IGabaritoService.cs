@@ -1,18 +1,5 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-
-namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    using ONS.Common.Seguranca;
-    using ONS.Common.Util.Pagination;
-    using ONS.SGIPMO.Domain.Entities.Filters;
-
     [ServiceContract]
     public interface IGabaritoService : IService
     {

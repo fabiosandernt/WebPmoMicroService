@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
-
     internal class SubsistemaMap : EntityTypeConfiguration<Subsistema>
     {
         public SubsistemaMap()

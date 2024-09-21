@@ -1,24 +1,12 @@
-﻿using ONS.Common.Services;
-using ONS.Common.Wcf;
-using ONS.SGIPMO.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
+﻿
+
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Filters;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IParametroService : IService
+    public interface IParametroService
     {
-        /// <summary>
-        /// Obtém o parâmetro pelo nome.
-        /// </summary>
-        /// <param name="paramento">Nome do parâmetro</param>
-        /// <returns>Parametro</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        Parametro ObterParametro(ParametroEnum paramento);
+        ValueTask<ParametroDTO> ObterParametroPorFiltro(string filter);
     }
 }

@@ -1,15 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ONS.Common.Repositories.Impl;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.Common.Util;
-
-namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
+﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
 {
-    using ONS.Common.Configuration;
-    using ONS.SGIPMO.Domain.Entities.Filters;
     using System;
-    using ONS.Common.Util.Pagination;
 
     public class InsumoRepository : Repository<Insumo>, IInsumoRepository
     {
@@ -101,7 +92,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
         public IList<Insumo> ConsultarInsumosPorSemanaOperativaAgentes(int idSemanaOperativa, params int[] idsAgente)
         {
             var query = from insumo in EntitySet
-                        join coletaInsumo in Context.Set<ColetaInsumo>() 
+                        join coletaInsumo in Context.Set<ColetaInsumo>()
                             on insumo.Id equals coletaInsumo.Insumo.Id
                         where coletaInsumo.SemanaOperativa.Id == idSemanaOperativa
                             && idsAgente.Contains(coletaInsumo.Agente.Id)
@@ -113,7 +104,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
         private IQueryable<Insumo> CriarQueryConsultaInsumoFiltro(InsumoFiltro filtro)
         {
             /* Insumo não estruturado não possui TipoColetaId e CategoriaId */
-            if (!string.IsNullOrEmpty(filtro.TipoInsumo) 
+            if (!string.IsNullOrEmpty(filtro.TipoInsumo)
                 && filtro.TipoInsumo == TipoInsumoEnum.NaoEstruturado.ToChar()
                 && (filtro.TipoColetaId.HasValue || filtro.CategoriaId.HasValue))
             {

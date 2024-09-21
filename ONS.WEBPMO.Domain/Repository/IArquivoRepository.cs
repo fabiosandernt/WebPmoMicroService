@@ -28,6 +28,6 @@ namespace ONS.WEBPMO.Domain.Repository
         /// <param name="idsGabarito">Ids dos gabaritos</param>
         /// <returns></returns>
         IList<Arquivo> ConsultarArquivosAssociadosGabaritos(IList<int> idsGabarito);
-        
+
     }
 }

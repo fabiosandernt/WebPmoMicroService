@@ -16,7 +16,7 @@ namespace ONS.WEBPMO.Application.Models.PLD
 
         [StringLength(1000, ErrorMessage = "Campo 'Observação' deve possuir no máximo 1000 caracteres.")]
         public string ObservacoesConvergenciaPld { get; set; }
-        
+
         public bool IsConvergirPLD { get; set; }
 
     }

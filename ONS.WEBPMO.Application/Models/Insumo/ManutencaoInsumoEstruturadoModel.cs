@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 
@@ -28,6 +27,6 @@ namespace ONS.WEBPMO.Application.Models.Insumo
         public IList<SelectListItem> TiposColeta { get; set; }
 
         public IList<ManutencaoGrandezaModel> Grandezas { get; set; }
-        
+
     }
 }

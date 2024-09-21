@@ -1,13 +1,10 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using System.Text;
 
-    using Entities;
-    using Metadados;
-
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
+{  
     public abstract class BlocoMontador
     {
         private readonly Dictionary<string, RegistroConfiguracao> mapaRegistros;

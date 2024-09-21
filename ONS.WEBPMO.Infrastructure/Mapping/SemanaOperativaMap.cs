@@ -1,9 +1,5 @@
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity.ModelConfiguration;
-
-    using Entities;
     using ONS.WEBPMO.Domain.Entities.PMO;
 
     internal class SemanaOperativaMap : EntityTypeConfiguration<SemanaOperativa>
@@ -12,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
         {
             ToTable("tb_semanaoperativa");
             HasKey(t => t.Id);
-            
+
             Property(t => t.Id).HasColumnName("id_semanaoperativa");
             Property(t => t.Nome).HasColumnName("nom_semanaoperativa").HasMaxLength(150);
             Property(t => t.DataInicioSemana).HasColumnName("dat_iniciosemana");

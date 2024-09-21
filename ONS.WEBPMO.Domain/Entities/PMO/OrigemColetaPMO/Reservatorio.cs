@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO
         public virtual Subsistema Subsistema { get; set; }
 
         public int CodigoDPP { get; set; }
-        
+
         public String NomeLongo { get; set; }
 
         public String NomeCurto { get; set; }

@@ -1,11 +1,8 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
+    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
     using System;
     using System.Collections.Generic;
-    using Common.Services.Impl;
-    using Entities;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-    using Repositories;
 
     public class HistoricoService : Service, IHistoricoService
     {

@@ -1,7 +1,6 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
 {
     using Enums;
-    using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
 
     public class Campo
     {

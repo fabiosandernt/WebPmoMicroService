@@ -17,7 +17,10 @@ namespace ONS.WEBPMO.Application.DTO
         public string Periodicidade { get; set; }
         public string Situacao { get; set; }
         public string ClassificacaoPorTipoEquipamento { get; set; }
-        public bool EhDiaria { get {
+        public bool EhDiaria
+        {
+            get
+            {
                 return this.Periodicidade == "D";
             }
         }

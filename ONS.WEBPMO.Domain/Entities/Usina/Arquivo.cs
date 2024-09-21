@@ -1,6 +1,6 @@
 
 namespace ONS.WEBPMO.Domain.Entities.Usina
-{   
+{
     public class Arquivo : BaseObject
     {
         public string Nome { get; set; }

@@ -1,26 +1,29 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using Common.IoC;
-    using Common.Util;
-    using Entities;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using AutoMapper;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Enumerations;
 
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
+{
     public class BlocoRE : BlocoRestricao
     {
-        private Parametro parametro;
+        private readonly IParametroService _parametroService; 
+        private readonly IMapper _mapper;
 
-        public BlocoRE(IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)
+        public BlocoRE(IMapper mapper, IParametroService parametroService, IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)
             : base(TipoBlocoEnum.RE, dadosColeta, dadosColetaBloco, semanaOperativa)
         {
-            IParametroService parametroService = ApplicationContext.Resolve<IParametroService>();
-            parametro = parametroService.ObterParametro(ParametroEnum.AcrescimoRestricaoEletricaTermica);
+            _parametroService = parametroService;
+            _mapper = mapper;
         }
-
         protected override string ObterCodigoRestricao(IConjuntoGerador usinaReservatorio)
         {
             Usina usina = usinaReservatorio as Usina;
+            
+            var parametroDto = _parametroService.ObterParametroPorFiltro(ParametroEnum.AcrescimoRestricaoEletricaTermica.ToDescription());
+
+            var parametro = _mapper.Map<Parametro>(parametroDto);
 
             if (usina != null && usina.TipoUsina == TipoUsinaEnum.Termica.ToDescription())
             {
@@ -29,5 +32,7 @@
 
             return base.ObterCodigoRestricao(usinaReservatorio);
         }
+
+        
     }
 }

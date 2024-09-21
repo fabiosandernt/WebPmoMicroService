@@ -5,28 +5,30 @@ using ONS.WEBPMO.Domain.Enumerations;
 namespace ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO
 {
     public abstract class OrigemColeta : BaseEntity<string>
-    {  
+    {
         public OrigemColeta()
-        {   
+        {
             Gabaritos = new HashSet<Gabarito>();
         }
 
         public string Nome { get; set; }
 
-        public string TipoOrigemColetaDescricao {
+        public string TipoOrigemColetaDescricao
+        {
             get
             {
                 return TipoOrigemColeta.ToString();
                 //return TipoOrigemColeta.ToChar();
             }
             //Necessário para mapeamento no entity framework
-            set {  }
+            set { }
         }
 
         public abstract TipoOrigemColetaEnum TipoOrigemColeta { get; }
         public virtual ISet<Gabarito> Gabaritos { get; set; }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return Nome;
         }
     }
