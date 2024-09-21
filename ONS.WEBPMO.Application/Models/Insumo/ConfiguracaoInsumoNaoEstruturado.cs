@@ -1,4 +1,5 @@
-﻿using ONS.SGIPMO.Domain.Entities;
+﻿
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Application.Models.Insumo
 {

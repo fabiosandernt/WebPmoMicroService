@@ -1,4 +1,6 @@
-﻿namespace ONS.WEBPMO.Domain.Entities.Extensions
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Domain.Entities.Extensions
 {
     public static class InsumoExtensions
     {

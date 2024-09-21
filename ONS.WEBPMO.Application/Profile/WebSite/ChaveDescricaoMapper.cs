@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ONS.SGIPMO.Domain.Entities;
-
+using ONS.WEBPMO.Application.DTO;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {

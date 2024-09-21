@@ -1,9 +1,7 @@
-﻿using System.Linq;
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Repositories;
-using System;
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl
 {

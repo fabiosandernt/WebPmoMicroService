@@ -1,6 +1,4 @@
 ﻿
-using System.Collections.Generic;
-
 namespace ONS.WEBPMO.Application.Models.Insumo
 {
     public class ListagemGrandezaModel

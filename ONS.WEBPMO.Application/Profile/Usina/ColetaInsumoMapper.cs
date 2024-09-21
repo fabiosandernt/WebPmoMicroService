@@ -1,13 +1,14 @@
 ﻿
+using ONS.WEBPMO.Domain.Entities.Usina;
+
 namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class ColetaInsumoMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public  ColetaInsumoMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.ColetaInsumo, ColetaInsumo>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.ColetaInsumo, ColetaInsumo>();
 
-            base.Configure();
         }
     }
 }

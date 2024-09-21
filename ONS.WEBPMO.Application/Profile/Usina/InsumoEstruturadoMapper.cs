@@ -1,12 +1,13 @@
-﻿namespace ONS.WEBPMO.Application.Profile.Usina
+﻿using ONS.WEBPMO.Domain.Entities.Usina;
+
+namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class InsumoEstruturadoMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public InsumoEstruturadoMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.InsumoEstruturado, InsumoEstruturado>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.InsumoEstruturado, InsumoEstruturado>();
 
-            base.Configure();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ONS.WEBPMO.Application.DTO.DTO
+﻿namespace ONS.WEBPMO.Application.DTO
 {
     public class ManutencaoGrandezaDTO
     {

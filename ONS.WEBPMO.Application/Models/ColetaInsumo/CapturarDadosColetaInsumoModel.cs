@@ -1,7 +1,7 @@
 ﻿
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
-    [ModelBinder(typeof(EnumerableValueBinder))]
+    //[ModelBinder(typeof(EnumerableValueBinder))]
     public class CapturarDadosColetaInsumoModel : FiltroPesquisaColetaInsumoModel
     {
         public CapturarDadosColetaInsumoModel()

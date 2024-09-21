@@ -1,9 +1,8 @@
-﻿namespace ONS.WEBPMO.Application.Models.Gabarito
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
+namespace ONS.WEBPMO.Application.Models.Gabarito
+{    
     public class ConfiguracaoGabaritoUsinaModel : BaseGabaritoModel
     {
         public ConfiguracaoGabaritoUsinaModel()

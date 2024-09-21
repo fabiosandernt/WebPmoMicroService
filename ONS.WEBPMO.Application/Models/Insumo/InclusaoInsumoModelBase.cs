@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities;
+﻿using ONS.WEBPMO.Domain.Enumerations;
+using System.ComponentModel.DataAnnotations;
 
 namespace ONS.WEBPMO.Application.Models.Insumo
 {

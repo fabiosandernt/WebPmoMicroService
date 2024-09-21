@@ -1,11 +1,10 @@
-﻿using ONS.SGIPMO.Domain.Entities;
+﻿
+
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Gabarito
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
-
     public class ConfiguracaoGabaritoReservatorioModel : BaseGabaritoModel
     {
         public ConfiguracaoGabaritoReservatorioModel()

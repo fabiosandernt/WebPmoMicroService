@@ -1,7 +1,8 @@
-﻿namespace ONS.WEBPMO.Application.DTO
-{
-    using System.Collections.Generic;
+﻿using ONS.WEBPMO.Domain.Enumerations;
 
+namespace ONS.WEBPMO.Application.DTO
+{
+    
     public class GabaritoConfiguracaoDTO
     {
         public GabaritoConfiguracaoDTO()

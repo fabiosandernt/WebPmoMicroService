@@ -3,11 +3,9 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class GabaritoMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public GabaritoMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.Gabarito, Gabarito>();
-
-            base.Configure();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.Gabarito, ONS.WEBPMO.Domain.Entities.Usina.Gabarito>();
         }
     }
 }

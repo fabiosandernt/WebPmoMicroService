@@ -1,11 +1,9 @@
-﻿using ONS.SGIPMO.WebSite.Binders;
+﻿
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Gabarito
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
-
     public class ManutencaoGabaritoUnidadeGeradoraModel : ManutencaoGabaritoModel
     {
         [Display(Name = @"Usina")]

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace ONS.WEBPMO.Application.DTO
 {
     public class DadoColetaNaoEstruturadoDTO

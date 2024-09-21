@@ -1,9 +1,12 @@
 ﻿
+using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+
 namespace ONS.WEBPMO.Application.Profile.PMO
 {
     public class ReservatorioMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public ReservatorioMapper()
         {
             CreateMap<ReservatorioPMO, Reservatorio>()
                 .ForMember(r => r.Id, opt => opt.MapFrom(rPmo => rPmo.Id))
@@ -13,7 +16,7 @@ namespace ONS.WEBPMO.Application.Profile.PMO
                 .ForMember(r => r.CodigoDPP, opt => opt.MapFrom(rPmo => rPmo.Codigo))
                 .ForMember(r => r.IdSubsistema, opt => opt.MapFrom(rPmo => (rPmo.SiglaSubsistema ?? string.Empty).PadRight(2)));
 
-            base.Configure();
+           
         }
     }
 }

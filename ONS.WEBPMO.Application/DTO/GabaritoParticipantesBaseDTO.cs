@@ -1,8 +1,5 @@
 namespace ONS.WEBPMO.Application.DTO
 {
-    using System;
-    using System.Collections.Generic;
-
     public class GabaritoParticipantesBaseDTO<TParticipantes>
     {
         public GabaritoParticipantesBaseDTO()

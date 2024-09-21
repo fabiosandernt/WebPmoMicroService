@@ -1,7 +1,4 @@
-﻿
-using ONS.SGIPMO.WebSite.Binders;
-
-namespace ONS.WEBPMO.Application.Models.ColetaInsumo
+﻿namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {   
     public class InformaDadosColetaInsumoModel : FiltroPesquisaColetaInsumoModel
     {

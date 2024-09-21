@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace ONS.WEBPMO.Application.DTO
 {
     public class InclusaoDadoColetaManutencaoDTO

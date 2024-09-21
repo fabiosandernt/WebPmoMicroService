@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ONS.WEBPMO.Application.DTO.DTO
+﻿
+namespace ONS.WEBPMO.Application.DTO
 {
     public class LogNotificacaoDTO
     {

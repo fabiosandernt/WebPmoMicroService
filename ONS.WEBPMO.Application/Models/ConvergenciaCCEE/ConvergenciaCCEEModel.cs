@@ -1,7 +1,11 @@
 ﻿
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.ColetaInsumo;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Application.Models.ConvergenciaCCEE
 {
-    [ModelBinder(typeof(EnumerableValueBinder))]
+    //[ModelBinder(typeof(EnumerableValueBinder))]
     public class ConvergenciaCCEEModel : PesquisaColetaInsumoModel
     {
         public ConvergenciaCCEEModel()

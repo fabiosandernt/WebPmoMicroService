@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace ONS.WEBPMO.Application.Models.Insumo
 {
     public class ExclusaoInsumoModel

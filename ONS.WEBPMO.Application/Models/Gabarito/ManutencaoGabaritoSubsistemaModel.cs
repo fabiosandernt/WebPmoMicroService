@@ -1,7 +1,7 @@
-﻿namespace ONS.WEBPMO.Application.Models.Gabarito
-{
-    using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace ONS.WEBPMO.Application.Models.Gabarito
+{
     public class ManutencaoGabaritoSubsistemaModel : ManutencaoGabaritoModel
     {
         [Display(Name = @"Subsistema")]

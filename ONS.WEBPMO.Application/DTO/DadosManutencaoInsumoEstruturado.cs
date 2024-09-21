@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ONS.Common.Util;
+﻿using ONS.WEBPMO.Domain.Enumerations;
 
-namespace ONS.WEBPMO.Application.DTO.DTO
+namespace ONS.WEBPMO.Application.DTO
 {
     public class DadosManutencaoInsumoEstruturado
     {

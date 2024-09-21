@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.SGIPMO.WebSite.Models.ColetaInsumo;
+﻿
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {

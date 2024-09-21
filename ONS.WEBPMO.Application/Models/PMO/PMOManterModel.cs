@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ONS.WEBPMO.Domain.Entities.Resources;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using ONS.SGIPMO.Domain.Entities;
 
 namespace ONS.WEBPMO.Application.Models.PMO
 {

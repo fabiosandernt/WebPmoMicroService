@@ -1,13 +1,12 @@
 ﻿
 namespace ONS.WEBPMO.Application.Profile.Usina
 {
-    public class SemanaOperativaMapper : AutoMapper.Profilefile
+    public class SemanaOperativaMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public SemanaOperativaMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.SemanaOperativa, SemanaOperativa>();
-
-            base.Configure();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.SemanaOperativa, ONS.WEBPMO.Domain.Entities.Usina.SemanaOperativa>();
+            
         }
     }
 }

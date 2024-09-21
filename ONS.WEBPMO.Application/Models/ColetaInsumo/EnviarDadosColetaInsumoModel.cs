@@ -1,11 +1,7 @@
-﻿using ONS.SGIPMO.WebSite.Binders;
-using System.Collections.Generic;
-
-using ONS.SGIPMO.WebSite.Models;
-
+﻿
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
-    [ModelBinder(typeof(EnumerableValueBinder))]
+    //[ModelBinder(typeof(EnumerableValueBinder))]
     public class EnviarDadosColetaInsumoModel : FiltroPesquisaColetaInsumoModel
     {
         public EnviarDadosColetaInsumoModel()

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using ONS.Common.Util.Control;
+﻿
+using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.DTO
 {
-    public class ArquivosSemanaOperativaDTO : ICloneablePath
+    public class ArquivosSemanaOperativaDTO //: ICloneablePath
     {
 
         public ArquivosSemanaOperativaDTO()

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ONS.WEBPMO.Application.DTO.DTO
+﻿namespace ONS.WEBPMO.Application.DTO
 {
     public class DadosInclusaoInsumoEstruturadoDTO
     {

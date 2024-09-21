@@ -1,14 +1,14 @@
 ﻿
+using ONS.WEBPMO.Domain.Entities.Usina;
 
 namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class ArquivoMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public ArquivoMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.Arquivo, Arquivo>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.Arquivo, Arquivo>();
 
-            base.Configure();
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-
-using ONS.SGIPMO.Domain.Entities;
+﻿using ONS.WEBPMO.Domain.Enumerations;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Gabarito
 {

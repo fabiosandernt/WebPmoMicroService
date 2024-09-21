@@ -1,12 +1,14 @@
-﻿namespace ONS.WEBPMO.Application.Profile.Usina
+﻿using ONS.WEBPMO.Domain.Entities.Usina;
+
+namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class DadoConvergenciaMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public DadoConvergenciaMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.DadoConvergencia, DadoConvergencia>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.DadoConvergencia, DadoConvergencia>();
 
-            base.Configure();
+            
         }
     }
 }

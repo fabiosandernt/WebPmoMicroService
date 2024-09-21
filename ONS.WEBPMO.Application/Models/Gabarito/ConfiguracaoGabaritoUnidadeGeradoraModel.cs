@@ -1,12 +1,9 @@
-﻿namespace ONS.WEBPMO.Application.Models.Gabarito
-{
-    using Binders;
-    using Common.Resources;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
-    [ModelBinder(typeof(ConfiguracaoGabaritoModelBinder))]
+namespace ONS.WEBPMO.Application.Models.Gabarito
+{
+    //[ModelBinder(typeof(ConfiguracaoGabaritoModelBinder))]
     public class ConfiguracaoGabaritoUnidadeGeradoraModel : BaseGabaritoModel
     {
         public ConfiguracaoGabaritoUnidadeGeradoraModel()

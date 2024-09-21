@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ONS.WEBPMO.Domain.Enumerations;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.LogNotificacao
 {  

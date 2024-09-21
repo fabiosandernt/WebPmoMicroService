@@ -1,11 +1,10 @@
-﻿
-namespace ONS.WEBPMO.Application.Profile.Usina
+﻿namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class UnidadeGeradoraMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public UnidadeGeradoraMapper()
         {
-            CreateMap<UnidadeGeradoraPMO, ONS.SGIPMO.Domain.Entities.UnidadeGeradora>()
+            CreateMap<ONS.WEBPMO.Domain.Entities.BDT.UnidadeGeradoraPMO, ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.UnidadeGeradora>()
                 .ForMember(r => r.Id, opt => opt.MapFrom(rPmo => rPmo.Id))
                 .ForMember(r => r.Nome, opt => opt.MapFrom(rPmo => rPmo.Nome))
                 .ForMember(r => r.CodigoDPP, opt => opt.MapFrom(rPmo => rPmo.IdDPP))
@@ -20,9 +19,8 @@ namespace ONS.WEBPMO.Application.Profile.Usina
                 .ForMember(r => r.Din_fim, opt => opt.MapFrom(rPmo => rPmo.Din_fim))
                 .ForMember(r => r.Age_id_oper, opt => opt.MapFrom(rPmo => rPmo.Age_id_oper));
 
-            CreateMap<ONS.SGIPMO.Domain.Entities.UnidadeGeradora, UnidadeGeradora>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.UnidadeGeradora, ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.UnidadeGeradora>();
 
-            base.Configure();
         }
     }
 }

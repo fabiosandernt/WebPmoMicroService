@@ -1,8 +1,6 @@
 namespace ONS.WEBPMO.Application.DTO
 {
-    using System;
-    using System.Collections.Generic;
-
+    
     public class GabaritoConfiguracaoBaseDTO<TOrigemColetaConfig>
     {
         public GabaritoConfiguracaoBaseDTO()

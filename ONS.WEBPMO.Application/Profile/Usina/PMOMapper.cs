@@ -3,11 +3,9 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class PMOMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public PMOMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.PMO, PMO>();
-
-            base.Configure();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.PMO, ONS.WEBPMO.Domain.Entities.Usina.PMO>();
         }
     }
 }

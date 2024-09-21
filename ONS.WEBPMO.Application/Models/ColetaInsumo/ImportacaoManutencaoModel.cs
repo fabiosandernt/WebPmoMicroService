@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
     public class ImportacaoManutencaoModel

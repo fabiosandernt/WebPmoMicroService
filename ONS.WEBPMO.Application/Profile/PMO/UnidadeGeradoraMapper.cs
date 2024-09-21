@@ -1,9 +1,12 @@
 ﻿
+using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+
 namespace ONS.WEBPMO.Application.Profile.PMO
 {
     public class UnidadeGeradoraMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public UnidadeGeradoraMapper()
         {
             CreateMap<UnidadeGeradoraPMO, UnidadeGeradora>()
                 .ForMember(r => r.Id, opt => opt.MapFrom(rPmo => rPmo.Id))
@@ -20,7 +23,6 @@ namespace ONS.WEBPMO.Application.Profile.PMO
                 .ForMember(r => r.Din_fim, opt => opt.MapFrom(rPmo => rPmo.Din_fim))
                 .ForMember(r => r.Age_id_oper, opt => opt.MapFrom(rPmo => rPmo.Age_id_oper));
 
-            base.Configure();
         }
     }
 }

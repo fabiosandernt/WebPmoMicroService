@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿
 
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities;
+using ONS.WEBPMO.Domain.Enumerations;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Insumo
 {
@@ -21,8 +21,8 @@ namespace ONS.WEBPMO.Application.Models.Insumo
             {
                 IList<SelectListItem> lista = new List<SelectListItem>
                 {
-                    new SelectListItem {Text = TipoInsumoEnum.Estruturado.ToDescription(), Value = TipoInsumoEnum.Estruturado.ToChar()},
-                    new SelectListItem {Text = TipoInsumoEnum.NaoEstruturado.ToDescription(), Value = TipoInsumoEnum.NaoEstruturado.ToChar()}
+                    new SelectListItem {Text = TipoInsumoEnum.Estruturado.ToDescription(), Value = TipoInsumoEnum.Estruturado.ToString()},
+                    new SelectListItem {Text = TipoInsumoEnum.NaoEstruturado.ToDescription(), Value = TipoInsumoEnum.NaoEstruturado.ToString()}
                 };
                 return lista;
             }

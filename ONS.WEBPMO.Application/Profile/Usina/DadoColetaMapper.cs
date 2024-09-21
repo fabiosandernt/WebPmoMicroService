@@ -1,13 +1,13 @@
-﻿
+﻿using ONS.WEBPMO.Domain.Entities.Usina;
+
 namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class DadoColetaMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public DadoColetaMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.DadoColeta, DadoColeta>();
-
-            base.Configure();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.DadoColeta, DadoColeta>();
         }
+       
     }
 }

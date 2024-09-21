@@ -1,6 +1,5 @@
-﻿using System;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.WebSite.Binders;
+﻿
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {

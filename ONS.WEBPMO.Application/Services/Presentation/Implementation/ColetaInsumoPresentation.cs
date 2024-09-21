@@ -1,13 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.Domain.Repositories;
-using System;
-using ONS.SGIPMO.Domain.Entities.Enumerations;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl
 {

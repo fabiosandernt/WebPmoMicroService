@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MS001" xml:space="preserve">
+    <value>Campo '{0}' deve ser preenchido.</value>
+    <comment>Campo '{Nome do campo}' deve ser preenchido.</comment>
+  </data>
+  <data name="MS002" xml:space="preserve">
+    <value>Já existe um PMO configurado para o ano e mês informado.</value>
+  </data>
+  <data name="MS003" xml:space="preserve">
+    <value>Não é possível incluir PMO para ano e mês menor que o atual.</value>
+  </data>
+  <data name="MS004" xml:space="preserve">
+    <value>Não foi encontrado nenhum registro com os parâmetros de pesquisa informados</value>
+  </data>
+  <data name="MS005" xml:space="preserve">
+    <value>Campo {0} está inválido.</value>
+    <comment>Campo {Nome do campo} está inválido.</comment>
+  </data>
+  <data name="MS006" xml:space="preserve">
+    <value>A data {0} não pode ser menor que a data atual.</value>
+    <comment>A data {Nome do campo} não pode ser menor que a data atual.</comment>
+  </data>
+  <data name="MS007" xml:space="preserve">
+    <value>Um PMO deve ter ao menos uma(1) semana operativa.</value>
+  </data>
+  <data name="MS008" xml:space="preserve">
+    <value>Só é possível abrir estudo para semana que ainda não passou por processo de configuração (que não possui gabarito associado).</value>
+  </data>
+  <data name="MS009" xml:space="preserve">
+    <value>O número de meses a frente do estudo não pode ser maior que 11 (onze).</value>
+  </data>
+  <data name="MS010" xml:space="preserve">
+    <value>Não é possível inserir ou excluir semana em PMO cuja data de início seja menor que a data atual.</value>
+  </data>
+  <data name="MS011" xml:space="preserve">
+    <value>Só é possível excluir semana de PMO que ainda não foi aberta para estudo, ou que ainda esteja em configuração.</value>
+  </data>
+  <data name="MS013" xml:space="preserve">
+    <value>Operação realizada com sucesso.</value>
+  </data>
+  <data name="MS014" xml:space="preserve">
+    <value>Os dados desta tela foram alterados por outro usuário. Acesse novamente para que sejam apresentados os dados atualizados.</value>
+  </data>
+  <data name="MS015" xml:space="preserve">
+    <value>O gabarito já possui um registro de coleta para o insumo {0}, reservatório {1} e agente {2}.</value>
+    <comment>O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, reservatório {Nome do reservatório} e agente {Nome do agente}.</comment>
+  </data>
+  <data name="MS016" xml:space="preserve">
+    <value>O insumo {0} já está configurado para ser informado pelo agente {1} para o reservatório {2}.</value>
+    <comment>O insumo {Nome do insumo} já está configurado para ser informado pelo agente {Nome do agente} para o reservatório {Nome do reservatório}.</comment>
+  </data>
+  <data name="MS017" xml:space="preserve">
+    <value>Selecione apenas um item para realização da operação.</value>
+  </data>
+  <data name="MS018" xml:space="preserve">
+    <value>O gabarito já possui um registro de coleta para o insumo {0}, usina {1} e agente {2}.</value>
+    <comment>O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, usina {Nome da usina} e agente {Nome do agente}.</comment>
+  </data>
+  <data name="MS019" xml:space="preserve">
+    <value>O insumo {0} já está configurado para ser informado pelo agente {1} para a usina {2}.</value>
+    <comment>O insumo {Nome do insumo} já está configurado para ser informado pelo agente {Nome do agente} para a usina {Nome da usina}.</comment>
+  </data>
+  <data name="MS020" xml:space="preserve">
+    <value>O gabarito já possui um registro de coleta para o insumo {0}, subsistema {1} e agente {2}.</value>
+    <comment>O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, subsistema {Nome do subsistema} e agente {Nome do agente}.</comment>
+  </data>
+  <data name="MS021" xml:space="preserve">
+    <value>O gabarito já possui um registro de coleta para o insumo {0}, contrato {1} e agente {2}.</value>
+    <comment>O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, contrato {Nome do contrato} e agente {Nome do agente}.</comment>
+  </data>
+  <data name="MS022" xml:space="preserve">
+    <value>O gabarito já possui um registro de coleta para o insumo {0} e agente {1}.</value>
+    <comment>O gabarito já possui um registro de coleta para o insumo {Nome do insumo} e agente {Nome do agente}.</comment>
+  </data>
+  <data name="MS023" xml:space="preserve">
+    <value>A operação não poderá ser realizada porque o estudo selecionado não está em processo de coleta de dados.</value>
+  </data>
+  <data name="MS024" xml:space="preserve">
+    <value>A coleta do insumo selecionado ainda não foi enviada para análise do ONS.</value>
+  </data>
+  <data name="MS025" xml:space="preserve">
+    <value>Selecione um item para realizar a operação.</value>
+  </data>
+  <data name="MS026" xml:space="preserve">
+    <value>A coleta do insumo '{0}' do agente '{1}' não está disponível para captura. Observação: a captura pode ser realizada apenas para coletas que estejam nas situações: não iniciada, em andamento ou rejeitada.</value>
+    <comment>A coleta do insumo {‘Nome do insumo’} do agente {‘Nome do agente’} não está disponível para captura. Observação: a captura pode ser realizada apenas para coletas que estejam nas situações: não iniciada, em andamento ou rejeitada.</comment>
+  </data>
+  <data name="MS027" xml:space="preserve">
+    <value>A coleta não pode ser encerrada porque ainda existem dados que não foram aprovados.</value>
+  </data>
+  <data name="MS028" xml:space="preserve">
+    <value>Atenção! Verifique a necessidade de alteração das datas de reunião e período de manutenção das outras semanas operativas.</value>
+  </data>
+  <data name="MS029" xml:space="preserve">
+    <value>Não é possível excluir PMO que contém semana que já tenha passado por processo de coleta de dados.</value>
+  </data>
+  <data name="MS030" xml:space="preserve">
+    <value>Não é possível excluir PMO que contém semana operativa com gabarito associado. Antes de excluir o PMO é necessário excluir as semanas operativas que possuem gabarito associado.</value>
+  </data>
+  <data name="MS031" xml:space="preserve">
+    <value>A coleta de dados ainda não foi aberta para este estudo.</value>
+  </data>
+  <data name="MS032" xml:space="preserve">
+    <value>Acesso negado. Para informar dados de estudo é necessário autorização prévia do ONS.</value>
+  </data>
+  <data name="MS033" xml:space="preserve">
+    <value>Não foi encontrada nehuma intervenção programada para as usinas do agente.</value>
+  </data>
+  <data name="MS034" xml:space="preserve">
+    <value>Manutenção já informada para o período.</value>
+  </data>
+  <data name="MS035" xml:space="preserve">
+    <value>A coleta do insumo '{0}' do agente '{1}' não está disponível para envio. Observação: o envio pode ser realizado apenas para coletas que estejam nas situações: não iniciada, em andamento ou rejeitada.</value>
+    <comment>A coleta do insumo {‘Nome do insumo’} do agente {‘Nome do agente’} não está disponível para envio. Observação: o envio pode ser realizado apenas para coletas que estejam nas situações: não iniciada, em andamento ou rejeitada.</comment>
+  </data>
+  <data name="MS036" xml:space="preserve">
+    <value>O insumo {0} não poder ser excluído porque está associado a item de gabarito de coleta.</value>
+  </data>
+  <data name="MS037" xml:space="preserve">
+    <value>A grandeza '{0}' não poder ser excluída porque está associada a dado coletado de estudo.</value>
+  </data>
+  <data name="MS038" xml:space="preserve">
+    <value>Já existe um insumo cadastrado com o nome informado.</value>
+  </data>
+  <data name="MS039" xml:space="preserve">
+    <value>Apenas grandezas numéricas podem receber valor negativo.</value>
+  </data>
+  <data name="MS042" xml:space="preserve">
+    <value>Não é possível alterar ou excluir um insumo reservado do sistema.</value>
+  </data>
+  <data name="MS043" xml:space="preserve">
+    <value>Selecione um ou mais itens para realizar a operação.</value>
+  </data>
+  <data name="MS046" xml:space="preserve">
+    <value>A ação não poderá ser realizada porque o estudo selecionado não está em processo de geração de blocos para montador.</value>
+  </data>
+  <data name="MS047" xml:space="preserve">
+    <value>O arquivo de blocos para o montador já foi gerado. Para efetuar uma nova geração é necessário excluir a versão atual, reabrindo a coleta de dados do estudo.</value>
+  </data>
+  <data name="MS048" xml:space="preserve">
+    <value>A coleta de dados não pode ser aberta para estudo que está em processo de convergência com CCEE. Aguarde o fim da convergência do PLD com a CCEE para realizar esta operação.</value>
+  </data>
+  <data name="MS049" xml:space="preserve">
+    <value>Esta ação só pode ser realizada para estudo que está no estado/processo “Convergência CCEE” ou “PLD Convergido” ou “Publicado”.</value>
+  </data>
+  <data name="MS050" xml:space="preserve">
+    <value>Para realizar esta operação é necessário anexar ao menos um arquivo.</value>
+  </data>
+  <data name="MS051" xml:space="preserve">
+    <value>Está ação não poderá ser realizada porque o estudo selecionado não está em processo de convergência com CCEE.</value>
+  </data>
+  <data name="MS052" xml:space="preserve">
+    <value>Só é possível resetar gabarito de semana de PMO que ainda esteja em configuração.</value>
+  </data>
+  <data name="MS053" xml:space="preserve">
+    <value>Atenção! O gabarito atual e dados coletados serão excluídos.</value>
+  </data>
+  <data name="MS054" xml:space="preserve">
+    <value>O insumo já possui uma grandeza cadastrada com este nome.</value>
+  </data>
+  <data name="MS055" xml:space="preserve">
+    <value>A quantidade de dígitos informada para grandeza é maior que o máximo permitido '{0}'.</value>
+  </data>
+  <data name="MS056" xml:space="preserve">
+    <value>A quantidade de casas decimais informada para grandeza é maior que o máximo permitido '{0}'.</value>
+  </data>
+  <data name="MS057" xml:space="preserve">
+    <value>Atenção, a reabertura da coleta exclui todos os arquivos que tenham sido gerados e/ou anexados ao estudo! Confirma a abertura da coleta para o estudo?</value>
+  </data>
+  <data name="MS059" xml:space="preserve">
+    <value>Não é possível alterar gabarito de estudo que já passou por processo de coleta de dados</value>
+  </data>
+  <data name="MS060" xml:space="preserve">
+    <value>O insumo {0} já está configurado para ser informado pelo agente {1} para a unidade geradora {2}.</value>
+    <comment>O insumo {Nome do insumo} já está configurado para ser informado pelo agente {Nome do agente} para a unidade geradora {Nome da unidade}.</comment>
+  </data>
+  <data name="MS061" xml:space="preserve">
+    <value>A coleta do insumo '{0}' do agente '{1}' não está disponível para informar dados. Observação: esta operação só pode ser realizada apenas para coletas que estejam nas situações: não iniciada, em andamento, rejeitada ou informada.</value>
+    <comment>A coleta do insumo {‘Nome do insumo’} do agente {‘Nome do agente’} não está disponível para informar dados. Observação: esta operação só pode ser realizada apenas para coletas que estejam nas situações: não iniciada, em andamento, rejeitada ou informada.</comment>
+  </data>
+  <data name="MS062" xml:space="preserve">
+    <value>Os valores {0} são inválidos para o tipo de dado {1}.</value>
+    <comment>Os valores {Nome do campo} são inválidos para o tipo de dado {valor o campo}.</comment>
+  </data>
+  <data name="MS063" xml:space="preserve">
+    <value>Manutenção deve estar dentro do período de manutenções da semana operativa ({0} - {1})</value>
+    <comment>Manutenção deve estar dentro do período de manutenções da semana operativa ({Data inicio de manutenção do estudo} - {Data término de manutenção do estudo})</comment>
+  </data>
+  <data name="MS064" xml:space="preserve">
+    <value>Insumo já associado a gabarito. Ao menos uma grandeza ativa deve ser informada.</value>
+  </data>
+  <data name="MS065" xml:space="preserve">
+    <value>Não é possível inserir semana no início de PMO que já tenha passado por estudo.</value>
+  </data>
+  <data name="MS066" xml:space="preserve">
+    <value>A operação não poderá ser realizada porque não existe nenhum insumo aprovado.</value>
+  </data>
+  <data name="MS067" xml:space="preserve">
+    <value>Operação realizada com sucesso. A regra utilizada para a recuperação foi a seguinte: Para todos os estágios semanais do novo estudo, utilizar os dados declarados para o último estágio semanal do último estudo enviado. Para todos os estágios mensais do novo estudo, utilizar os dados declarados para o último estágio mensal do último estudo enviado.</value>
+  </data>
+  <data name="MS068" xml:space="preserve">
+    <value>Não foi possível exportar o Agente '{0}' / Insumo '{1}', pois o mesmo não é do tipo Estruturado.</value>
+    <comment>Não foi possível exportar o Agente {‘Nome do Agente’} / Insumo {‘Nome do insumo’}, pois o mesmo não é do tipo Estruturado.</comment>
+  </data>
+  <data name="MS069" xml:space="preserve">
+    <value>O(s) item(ns) selecionado(s) não tem permissão de exportação.</value>
+  </data>
+  <data name="MS070" xml:space="preserve">
+    <value>Já existe um insumo cadastrado com a sigla informada.</value>
+  </data>
+  <data name="MS071" xml:space="preserve">
+    <value>Não foi possível aprovar o Agente '{0}' / Insumo '{1}', pois o mesmo não se encontra nas situações: "Não iniciado" ou "Pré-Aprovado".</value>
+    <comment>Não foi possível aprovar o Agente {‘Nome do Agente’} / Insumo {‘Nome do insumo’}, pois o mesmo não se encontra nas situações: "Não iniciado" ou "Pré-Aprovado".</comment>
+  </data>
+  <data name="MS072" xml:space="preserve">
+    <value>Insumo(s) aprovado(s) com sucesso!</value>
+  </data>
+  <data name="MS073" xml:space="preserve">
+    <value>Para realizar esta operação, os itens selecionados devem ser de um único Agente.</value>
+  </data>
+  <data name="MS074" xml:space="preserve">
+    <value>A operação não poderá ser realizada porque o estudo selecionado não tem um processo específico.</value>
+  </data>
+  <data name="MS075" xml:space="preserve">
+    <value>Campo {0} é obrigatório.</value>
+    <comment>Campo {Nome do campo} é obrigatório.</comment>
+  </data>
+  <data name="MS076" xml:space="preserve">
+    <value>O insumo '{0}' já foi aprovado pela ONS e, portanto, não pode ser alterado.</value>
+    <comment>O insumo '{Nome do Insumo}' já foi aprovado pela ONS e, portanto, não pode ser alterado.</comment>
+  </data>
+  <data name="MS078" xml:space="preserve">
+    <value>Somente as empresas que ainda possuem informações a serem enviadas para o ONS serão notificadas.</value>
+  </data>
+  <data name="MS079" xml:space="preserve">
+    <value>Importação efetuada com sucesso.</value>
+  </data>
+  <data name="MS080" xml:space="preserve">
+    <value>O Volume informado para a Usina: {0} é o mesmo valor informado na semana anterior.</value>
+  </data>
+  <data name="MS081" xml:space="preserve">
+    <value>Os Volumes informados para as Usinas: {0} estão com os mesmos valores informados na semana anterior.</value>
+  </data>
+  <data name="MS082" xml:space="preserve">
+    <value>Por Favor preencha o campo comentário para usina {0}.</value>
+  </data>
+  <data name="MS083" xml:space="preserve">
+    <value>O valor informado para usina: {0} está fora da faixa de aceitação de 3% do valor de sugestão ({1}%) calculado pelo sistema. Para este caso é necessário preencher o campo comentário.</value>
+  </data>
+</root>

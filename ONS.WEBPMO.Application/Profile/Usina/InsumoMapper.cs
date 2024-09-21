@@ -3,11 +3,9 @@ namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class InsumoMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public InsumoMapper()
         {
-            CreateMap<ONS.SGIPMO.Domain.Entities.Insumo, Insumo>();
-
-            base.Configure();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.Insumo, ONS.WEBPMO.Domain.Entities.Usina.Insumo>();
         }
     }
 }

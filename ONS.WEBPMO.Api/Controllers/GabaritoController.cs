@@ -20,6 +20,11 @@ namespace ONS.WEBPMO.Api.Controllers
 
     using ONS.Common.Entities;
     using ONS.WEBPMO.Domain.Entities.PMO;
+    using ONS.WEBPMO.Domain.Entities.Base;
+    using ONS.SGIPMO.Domain.Entities;
+    using ONS.WEBPMO.Domain.Enumerations;
+    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+    using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 
     //[WebPermission("ConfigurarGabarito")]
     public class GabaritoController : ControllerBase

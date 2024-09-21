@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Application.DTO
 {

@@ -1,4 +1,4 @@
-﻿namespace ONS.WEBPMO.Domain.Entities.Usina.OrigemColeta
+﻿namespace ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina
 {
         public class Usina : OrigemColeta
     {

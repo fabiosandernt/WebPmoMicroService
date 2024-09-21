@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.ComponentModel.DataAnnotations;
 
 
@@ -12,20 +12,20 @@ namespace ONS.WEBPMO.Application.Models.PMO
         [Display(Name = "Data da Reunião")]
         [Required]
         [DataType(DataType.Date)]
-        [DateTimeValidator]
+        //[DateTimeValidator]
         public DateTime DataReuniao { get; set; }
 
         [Display(Name = "Início Manutenções")]
         [Required]
         [DataType(DataType.Date)]
-        [DateTimeValidator]
+        //[DateTimeValidator]
         public DateTime DataInicioManutencao { get; set; }
 
         [Display(Name = "Término Manutenções")]
         [Required]
         [DataType(DataType.Date)]
-        [DateTimeValidator]
-        [CompareDate(CompareDateAttribute.TypeEnum.MaiorIgual, "DataInicioManutencao", ErrorMessage = "Data de término das manutenções não pode ser inferior à data de início.")]
+        //[DateTimeValidator]
+        //[CompareDate(CompareDateAttribute.TypeEnum.MaiorIgual, "DataInicioManutencao", ErrorMessage = "Data de término das manutenções não pode ser inferior à data de início.")]
         public DateTime DataFimManutencao { get; set; }
 
         public DateTime DataInicioSemana { get; set; }

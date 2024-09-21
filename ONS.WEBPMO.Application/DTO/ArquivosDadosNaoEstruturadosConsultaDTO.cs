@@ -1,9 +1,6 @@
-﻿using System;
-using ONS.Common.Util.Control;
-
-namespace ONS.WEBPMO.Application.DTO
+﻿namespace ONS.WEBPMO.Application.DTO
 {
-    public class ArquivoDadoNaoEstruturadoConsultaInsumoDTO : ICloneablePath
+    public class ArquivoDadoNaoEstruturadoConsultaInsumoDTO //: ICloneablePath
     {
         public ArquivoDadoNaoEstruturadoDTO Arquivo { get; set; }
 

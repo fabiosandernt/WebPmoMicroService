@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-
-using ONS.Common.Util;
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.WebSite.Attributes;
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.Insumo
 {

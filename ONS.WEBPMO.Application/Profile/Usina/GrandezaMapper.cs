@@ -1,14 +1,14 @@
-﻿
+﻿using ONS.WEBPMO.Application.DTO;
+
 namespace ONS.WEBPMO.Application.Profile.Usina
 {
     public class GrandezaMapper : AutoMapper.Profile
     {
-        protected override void Configure()
+        public GrandezaMapper()
         {
-            CreateMap<ManutencaoGrandezaDTO, ONS.SGIPMO.Domain.Entities.Grandeza>();
-            CreateMap<ONS.SGIPMO.Domain.Entities.Grandeza, Grandeza>();
-
-            base.Configure();
+            CreateMap<ManutencaoGrandezaDTO, ONS.WEBPMO.Domain.Entities.PMO.Grandeza>();
+            CreateMap<ONS.WEBPMO.Domain.Entities.PMO.Grandeza, ONS.WEBPMO.Domain.Entities.Usina.Grandeza>();
         }
+        
     }
 }

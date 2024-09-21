@@ -2,12 +2,6 @@
 using System.IO;
 using AutoMapper;
 
-using ONS.SGIPMO.Domain.Entities;
-using ONS.SGIPMO.Domain.Entities.DTO;
-using ONS.SGIPMO.Domain.Entities.Filters;
-using ONS.SGIPMO.WebSite.Models;
-using ONS.SGIPMO.WebSite.Models.ColetaInsumo;
-
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class ColetaInsumoMapper : Profile

@@ -1,4 +1,6 @@
-﻿namespace ONS.WEBPMO.Application.Models.GeracaoBlocos
+﻿using ONS.WEBPMO.Application.Models.ColetaInsumo;
+
+namespace ONS.WEBPMO.Application.Models.GeracaoBlocos
 {
     //[ModelBinder(typeof(EnumerableValueBinder))]
     public class PesquisaGeracaoBlocosModel : PesquisaColetaInsumoModel

@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
-
-
+using System.Web.Mvc;
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
@@ -11,13 +9,13 @@ namespace ONS.WEBPMO.Application.Models.ColetaInsumo
         [Display(Name = @"Data de Início")]
         [Required]
         [DataType(DataType.DateTime)]
-        [DateTimeValidator]
+        //[DateTimeValidator]
         public DateTime? DataInicio { get; set; }
 
         [Display(Name = @"Data de Término")]
         [Required]
         [DataType(DataType.DateTime)]
-        [DateTimeValidator]
+        //[DateTimeValidator]
         public DateTime? DataFim { get; set; }
 
         [Display(Name = @"Tempo para Retorno")]

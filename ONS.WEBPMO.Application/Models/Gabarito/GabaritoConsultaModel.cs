@@ -1,13 +1,10 @@
 ﻿
+using ONS.WEBPMO.Domain.Enumerations;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+
 namespace ONS.WEBPMO.Application.Models.Gabarito
-{
-    using Domain.Entities;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
-
-
-    public class GabaritoConsultaModel
+{    public class GabaritoConsultaModel
     {
         [Display(Name = "Gabarito")]
         [Required]

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ONS.WEBPMO.Domain.Enumerations;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
