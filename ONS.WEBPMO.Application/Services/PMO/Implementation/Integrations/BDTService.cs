@@ -1,11 +1,7 @@
-﻿using AutoMapper;
+﻿
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
-{
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
-    using System.Collections.Generic;
-    using System.Linq;
-
+{   
     public class BDTService : Service, IBDTService
     {
         private readonly IUsinaPMORepository usinaPmoRepository;

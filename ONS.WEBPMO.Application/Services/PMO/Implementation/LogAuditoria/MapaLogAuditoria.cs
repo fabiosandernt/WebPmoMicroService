@@ -2,8 +2,7 @@
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.LogAuditoria
 {
-    using System;
-
+   
     public class MapaLogAuditoria : MapaLogAuditoriaBase
     {
         private readonly Func<ExibicaoCalculadaArgument, object> exibicaoCalculadaBoolParaSimNao = b =>
