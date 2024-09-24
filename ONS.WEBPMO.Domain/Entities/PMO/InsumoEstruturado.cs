@@ -1,4 +1,6 @@
 ﻿
+using ONS.WEBPMO.Domain.Enumerations;
+
 namespace ONS.WEBPMO.Domain.Entities.PMO
 {
     public class InsumoEstruturado : Insumo
@@ -7,7 +9,7 @@ namespace ONS.WEBPMO.Domain.Entities.PMO
         public InsumoEstruturado()
         {
             Grandezas = new List<Grandeza>();
-            TipoInsumo = TipoInsumoEnum.Estruturado.ToChar();
+            TipoInsumo = TipoInsumoEnum.Estruturado.ToString();
         }
 
         public int? QuantidadeMesesAdiante { get; set; }

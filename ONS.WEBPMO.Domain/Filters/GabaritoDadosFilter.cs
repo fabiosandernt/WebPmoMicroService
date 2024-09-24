@@ -1,6 +1,7 @@
 ﻿using AspNetCore.IQueryable.Extensions;
 using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
 {

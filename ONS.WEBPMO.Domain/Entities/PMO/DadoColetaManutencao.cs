@@ -1,3 +1,5 @@
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+
 namespace ONS.WEBPMO.Domain.Entities.PMO
 {
     public class DadoColetaManutencao : DadoColeta

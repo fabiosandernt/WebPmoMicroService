@@ -1,4 +1,6 @@
 
+using ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina;
+
 namespace ONS.WEBPMO.Domain.Entities.Usina
 {
     public class Gabarito : BaseObject
@@ -13,7 +15,7 @@ namespace ONS.WEBPMO.Domain.Entities.Usina
 
         public virtual IList<DadoColeta> DadosColeta { get; set; }
         public virtual Insumo Insumo { get; set; }
-        public virtual ONS.WEBPMO.Domain.Entities.Usina.OrigemColeta.OrigemColeta OrigemColeta { get; set; }
+        public virtual OrigemColeta OrigemColeta { get; set; }
         public virtual SemanaOperativa SemanaOperativa { get; set; }
         public virtual Agente Agente { get; set; }
 

@@ -1,8 +1,11 @@
-﻿using System.Text;
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Repository.BDT;
+using ONS.WEBPMO.Infrastructure.DataBase;
+using System.Text;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {
-    [UseDbContext(ConnectionStringsNames.BDTModel)]
+    //[UseDbContext(ConnectionStringsNames.BDTModel)]
     public class InstanteVolumeReservatorioRepository : Repository<InstanteVolumeReservatorio>, IInstanteVolumeReservatorioRepository
     {
         public IList<InstanteVolumeReservatorio> Consultar(string usinaId, DateTime dataInicio, DateTime dataFim)

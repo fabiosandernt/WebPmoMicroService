@@ -27,7 +27,7 @@ namespace ONS.WEBPMO.Infrastructure.Context
         public DbSet<InsumoNaoEstruturado> InsumoNaoEstruturados { get; set; }
         public DbSet<LogDadosInformados> LogDadosInformadoss { get; set; }
         public DbSet<LogNotificacao> LogNotificacaos { get; set; }
-        public DbSet<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta> OrigemColetas { get; set; }
+        public DbSet<OrigemColeta> OrigemColetas { get; set; }
         public DbSet<Reservatorio> Reservatorios { get; set; }
         public DbSet<Subsistema> Subsistemas { get; set; }
         public DbSet<UnidadeGeradora> UnidadeGeradoras { get; set; }

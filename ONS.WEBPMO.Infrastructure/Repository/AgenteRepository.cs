@@ -1,6 +1,8 @@
-﻿using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl
@@ -9,6 +11,9 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
 
     public class AgenteRepository : Repository<Agente>, IAgenteRepository
     {
+        public AgenteRepository(WEBPMODbContext context) : base(context)
+        {
+        }
 
         private IQueryable<Agente> MontarQueryAgentesGabarito(GabaritoParticipantesFilter filter)
         {
@@ -66,12 +71,12 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
                 .ToList();
         }
 
-        //public PagedResult<Agente> ConsultarAgentesGabaritoPaginado(GabaritoParticipantesFilter filter)
-        //{
-        //    IQueryable<Agente> agentes = MontarQueryAgentesGabarito(filter);
+        public PagedResult<Agente> ConsultarAgentesGabaritoPaginado(GabaritoParticipantesFilter filter)
+        {
+            IQueryable<Agente> agentes = MontarQueryAgentesGabarito(filter);
 
-        //    return this.FindPaged(agentes, filter.PageIndex, filter.PageSize, ages => ages.OrderBy(agente => agente.Nome));
-        //}
+            return this.FindPaged(agentes, filter.PageIndex, filter.PageSize, ages => ages.OrderBy(agente => agente.Nome));
+        }
 
         public List<Agente> ObterAgentesPorIds(IList<int> idsAgente)
         {

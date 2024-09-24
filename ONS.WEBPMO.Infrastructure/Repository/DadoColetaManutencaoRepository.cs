@@ -1,4 +1,9 @@
-﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
+
+namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class DadoColetaManutencaoRepository : Repository<DadoColetaManutencao>, IDadoColetaManutencaoRepository
     {
