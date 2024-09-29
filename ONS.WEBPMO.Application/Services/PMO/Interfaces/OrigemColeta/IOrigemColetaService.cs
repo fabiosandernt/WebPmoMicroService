@@ -1,27 +1,33 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Enumerations;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta
 {
     //[ServiceContract]
     public interface IOrigemColetaService 
     {
         
         
-        PagedResult<OrigemColeta> ConsultarOrigemColetasGabaritoPaginado(GabaritoParticipantesFilter filter);
+        PagedResult<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta> ConsultarOrigemColetasGabaritoPaginado(GabaritoParticipantesFilter filter);
 
-        T ObterOrigemColetaPorChaveOnline<T>(string id) where T : OrigemColeta;
+        T ObterOrigemColetaPorChaveOnline<T>(string id) where T : ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta;
 
-        T ObterOrigemColetaPorChave<T>(string id) where T : OrigemColeta;
+        T ObterOrigemColetaPorChave<T>(string id) where T : ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta;
 
-        
-        
-        OrigemColeta ObterOuCriarOrigemColetaPorId(string idOrigemColeta, TipoOrigemColetaEnum tipoOrigemColeta);
 
-        
-        
-        IList<OrigemColeta> ConsultarOuCriarOrigemColetaPorIds(IList<string> idsOrigemColeta, TipoOrigemColetaEnum tipoOrigemColeta);
+
+        ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta ObterOuCriarOrigemColetaPorId(string idOrigemColeta, TipoOrigemColetaEnum tipoOrigemColeta);
 
         
         
-        IList<OrigemColeta> ConsultarOrigemColetaPorTipoNomeOnline(TipoOrigemColetaEnum tipoOrigemColeta, string nome);
+        IList<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta> ConsultarOuCriarOrigemColetaPorIds(IList<string> idsOrigemColeta, TipoOrigemColetaEnum tipoOrigemColeta);
+
+        
+        
+        IList<ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO.OrigemColeta> ConsultarOrigemColetaPorTipoNomeOnline(TipoOrigemColetaEnum tipoOrigemColeta, string nome);
 
         
         

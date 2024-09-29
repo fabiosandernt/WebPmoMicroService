@@ -1,8 +1,12 @@
-﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class ArquivoService : Service, IArquivoService
+    public class ArquivoService : IArquivoService
     {
 
         private readonly ISemanaOperativaService semanaOperativaService;
@@ -20,7 +24,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public Arquivo ObterArquivoDadoNaoEstruturado(Guid idArquivo)
         {
-            return arquivoRepository.FindByKey(idArquivo);
+            return arquivoRepository.GetAsync(idArquivo);
         }
 
         public byte[] ObterArquivoDadoNaoEstruturadoEmBytes(Guid idArquivo)
