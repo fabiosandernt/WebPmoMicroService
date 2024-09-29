@@ -1,10 +1,12 @@
-﻿namespace ONS.WEBPMO.Domain.Presentations
+﻿using ONS.WEBPMO.Application.DTO;
+
+namespace ONS.WEBPMO.Domain.Presentations
 {
-    [ServiceContract]
-    public interface ILogNotificacaoPresentation : IService
+    
+    public interface ILogNotificacaoPresentation 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         LogNotificacaoDTO ObterDadosPesquisaLogNotificacao(int? idSemanaOperativa = null, bool isMonitorar = false, bool? ordernarListagens = true);
     }
 }

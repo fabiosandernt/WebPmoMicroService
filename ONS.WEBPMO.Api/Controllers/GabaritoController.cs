@@ -5,6 +5,8 @@ namespace ONS.WEBPMO.Api.Controllers
     using Domain.Entities.Filters;
     using Domain.Presentations;
     using Microsoft.AspNetCore.Mvc;
+    using ONS.WEBPMO.Application.DTO;
+    using ONS.WEBPMO.Application.Models.Gabarito;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
     using ONS.WEBPMO.Domain.Entities.Base;

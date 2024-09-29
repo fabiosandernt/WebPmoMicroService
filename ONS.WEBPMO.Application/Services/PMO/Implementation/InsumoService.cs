@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class InsumoService : Service, IInsumoService
+    public class InsumoService : IInsumoService
     {
         private readonly IInsumoRepository insumoRepository;
         private readonly IOrigemColetaService origemColetaService;
@@ -33,7 +37,32 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         }
 
         #region Consultas
+        public async Task<IList<VisualizarInsumoModel>> ConsultarTodosInsumos()
+        {
+            var query = await insumoRepository.GetAllAsync();
 
+            var insumosDto = new List<VisualizarInsumoModel>();
+
+            foreach (var insumo in query)
+            {
+                var insumoDto = new VisualizarInsumoModel
+                {
+                    Id = insumo.Id,
+                    Nome = insumo.Nome,
+                    OrdemExibicao = insumo.OrdemExibicao,
+                    PreAprovado = insumo.PreAprovado.ToString(),
+                    Reservado = insumo.Reservado.ToString(),
+                    TipoInsumo = insumo.TipoInsumo,                   
+                    SiglaInsumo = insumo.SiglaInsumo,
+                    ExportarInsumo = insumo.ExportarInsumo.ToString(),
+                    Ativo = insumo.Ativo.ToString()                    
+    };
+
+                insumosDto.Add(insumoDto);
+            }
+
+            return insumosDto;
+        }
         public IList<Insumo> ConsultarInsumosNaoEstruturadoEEstruturadoComGrandezaAtiva()
         {
             return insumoRepository.ConsultarInsumosNaoEstruturadoEEstruturadoComGrandezaAtiva();

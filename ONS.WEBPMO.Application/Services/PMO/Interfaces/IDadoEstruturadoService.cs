@@ -1,10 +1,12 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IDadoColetaEstruturadoService : IService
+    //[ServiceContract]
+    public interface IDadoColetaEstruturadoService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         DadoColetaEstruturado ObterPorChave(int chave);
     }
 }

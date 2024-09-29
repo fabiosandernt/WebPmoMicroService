@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 
 
 namespace ONS.WEBPMO.Api.Controllers
 {
     // Criar permissão para LogDadosInformados
-    [WebPermission("LogNotificacao")]
+    //[WebPermission("LogNotificacao")]
     public class LogDadosInformadosController : ControllerBase
     {
 
@@ -15,50 +17,50 @@ namespace ONS.WEBPMO.Api.Controllers
             this.logDadosInformadosService = logDadosInformadosService;
         }
 
-        public ActionResult Index()
-        {
-            PesquisaLogInformarDadosModel model = new PesquisaLogInformarDadosModel();
-            return View(model);
-        }
+        //public ActionResult Index()
+        //{
+        //    PesquisaLogInformarDadosModel model = new PesquisaLogInformarDadosModel();
+        //    return View(model);
+        //}
 
-        [HttpPost]
-        public ActionResult Pesquisar(PesquisaLogInformarDadosModel model)
-        {
+        //[HttpPost]
+        //public ActionResult Pesquisar(PesquisaLogInformarDadosModel model)
+        //{
 
-            return PartialView("_PesquisaLogDadosInformados", model);
-        }
+        //    return PartialView("_PesquisaLogDadosInformados", model);
+        //}
 
-        public ActionResult CarregarGridLogInformarDados(GridSettings gridSettings, PesquisaLogInformarDadosModel model)
-        {
-            PagedResult<LogDadosInformados> resultadoPaginado = null;
+        //public ActionResult CarregarGridLogInformarDados(GridSettings gridSettings, PesquisaLogInformarDadosModel model)
+        //{
+        //    PagedResult<LogDadosInformados> resultadoPaginado = null;
 
-            if (ModelStateHandleValid)
-            {
-                LogDadosInformadosFilter filter = Mapper.DynamicMap<LogDadosInformadosFilter>(model);
+        //    if (ModelStateHandleValid)
+        //    {
+        //        LogDadosInformadosFilter filter = Mapper.DynamicMap<LogDadosInformadosFilter>(model);
 
-                Mapper.DynamicMap(gridSettings, filter);
+        //        Mapper.DynamicMap(gridSettings, filter);
 
-                resultadoPaginado = logDadosInformadosService.obterLogDadosInformados(filter);
-            }
+        //        resultadoPaginado = logDadosInformadosService.obterLogDadosInformados(filter);
+        //    }
 
-            return JsonToPagedGrid(resultadoPaginado, gridSettings.PageIndex);
-        }
+        //    return JsonToPagedGrid(resultadoPaginado, gridSettings.PageIndex);
+        //}
 
-        public ActionResult CarregarCsvDatalogInformarDados(PesquisaLogInformarDadosModel model)
-        {
-            PagedResult<LogDadosInformados> resultadoPaginado = null;
+        //public ActionResult CarregarCsvDatalogInformarDados(PesquisaLogInformarDadosModel model)
+        //{
+        //    PagedResult<LogDadosInformados> resultadoPaginado = null;
 
-            if (ModelStateHandleValid)
-            {
-                LogDadosInformadosFilter filter = Mapper.DynamicMap<LogDadosInformadosFilter>(model);
-                filter.PageSize = 10000 * 10000;
-                filter.PageIndex = 1;
+        //    if (ModelStateHandleValid)
+        //    {
+        //        LogDadosInformadosFilter filter = Mapper.DynamicMap<LogDadosInformadosFilter>(model);
+        //        filter.PageSize = 10000 * 10000;
+        //        filter.PageIndex = 1;
 
-                resultadoPaginado = logDadosInformadosService.obterLogDadosInformados(filter);
-            }
+        //        resultadoPaginado = logDadosInformadosService.obterLogDadosInformados(filter);
+        //    }
 
-            return Json(resultadoPaginado);
-        }
+        //    return Json(resultadoPaginado);
+        //}
 
     }
 }

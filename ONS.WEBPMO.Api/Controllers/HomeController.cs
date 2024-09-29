@@ -1,18 +1,11 @@
-﻿namespace ONS.WEBPMO.Api.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ONS.WEBPMO.Api.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
 
-
-        public HomeController()
-        {
-
-        }
-
-        public ActionResult Index()
-        {
-            ViewBag.Message = "Olá SGIPMO!";
-            return View();
-        }
+       
+        
     }
 }

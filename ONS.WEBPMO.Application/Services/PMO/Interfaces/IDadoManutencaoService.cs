@@ -1,20 +1,25 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IDadoColetaManutencaoService : IService
+    //[ServiceContract]
+    public interface IDadoColetaManutencaoService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer("ColetaInsumo")]
+        
+        //[UseNetDataContractSerializer("ColetaInsumo")]
         DadoColetaManutencao ObterPorChave(int chave);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         PagedResult<DadoColetaManutencaoDTO> ConsultarDadoColetaManutencaoPorColetaInsumo(
             DadoColetaInsumoFilter filter);
 
 
-        [OperationContract]
-        [UseNetDataContractSerializer("ColetaInsumo")]
+        
+        //[UseNetDataContractSerializer("ColetaInsumo")]
         DadoColetaManutencao ObterPorColetaInsumoId(int idColetaInsumo);
 
         void IncluirDadoColeta(DadoColetaManutencao dadoColeta);

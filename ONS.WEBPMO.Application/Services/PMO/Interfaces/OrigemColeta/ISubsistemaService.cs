@@ -1,18 +1,18 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta
 {
-    [ServiceContract]
-    public interface ISubsistemaService : IService
+    //[ServiceContract]
+    public interface ISubsistemaService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         Subsistema ObterSubsistemaPorChave(int chave);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Subsistema> ConsultarSubsistemasPorChaves(params int[] chaves);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Subsistema> ConsultarSubsistemasPorNome(string nome);
     }
 }

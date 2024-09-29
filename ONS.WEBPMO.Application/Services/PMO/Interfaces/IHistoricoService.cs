@@ -1,14 +1,16 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IHistoricoService : IService
+    //[ServiceContract]
+    public interface IHistoricoService 
     {
-        [OperationContract]
-        [TransactionRequired]
+        
+        
         void CriarSalvarHistoricoColetaInsumo(ColetaInsumo coletaInsumo);
 
-        [OperationContract]
-        [TransactionRequired]
+        
+        
         void CriarSalvarHistoricoSemanaOperativa(SemanaOperativa semanaOperativa);
 
         void ExcluirHistoricoColetaInsumo(int idColetaInsumo);

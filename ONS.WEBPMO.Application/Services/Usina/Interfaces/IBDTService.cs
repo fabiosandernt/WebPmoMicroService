@@ -1,7 +1,7 @@
 ﻿namespace ONS.WEBPMO.Servico.Usina
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    //[ServiceContract]
     [ServiceKnownType(typeof(List<Subsistema>))]
     [ServiceKnownType(typeof(List<Reservatorio>))]
     [ServiceKnownType(typeof(List<Usina>))]
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        [OperationContract]
+        
         IList<Reservatorio> ConsultarReservatorioPorNomeExibicao(string nome = "");
 
         /// <summary>
@@ -29,7 +29,7 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        [OperationContract]
+        
         IList<Reservatorio> ConsultarReservatorioPorChaves(params string[] chaves);
 
         #endregion
@@ -42,7 +42,7 @@
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
+        
         IList<Usina> ConsultarUsinaPorNomeExibicao(string nome = "");
 
         /// <summary>
@@ -50,14 +50,14 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
+        
         IList<Usina> ConsultarUsinaPorChaves(params string[] chaves);
 
         /// <summary>
         /// Consulta usinas sem parametro
         /// </summary>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
+        
         IList<Usina> ConsultarUsinas();
 
         #endregion
@@ -69,7 +69,7 @@
         /// Consulta unidades geradoras sem parametro
         /// </summary>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
+        
         IList<UnidadeGeradora> ConsultarUnidadesGeradoras();
 
         /// <summary>
@@ -77,7 +77,7 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
+        
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorChaves(params string[] chaves);
 
         /// <summary>
@@ -85,7 +85,7 @@
         /// </summary>
         /// <param name="chaveUsina">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
+        
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorUsina(string chave);
 
         #endregion
@@ -96,14 +96,14 @@
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        [OperationContract]
+        
         IList<Subsistema> ConsultarTodosSubsistemas();
 
         /// <summary>
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        [OperationContract]
+        
         IList<Subsistema> ConsultarSubsistemasAtivos();
 
         #endregion
@@ -116,7 +116,7 @@
         /// </summary>
         /// <param name="nome">Valor parcial do nome do agente</param>
         /// <returns>Lista de Agentes</returns>
-        [OperationContract]
+        
         IList<Agente> ConsultarAgentesPorNome(string nome, int top = int.MaxValue);
 
 
@@ -125,7 +125,7 @@
         /// </summary>
         /// <param name="chaves">Chaves dos Agentes</param>
         /// <returns>Lista de Agentes</returns>
-        [OperationContract]
+        
         IList<Agente> ConsultarAgentesPorChaves(params string[] chaves);
 
         #endregion
@@ -136,14 +136,14 @@
         /// Consulta todos os Submercados na BDT
         /// </summary>
         /// <returns>Lista de Submercados</returns>
-        [OperationContract]
+        
         IList<SubmercadoPMO> ConsultarSubmercados();
 
         /// <summary>
         /// Consulta Usinas PEM
         /// </summary>
         /// <returns>Lista de Usinas PEM</returns>
-        [OperationContract]
+        
         IList<UsinaPEM> ConsultarDadosUsinasVisaoPEM();
 
         #endregion
@@ -153,7 +153,7 @@
         /// Consulta dados de todos os REEs ativos
         /// </summary>
         /// <returns>Lista de todos os REEs ativos</returns>
-        [OperationContract]
+        
         IList<ReservatorioEE> ConsultarReservatoriosEquivalentesDeEnergiaAtivos();
         #endregion
     }

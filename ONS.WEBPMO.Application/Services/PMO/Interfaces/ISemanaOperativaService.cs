@@ -1,15 +1,19 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface ISemanaOperativaService : IService
+    
+    public interface ISemanaOperativaService 
     {
         /// <summary>
         /// Obtém a SemanaOperativa pela chave.
         /// </summary>
         /// <param name="chave">Chave da SemanaOperativa.</param>
         /// <returns>SemanaOperativa.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("Situacao", "PMO")]
+        
+        //[UseNetDataContractSerializer("Situacao", "PMO")]
         SemanaOperativa ObterSemanaOperativaPorChave(int chave);
 
         /// <summary>
@@ -17,8 +21,8 @@
         /// </summary>
         /// <param name="chave">Chave da SemanaOperativa.</param>
         /// <returns>SemanaOperativa.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("Situacao")]
+        
+        //[UseNetDataContractSerializer("Situacao")]
         SemanaOperativa ObterSemanaOperativaPorChaveParaInformarDados(int chave);
 
         /// <summary>
@@ -27,24 +31,24 @@
         /// </summary>
         /// <param name="idSemanaOperativa">Id da semana operativa.</param>
         /// <returns>Retorna a SemanaOperativa caso esteja em situação válida.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("PMO")]
+        
+        //[UseNetDataContractSerializer("PMO")]
         SemanaOperativa ObterSemanaOperativaValidaParaAbrirEstudo(DadosSemanaOperativaDTO dto);
 
         /// <summary>
         /// Consulta as semanas operativas que já foram associada a um gabarito.
         /// </summary>
         /// <returns>Lista de SemanaOperativa.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<SemanaOperativa> ConsultarSemanasOperativasComGabarito();
 
         /// <summary>
         /// Consulta as semanas operativas com estudo aberto por nome.
         /// </summary>
         /// <returns>Lista de SemanaOperativa.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<SemanaOperativa> ConsultarEstudoPorNome(string nomeEstudo);
 
         /// <summary>
@@ -52,8 +56,8 @@
         /// </summary>
         /// <param name="nomeEstudo"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<SemanaOperativa> ConsultarEstudoConvergenciaPldPorNome(string nomeEstudo);
 
         /// <summary>
@@ -62,8 +66,8 @@
         /// <param name="ano">Ano do PMO</param>
         /// <param name="mes">Mês do PMO</param>
         /// <returns>Lista de SemanaOperativa</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         ISet<SemanaOperativa> GerarSugestaoSemanasOperativas(int ano, int mes);
 
         /// <summary>
@@ -76,8 +80,8 @@
         /// "VersaoPMO": Identificação da versão do PMO a fim de tratar a concorrência de registros
         /// "VersaoSemanaOperativa": Identificação da versão da Semana Operativa a fim de tratar a concorrência de registros
         /// </param>
-        [OperationContract]
-        [TransactionRequired]
+        
+        
         void AbrirEstudo(AberturaEstudoDTO dto);
 
         /// <summary>
@@ -111,8 +115,8 @@
         /// Altera a semana operativa.
         /// </summary>
         /// <param name="dadosAlteracao">ValorDado para alteração.</param>
-        [OperationContract]
-        [TransactionRequired]
+        
+        
         void AlterarSemanaOperativa(DadosAlteracaoSemanaOperativaDTO dadosAlteracao);
 
         /// <summary>
@@ -124,8 +128,8 @@
         /// "IsPadrao": Indica se o gabarito deve ser resetado para o grabarito padrão.
         /// "VersaoPMO": Identificação da versão do PMO a fim de tratar a concorrência de registros
         /// </param>
-        [OperationContract]
-        [TransactionRequired]
+        
+        
         void ResetarGabarito(ResetGabaritoDTO dto);
 
         /// <summary>
@@ -133,8 +137,8 @@
         /// </summary>
         /// <param name="idSemanaOperativa">Id da semana operativa.</param>
         /// <returns>Retorna a SemanaOperativa caso esteja em situação válida.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("PMO", "Situacao")]
+        
+        //[UseNetDataContractSerializer("PMO", "Situacao")]
         SemanaOperativa ObterSemanaOperativaValidaParaResetarGabarito(int idSemanaOperativa);
 
         #region Convergência CCEE
@@ -145,8 +149,8 @@
         /// </summary>
         /// <param name="filtro"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
+        
+        //[UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
         ArquivosSemanaOperativaDTO ConsultarArquivosSemanaOperativaConvergenciaCcee(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
@@ -165,17 +169,17 @@
         /// </summary>
         /// <param name="filtro"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("Arquivos", "SemanaOperativa", "SemanaOperativa.Situacao")]
+        
+        //[UseNetDataContractSerializer("Arquivos", "SemanaOperativa", "SemanaOperativa.Situacao")]
         ArquivosSemanaOperativaConvergirPldDTO ConsultarArquivosSemanaOperativaConvergenciaPLD(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
         /// Método utilizado para realizar a convergência com PLD ("Convergir PLD" ou "Não Convergir PLD")
         /// </summary>
         /// <param name="dto"></param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void ConvergirPLD(ConvergirPLDDTO dto);
 
 
@@ -188,8 +192,8 @@
         /// </summary>
         /// <param name="filtro"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
+        
+        //[UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
         ArquivosSemanaOperativaDTO ConsultarArquivosSemanaOperativaPublicacaoResultados(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
@@ -202,9 +206,9 @@
         /// Método utilizado para efetuar o reprocessamento do PMO, que é acionado na mesma tela em que os resultados são publicados.
         /// </summary>
         /// <param name="dto"></param>
-        [OperationContract]
-        [TransactionRequired]
-        [UseNetDataContractSerializer]
+        
+        
+        
         void ReprocessarPMO(ReprocessamentoPMODTO dto);
 
         #endregion

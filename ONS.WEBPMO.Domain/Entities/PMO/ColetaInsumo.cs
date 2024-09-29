@@ -19,7 +19,7 @@ namespace ONS.WEBPMO.Domain.Entities.PMO
 
         public int? SituacaoId { get; set; }
         public virtual SituacaoColetaInsumo Situacao { get; set; }
-        public virtual IList<DadoColeta> DadosColeta { get; set; }
+        public virtual IList<DadoColeta> DadosColeta { get; set; } = new List<DadoColeta>();
         public virtual Insumo Insumo { get; set; }
         public virtual SemanaOperativa SemanaOperativa { get; set; }
         public virtual Agente Agente { get; set; }

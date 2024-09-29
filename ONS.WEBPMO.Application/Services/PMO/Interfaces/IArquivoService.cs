@@ -1,10 +1,13 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IArquivoService : IService
+    
+    public interface IArquivoService 
     {
 
-        [OperationContract]
+        
         byte[] ObterArquivoDadoNaoEstruturadoEmBytes(Guid idArquivo);
 
         /// <summary>
@@ -12,20 +15,20 @@
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         ResponseDownload ObterArquivosCompactados(RequestDownload request);
 
         /// <summary>
         /// Serviço utilizado para limpar os arquivos temporários que já foram gravados no banco de dados.
         /// </summary>
         /// <param name="arquivos"></param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         void LimparArquivosTemporariosUpload(ISet<ArquivoDadoNaoEstruturadoDTO> arquivos);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         Arquivo ObterArquivoDadoNaoEstruturado(Guid idArquivo);
 
         /// <summary>
@@ -33,19 +36,19 @@
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void SalvarDadoColetaNaoEstruturada(DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dto, DadosMonitoramentoColetaInsumoDTO dtoDadosAnalise, ColetaInsumo coletaInusmo = null);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void AprovarColetaDadosNaoEstruturados(DadosMonitoramentoColetaInsumoDTO dtoColeta, DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dtoDados);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void RejeitarColetaDadosNaoEstruturados(DadosMonitoramentoColetaInsumoDTO dtoColeta, DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dtoDados);
 
         /// <summary>
@@ -53,18 +56,18 @@
         /// Método responsável por efetuar o início de Convergência com CCEE.
         /// </summary>
         /// <param name="dto"></param>
-        [OperationContract]
-        [TransactionRequired]
-        [UseNetDataContractSerializer]
+        
+        
+        
         void IniciarConvergenciaCCEE(InicializacaoConvergenciaCceeDTO dto);
 
         /// <summary>
         /// Método utilizado para efetuar a publicação de resultados de uma semana operativa.
         /// </summary>
         /// <param name="dto"></param>
-        [OperationContract]
-        [TransactionRequired]
-        [UseNetDataContractSerializer]
+        
+        
+        
         void PublicarResultados(PublicacaoResultadosDTO dto);
 
     }

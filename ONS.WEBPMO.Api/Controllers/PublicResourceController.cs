@@ -1,4 +1,7 @@
-﻿namespace ONS.WEBPMO.Api.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+
+namespace ONS.WEBPMO.Api.Controllers
 {
     public class PublicResourceController : ControllerBase
     {
@@ -10,9 +13,9 @@
             this.arquivoService = arquivoService;
         }
 
-        protected override ResponseDownload DownloadFilesDatabase(RequestDownload request)
-        {
-            return arquivoService.ObterArquivosCompactados(request);
-        }
+        //protected override ResponseDownload DownloadFilesDatabase(RequestDownload request)
+        //{
+        //    return arquivoService.ObterArquivosCompactados(request);
+        //}
     }
 }

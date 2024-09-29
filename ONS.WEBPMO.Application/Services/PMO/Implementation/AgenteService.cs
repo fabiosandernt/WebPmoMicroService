@@ -1,8 +1,16 @@
-﻿
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class AgenteService : Service, IAgenteService
+    public class AgenteService :  IAgenteService
     {
         private readonly IAgenteRepository agenteRepository;
         private readonly IParametroService parametroService;
@@ -29,14 +37,14 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             return agenteRepository.ConsultarAgentesGabarito(filter);
         }
 
-        public Agente ObterOuCriarAgentePorChave(int chave)
+        public async Task<Agente> ObterOuCriarAgentePorChave(int chave)
         {
-            Agente agente = agenteRepository.FindByKey(chave);
+            var agente = await agenteRepository.GetAsync(chave);
 
             if (agente == null)
             {
                 agente = bdtService.ConsultarAgentesPorChaves(chave).First();
-                agenteRepository.Add(agente);
+                agenteRepository.SaveAsync(agente);
             }
             return agente;
         }
@@ -76,7 +84,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         public void SincronizarAgentesComCDRE()
         {
             //obter todos os agentes do sgipmo
-            var agentesSGIPMO = agenteRepository.All();
+            var agentesSGIPMO = agenteRepository.GetAll();
 
             //obter agentes do cdre 
             var agentesCDRE = bdtService.ConsultarAgentesPorChaves(agentesSGIPMO.Select(ageSGIPMO => ageSGIPMO.Id).ToArray());
@@ -126,5 +134,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         {
             return agenteRepository.ObterAgentesPorIds(idsAgente);
         }
+
+       
     }
 }

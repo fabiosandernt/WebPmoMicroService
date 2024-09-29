@@ -1,10 +1,13 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface ILogDadosInformadosService : IService
+    //[ServiceContract]
+    public interface ILogDadosInformadosService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer("Agente", "SemanaOperativa")]
+        
+        //[UseNetDataContractSerializer("Agente", "SemanaOperativa")]
         PagedResult<LogDadosInformados> obterLogDadosInformados(LogDadosInformadosFilter filter);
 
     }

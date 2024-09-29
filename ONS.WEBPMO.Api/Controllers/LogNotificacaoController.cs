@@ -1,9 +1,18 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.LogNotificacao;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
+using ONS.WEBPMO.Domain.Presentations;
 
 
 namespace ONS.WEBPMO.Api.Controllers
 {
-    [WebPermission("LogNotificacao")]
+    //[WebPermission("LogNotificacao")]
     public class LogNotificacaoController : ControllerBase
     {
 
@@ -23,93 +32,93 @@ namespace ONS.WEBPMO.Api.Controllers
             this.logNotificacaoPresentation = logNotificacaoPresentation;
         }
 
-        public ActionResult Index()
-        {
-            LogNotificacaoDTO dadosFiltro = this.logNotificacaoPresentation.ObterDadosPesquisaLogNotificacao();
-            var model = Mapper.Map<PesquisaLogNotificacaoModel>(dadosFiltro);
-            return View(model);
-        }
+        //public ActionResult Index()
+        //{
+        //    LogNotificacaoDTO dadosFiltro = this.logNotificacaoPresentation.ObterDadosPesquisaLogNotificacao();
+        //    var model = Mapper.Map<PesquisaLogNotificacaoModel>(dadosFiltro);
+        //    return View(model);
+        //}
 
-        public ActionResult CarregarDadosEstudo(int? idSemanaOperativa)
-        {
-            DadosPesquisaColetaInsumoDTO dto = coletaInsumoPresentation.ObterDadosPesquisaColetaInsumo(idSemanaOperativa, true);
-            return Json(new { dto.Agentes, dto.Insumos }, JsonRequestBehavior.AllowGet);
-        }
+        //public ActionResult CarregarDadosEstudo(int? idSemanaOperativa)
+        //{
+        //    DadosPesquisaColetaInsumoDTO dto = coletaInsumoPresentation.ObterDadosPesquisaColetaInsumo(idSemanaOperativa, true);
+        //    return Json(new { dto.Agentes, dto.Insumos }, JsonRequestBehavior.AllowGet);
+        //}
 
-        [HttpPost]
-        public ActionResult Pesquisar(PesquisaLogNotificacaoModel model)
-        {
-            if (ModelStateHandleValid)
-            {
-                SemanaOperativa semanaOperativa = semanaOperativaService.ObterSemanaOperativaPorChave(model.IdSemanaOperativa.Value);
+        //[HttpPost]
+        //public ActionResult Pesquisar(PesquisaLogNotificacaoModel model)
+        //{
+        //    if (ModelStateHandleValid)
+        //    {
+        //        SemanaOperativa semanaOperativa = semanaOperativaService.ObterSemanaOperativaPorChave(model.IdSemanaOperativa.Value);
 
-                model.NomeSemanaOperativaSituacao = semanaOperativa.Situacao == null
-                    ? semanaOperativa.Nome
-                    : string.Format("{0} - {1}", semanaOperativa.Nome, semanaOperativa.Situacao.Descricao);
+        //        model.NomeSemanaOperativaSituacao = semanaOperativa.Situacao == null
+        //            ? semanaOperativa.Nome
+        //            : string.Format("{0} - {1}", semanaOperativa.Nome, semanaOperativa.Situacao.Descricao);
 
-                model.IdSituacaoSemanaOperativa = semanaOperativa.Situacao.Id;
+        //        model.IdSituacaoSemanaOperativa = semanaOperativa.Situacao.Id;
 
-                if (semanaOperativa.Situacao == null)
-                {
-                    ViewBag.Titulo = model.NomeSemanaOperativaSituacao;
-                    ViewBag.Mensagem = SGIPMOMessages.MS074;
+        //        if (semanaOperativa.Situacao == null)
+        //        {
+        //            ViewBag.Titulo = model.NomeSemanaOperativaSituacao;
+        //            ViewBag.Mensagem = SGIPMOMessages.MS074;
 
-                    return PartialView("_LogNotificacaoVazio");
-                }
+        //            return PartialView("_LogNotificacaoVazio");
+        //        }
 
-                LogNotificacaoFilter filter = Mapper.DynamicMap<LogNotificacaoFilter>(model);
-            }
+        //        LogNotificacaoFilter filter = Mapper.DynamicMap<LogNotificacaoFilter>(model);
+        //    }
 
-            return PartialView("_PesquisaLogNotificacao", model);
-        }
+        //    return PartialView("_PesquisaLogNotificacao", model);
+        //}
 
-        [HttpPost]
-        public ActionResult Excluir(PesquisaLogNotificacaoModel model)
-        {
-            if (ModelStateHandleValid)
-            {
-                bool success = logNotificacaoService.Apagar(model.IdsLogNotificacao.ToList());
+        //[HttpPost]
+        //public ActionResult Excluir(PesquisaLogNotificacaoModel model)
+        //{
+        //    if (ModelStateHandleValid)
+        //    {
+        //        bool success = logNotificacaoService.Apagar(model.IdsLogNotificacao.ToList());
 
-                if (success)
-                {
-                    model.IdsLogNotificacao = null;
-                }
+        //        if (success)
+        //        {
+        //            model.IdsLogNotificacao = null;
+        //        }
 
-                return Pesquisar(model);
-            }
+        //        return Pesquisar(model);
+        //    }
 
-            return PartialView("_PesquisaLogNotificacao", model);
-        }
+        //    return PartialView("_PesquisaLogNotificacao", model);
+        //}
 
-        public ActionResult CarregarPesquisaLogNotificacao(PesquisaLogNotificacaoModel pesquisaLogNotificacaoModel)
-        {
-            LogNotificacaoDTO dadosFiltro = logNotificacaoPresentation.ObterDadosPesquisaLogNotificacao(pesquisaLogNotificacaoModel.IdSemanaOperativa);
-            PesquisaLogNotificacaoModel model = Mapper.Map<PesquisaLogNotificacaoModel>(dadosFiltro);
+        //public ActionResult CarregarPesquisaLogNotificacao(PesquisaLogNotificacaoModel pesquisaLogNotificacaoModel)
+        //{
+        //    LogNotificacaoDTO dadosFiltro = logNotificacaoPresentation.ObterDadosPesquisaLogNotificacao(pesquisaLogNotificacaoModel.IdSemanaOperativa);
+        //    PesquisaLogNotificacaoModel model = Mapper.Map<PesquisaLogNotificacaoModel>(dadosFiltro);
 
-            if (pesquisaLogNotificacaoModel.IdSemanaOperativa > 0)
-            {
-                model.IdSemanaOperativa = pesquisaLogNotificacaoModel.IdSemanaOperativa;
-                model.IdsAgentes = pesquisaLogNotificacaoModel.IdsAgentes;
-                model.IdSituacaoSemanaOperativa = pesquisaLogNotificacaoModel.IdSituacaoSemanaOperativa;
-            }
+        //    if (pesquisaLogNotificacaoModel.IdSemanaOperativa > 0)
+        //    {
+        //        model.IdSemanaOperativa = pesquisaLogNotificacaoModel.IdSemanaOperativa;
+        //        model.IdsAgentes = pesquisaLogNotificacaoModel.IdsAgentes;
+        //        model.IdSituacaoSemanaOperativa = pesquisaLogNotificacaoModel.IdSituacaoSemanaOperativa;
+        //    }
 
-            return View("Index", model);
-        }
+        //    return View("Index", model);
+        //}
 
-        public ActionResult CarregarGridLogNotificacao(GridSettings gridSettings, PesquisaLogNotificacaoModel model)
-        {
-            PagedResult<LogNotificacao> resultadoPaginado = null;
+        //public ActionResult CarregarGridLogNotificacao(GridSettings gridSettings, PesquisaLogNotificacaoModel model)
+        //{
+        //    PagedResult<LogNotificacao> resultadoPaginado = null;
 
-            if (ModelStateHandleValid)
-            {
-                LogNotificacaoFilter filter = Mapper.DynamicMap<LogNotificacaoFilter>(model);
+        //    if (ModelStateHandleValid)
+        //    {
+        //        LogNotificacaoFilter filter = Mapper.DynamicMap<LogNotificacaoFilter>(model);
 
-                Mapper.DynamicMap(gridSettings, filter);
+        //        Mapper.DynamicMap(gridSettings, filter);
 
-                resultadoPaginado = logNotificacaoService.ObterLogNotificacao(filter);
-            }
+        //        resultadoPaginado = logNotificacaoService.ObterLogNotificacao(filter);
+        //    }
 
-            return JsonToPagedGrid(resultadoPaginado, gridSettings.PageIndex);
-        }
+        //    return JsonToPagedGrid(resultadoPaginado, gridSettings.PageIndex);
+        //}
     }
 }

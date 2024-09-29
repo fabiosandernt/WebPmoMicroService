@@ -1,14 +1,18 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations
 {
-    [ServiceContract]
-    public interface IBDTService : IService
+    
+    public interface IBDTService 
     {
         /// <summary>
         /// Consulta UGEs sem parametro
         /// </summary>
         /// <returns>Lista de UGEs</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<UnidadeGeradora> ConsultarUnidadesGeradoras();
 
         /// <summary>
@@ -18,8 +22,8 @@
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Reservatorio> ConsultarReservatorioPorNomeExibicao(string nomeExibicaoContem = "");
 
         /// <summary>
@@ -27,8 +31,8 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Reservatorio> ConsultarReservatorioPorChaves(params string[] chaves);
 
         /// <summary>
@@ -37,8 +41,8 @@
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Usina> ConsultarUsinaPorNomeExibicao(string nomeExibicaoContem = "");
 
         /// <summary>
@@ -46,16 +50,16 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Usina> ConsultarUsinaPorChaves(params string[] chaves);
 
         /// <summary>
         /// Consulta usinas sem parametro
         /// </summary>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Usina> ConsultarUsinas();
 
         /// <summary>
@@ -63,8 +67,8 @@
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorChaves(params string[] chaves);
 
         /// <summary>
@@ -72,24 +76,24 @@
         /// </summary>
         /// <param name="chaveUsina">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorUsina(string chaveUsina);
 
         /// <summary>
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Subsistema> ConsultarTodosSubsistemas();
 
         /// <summary>
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Subsistema> ConsultarSubsistemasAtivos();
 
         /// <summary>
@@ -97,8 +101,8 @@
         /// </summary>
         /// <param name="nomeParcial">Valor parcial do nome do agente</param>
         /// <returns>Lista de Agentes</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Agente> ConsultarAgentesPorNome(string nomeParcial, int top = int.MaxValue);
 
 
@@ -107,32 +111,32 @@
         /// </summary>
         /// <param name="chaves">Chaves dos Agentes</param>
         /// <returns>Lista de Agentes</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Agente> ConsultarAgentesPorChaves(params int[] chaves);
 
         /// <summary>
         /// Consulta todos os submercados
         /// </summary>
         /// <returns>Lista de Submercados</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<SubmercadoPMO> ConsultarSubmercados();
 
         /// <summary>
         /// Consulta todos os submercados
         /// </summary>
         /// <returns>Lista de Submercados</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<UsinaPEM> ConsultarDadosUsinasVisaoPEM();
 
         /// <summary>
         /// Consulta dados de todos os REEs ativos
         /// </summary>
         /// <returns>Lista de todos os REEs ativos</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<ReservatorioEE> ConsultarReservatoriosEquivalentesDeEnergiaAtivos();
 
     }

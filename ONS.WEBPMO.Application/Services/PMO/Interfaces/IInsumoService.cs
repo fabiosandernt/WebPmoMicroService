@@ -1,15 +1,21 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.Models.Insumo;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    [ServicePermission("ConfigurarInsumo")]
-    public interface IInsumoService : IService
+   
+    public interface IInsumoService 
     {
+
+        Task<IList<VisualizarInsumoModel>> ConsultarTodosInsumos();
         /// <summary>
         /// Consultar insumo com grandeza ativa
         /// </summary>
         /// <returns>Lista de insumo estruturado e nao estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+       
         IList<Insumo> ConsultarInsumosNaoEstruturadoEEstruturadoComGrandezaAtiva();
 
         /// <summary>
@@ -18,8 +24,7 @@
         /// <param name="tipoOrigemColeta"></param>
         /// <param name="categoria"></param>
         /// <returns>Lista de insumo estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
         IList<InsumoEstruturado> ConsultarInsumoPorTipoOrigemColetaCategoria(TipoOrigemColetaEnum tipoOrigemColeta,
             CategoriaInsumoEnum? categoria = null);
 
@@ -28,8 +33,7 @@
         /// </summary>
         /// <param name="idUsina"></param>
         /// <returns>Lista de insumo estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+       
         IList<InsumoEstruturado> ConsultarInsumoEstruturadosPorUsina(string idUsina);
 
         /// <summary>
@@ -38,32 +42,24 @@
         /// </summary>
         /// <param name="nomeInsumo">Parte do nome do insumo</param>
         /// <returns>Lista de insumos estruturados e não estruturados</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Insumo> ConsultarInsumosPorNome(string nomeInsumo);
 
         /// <summary>
         /// Consulta insumo não estruturado
         /// </summary>
         /// <returns>Lista de insumo não estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<InsumoNaoEstruturado> ConsultarInsumoNaoEstruturado();
 
         /// <summary>
         /// Consultar Todos os Insumos
         /// </summary>
         /// <returns>Lista de Insumos</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        IList<Insumo> ConsultarTodosInsumos();
-
-        /// <summary>
-        /// Consultar Insumos pelo Filtro de Pesquisa
-        /// </summary>
-        /// <returns>Lista de Insumos</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+               
+        
         PagedResult<Insumo> ConsultarInsumosPorFiltro(InsumoFiltro filtro);
 
         /// <summary>
@@ -71,9 +67,8 @@
         /// </summary>
         /// <param name="insumo"></param>
         /// <returns>Id do insumo não estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+                
+       
         int InserirInsumoNaoEstruturado(InsumoNaoEstruturado insumo);
 
         /// <summary>
@@ -81,8 +76,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         InsumoNaoEstruturado ObterInsumoNaoEstruturadoPorChave(int id);
 
         /// <summary>
@@ -90,9 +85,9 @@
         /// </summary>
         /// <param name="insumo"></param>
         /// <returns>Id do insumo estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         int InserirInsumoEstruturado(DadosInclusaoInsumoEstruturadoDTO insumo);
 
         /// <summary>
@@ -100,26 +95,26 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Insumo estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("CategoriaInsumo,TipoColeta,Grandezas.TipoDadoGrandeza.Id")]
+        
+        //[UseNetDataContractSerializer("CategoriaInsumo,TipoColeta,Grandezas.TipoDadoGrandeza.Id")]
         InsumoEstruturado ObterInsumoEstruturadoPorChave(int id);
 
         /// <summary>
         /// Alterar Insumo Nao Estruturado
         /// </summary>
         /// <param name="insumo"></param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void AlterarInsumoNaoEstruturado(InsumoNaoEstruturado insumo, byte[] versao);
 
         /// <summary>
         /// Alterar o Insumo Estruturado com as informações do DTO.
         /// </summary>
         /// <param name="dadosInsumoEstruturado">DTO com as informações do Insumo.</param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void AlterarInsumoEstruturado(DadosInclusaoInsumoEstruturadoDTO dadosInsumoEstruturado);
 
         /// <summary>
@@ -127,9 +122,9 @@
         /// </summary>
         /// <param name="idInsumo"></param>
         /// <param name="versao"></param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void ExcluirInsumoPorChave(int idInsumo, byte[] versao);
 
         /// <summary>
@@ -137,16 +132,16 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns>True ou False</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         bool InsumoBloqueadosAlteracao(int id);
 
         /// <summary>
         ///  Verifica se o insumo é Reservado
         /// </summary>
         /// <param name="id"></param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         void VerificarInsumoReservado(int id);
 
         /// <summary>
@@ -154,16 +149,16 @@
         /// </summary>
         /// <param name="idGrandeza">Id da grandeza.</param>
         /// <returns>Grandeza</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         Grandeza ObterGrandezaPorId(int idGrandeza);
 
         /// <summary>
         /// Valida a grandeza ao incluir/alterar.
         /// </summary>
         /// <param name="grandeza">Grandeza</param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         void ValidarIncluirAlterarGrandeza(Grandeza grandeza);
 
         /// <summary>
@@ -171,16 +166,16 @@
         /// Não permitindo excluir-la caso exista dado coleta associado.
         /// </summary>
         /// <param name="idGrandeza">Id da grandeza a ser validada</param>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         void ValidarExclusaoGrandeza(int idGrandeza);
 
         /// <summary>
         /// Obtém os tipos de dados da grandeza.
         /// </summary>
         /// <returns>IList de TipoDadoGrandeza</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<TipoDadoGrandeza> ObterTiposDadoGrandeza();
 
         /// <summary>
@@ -188,8 +183,8 @@
         /// </summary>
         /// <param name="idInsumo">Id do Insumo</param>
         /// <returns>Lista de Grandezas.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer("TipoDadoGrandeza.Id")]
+        
+        //[UseNetDataContractSerializer("TipoDadoGrandeza.Id")]
         IList<Grandeza> ObterGrandezasPorInsumo(int idInsumo);
 
         /// <summary>
@@ -198,8 +193,8 @@
         /// <param name="idSemanaOperativa">Id do Estudo (semana operativa)</param>
         /// <param name="idsAgente">Ids dos Agentes do Estudo (semana operativa)</param>
         /// <returns>Lista de Insumos.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<Insumo> ConsultarInsumosPorSemanaOperativaAgentes(int idSemanaOperativa, params int[] idsAgente);
 
         /// <summary>
@@ -208,8 +203,8 @@
         /// </summary>
         /// <param name="idGrandeza">Id da grandeza</param>
         /// <returns>Lista de grandeza.</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         bool PermitirAlteracaoGrandeza(int idGrandeza);
 
         /// <summary>
@@ -217,9 +212,9 @@
         /// </summary>
         /// <param name="insumo"></param>
         /// <returns>Id do insumo estruturado</returns>
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         Insumo ConsultarInsumo(int id);
     }
 }

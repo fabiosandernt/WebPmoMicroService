@@ -1,10 +1,12 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface ISGIService : IService
+    
+    public interface ISGIService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<DadoColetaManutencao> ObterManutencoesPorChaves(string[] chavesUnidadesGeradoras,
             DateTime dataInicio, DateTime dataFim);
     }

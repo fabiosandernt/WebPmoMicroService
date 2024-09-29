@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Presentations;
@@ -29,11 +30,11 @@ namespace ONS.WEBPMO.Api.Controllers
         #region Index
         // GET: api/insumo
         [HttpGet]
-        public ActionResult<IEnumerable<InsumoConsultaModel>> GetInsumos()
+        public async Task<ActionResult> GetInsumos()
         {
-            var insumos = _insumoService.ObterTodos();
-            var response = _mapper.Map<IEnumerable<InsumoResponse>>(insumos);
-            return Ok(response);
+            var insumos = await insumoService.ConsultarTodosInsumos();
+
+            return Ok(insumos);
         }
 
         public ActionResult CarregarPesquisaInsumo(InsumoConsultaModel model)

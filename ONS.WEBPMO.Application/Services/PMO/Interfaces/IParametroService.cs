@@ -1,12 +1,11 @@
-﻿
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
 
-using ONS.WEBPMO.Application.DTO;
-using ONS.WEBPMO.Domain.Filters;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     public interface IParametroService
     {
-        ValueTask<ParametroDTO> ObterParametroPorFiltro(string filter);
+        Parametro ObterParametro(ParametroEnum paramento);
     }
 }

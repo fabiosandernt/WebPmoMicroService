@@ -1,10 +1,12 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.DTO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface ISharePointService : IService
+   
+    public interface ISharePointService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         byte[] ObterArquivo(string caminhoArquivo, int? numeroVersao);
 
         /// <summary>

@@ -1,64 +1,69 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
+﻿using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    [ServiceContract]
-    public interface IGabaritoService : IService
+    //[ServiceContract]
+    public interface IGabaritoService 
     {
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         Gabarito ObterPorChave(int chave);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         PagedResult<GabaritoAgrupadoAgenteOrigemColetaDTO> ConsultarGabaritosAgrupadoPorAgenteTipoOrigemPaginado(GabaritoOrigemColetaFilter filter);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void SalvarGabarito(GabaritoConfiguracaoDTO dto);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
-        [TransactionRequired]
+        
+        
+        
         void AlterarGabarito(GabaritoConfiguracaoDTO dto);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         Gabarito ObterPorColetaInsumoNaoEstruturado(GabaritoDadoColetaNaoEstruturadoFilter filtro);
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>> ConsultarUsinaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUGEDTO>> ConsultarUGEPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoReservatorioDTO>> ConsultarReservatorioPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoSubsistemaDTO>> ConsultarSubsistemaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoParticipantesBaseDTO<ReservatorioParticipanteGabaritoDTO>> ConsultarReservatoriosParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoParticipantesBaseDTO<UsinaParticipanteGabaritoDTO>> ConsultarUsinasParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoParticipantesBaseDTO<AgenteParticipanteGabaritoDTO>> ConsultarAgentesParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoInsumoNaoEstruturadoDTO>> ConsultarAgentesPodemEnviarDadosNaoEstruturadosPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
-        [UseNetDataContractSerializer]
+        
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoGeracaoComplementar>> ConsultarAgentesComGeracaoComplementar(bool isPadrao, string nomeRevisao = "");
 
 

@@ -79,5 +79,13 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         {
             return _query.AsQueryable();
         }
+
+        public IList<T> GetAll()
+        {
+
+            var consulta = _query.ToList();
+            return consulta;
+
+        }
     }
 }

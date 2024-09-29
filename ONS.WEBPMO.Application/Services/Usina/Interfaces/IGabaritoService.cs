@@ -1,7 +1,7 @@
 ﻿namespace ONS.WEBPMO.Servico.Usina
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    //[ServiceContract]
     [ServiceKnownType(typeof(List<Subsistema>))]
     [ServiceKnownType(typeof(List<Reservatorio>))]
     [ServiceKnownType(typeof(List<Usina>))]
@@ -22,7 +22,7 @@
         /// <returns>Lista de Agentes</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Agentes</returns>
-        [OperationContract]
+        
         IList<GabaritoParticipantesBaseDTO<AgenteParticipanteGabaritoDTO>> ConsultarAgentesParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -37,7 +37,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Usinas</returns>
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>> ConsultarUsinaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         /// <summary>
@@ -48,7 +48,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Usinas Participantes</returns>
-        [OperationContract]
+        
         IList<GabaritoParticipantesBaseDTO<UsinaParticipanteGabaritoDTO>> ConsultarUsinasParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
         #endregion
 
@@ -61,7 +61,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUGEDTO>> ConsultarUGEPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -75,7 +75,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios</returns>
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoReservatorioDTO>> ConsultarReservatorioPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         /// <summary>
@@ -86,7 +86,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios Participantes do Gabarito</returns>
-        [OperationContract]
+        
         IList<GabaritoParticipantesBaseDTO<ReservatorioParticipanteGabaritoDTO>> ConsultarReservatoriosParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
 
@@ -102,7 +102,7 @@
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios</returns>
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoSubsistemaDTO>> ConsultarSubsistemaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -117,10 +117,10 @@
         /// <returns>Lista Agentes que podem Enviar dados não estruturados</returns>
         /// <param name="isPadrao">Lista Agentes que podem Enviar dados não estruturados</param>
         /// <returns>Lista de Reservatórios</returns>
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoInsumoNaoEstruturadoDTO>> ConsultarAgentesPodemEnviarDadosNaoEstruturadosPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        [OperationContract]
+        
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoGeracaoComplementar>> ConsultarAgentesComGeracaoComplementar(bool isPadrao, string nomeRevisao = "");
 
         #endregion
