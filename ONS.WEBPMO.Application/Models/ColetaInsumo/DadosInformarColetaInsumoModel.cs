@@ -1,5 +1,8 @@
 ﻿
 
+using ONS.Infra.Core.Pagination;
+using ONS.WEBPMO.Application.Models.ColetaInsumo.ColetaInsumo;
+
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo
 {
     public class DadosInformarColetaInsumoModel

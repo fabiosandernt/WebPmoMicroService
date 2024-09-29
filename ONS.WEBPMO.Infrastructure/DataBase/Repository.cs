@@ -10,6 +10,7 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
     {
         protected DbSet<T> _query { get; set; }
         protected DbContext _context { get; set; }
+        private const bool ConcurrencyCheckEnabled = true; // Altere para false para desabilitar a verificação de concorrência
 
         public Repository(WEBPMODbContext context)
         {
@@ -18,11 +19,14 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         }
 
         public async Task SaveAsync(T entity)
-        {
-            if (entity == null)
-                throw new ArgumentNullException(nameof(entity), "A entidade não pode ser nula.");
+        {            
             await _query.AddAsync(entity);
             await _context.SaveChangesAsync();
+        }
+        public void Add(T entity)
+        {          
+             _query.Add(entity);
+             _context.SaveChanges();
         }
 
         public async Task DeleteAsync(T entity)
@@ -37,7 +41,7 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
             await _context.SaveChangesAsync();
         }
 
-        public async ValueTask<T> GetAsync(object id)
+        public async ValueTask<T> GetByIdAsync(object id)
         {
             return await _query.FindAsync(id);
         }
@@ -82,16 +86,105 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
 
         public IList<T> GetAll()
         {
-
             var consulta = _query.ToList();
             return consulta;
-
         }
 
-        public T Get(object id)
+        public T FindByKey(object id)
         {
             var consulta = _query.Find(id);
             return consulta;
+        }
+
+        public T FindByKeyConcurrencyValidate(object key, object version, bool checkDeletedEntity = true)
+        {
+            // Busca a entidade pelo ID
+            var entityFinded = _query.Find(key);
+
+            // Se a entidade não for encontrada e 'checkDeletedEntity' for verdadeiro, lança uma exceção
+            if (entityFinded == null && checkDeletedEntity)
+            {
+                throw new DbUpdateConcurrencyException("Entity not found. It may have been deleted.");
+            }
+
+            // Valida a concorrência utilizando a versão fornecida
+            ValidateConcurrency(entityFinded, version, checkDeletedEntity);
+
+            return entityFinded;
+        }
+
+        public void ValidateConcurrency(T entity, object version, bool checkDeletedEntity = true)
+        {
+            if (ConcurrencyCheckEnabled)
+            {
+                if (entity != null)
+                {
+                    var entityVersion = entity.GetType().GetProperty("RowVersion")?.GetValue(entity);
+                    if (entityVersion == null || !entityVersion.Equals(version))
+                    {
+                        throw new DbUpdateConcurrencyException("Entity version mismatch. Concurrency check failed.");
+                    }
+                }
+            }
+        }
+
+        public void ValidateConcurrency(object entityKey, object version, bool checkDeletedEntity = true)
+        {
+            // Verifica se a entidade existe
+            var entityFinded = _query.Find(entityKey);
+
+            if (entityFinded == null && checkDeletedEntity)
+            {
+                throw new DbUpdateConcurrencyException("Entity not found. It may have been deleted.");
+            }
+
+            ValidateConcurrency(entityFinded, version, checkDeletedEntity);
+        }
+
+        public void Delete(T entity)
+        {
+            _query.Remove(entity);
+            _context.SaveChanges();
+        }
+
+        public void Delete(IEnumerable<T> entities)
+        {
+            if (entities == null || !entities.Any())
+            {
+                throw new ArgumentNullException(nameof(entities), "A coleção de entidades não pode ser nula ou vazia.");
+            }
+
+            _query.RemoveRange(entities);
+            _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Adiciona as entidades <paramref name="entities"/> ao contexto e executa o query no BD imediatamente (mas não realiza commit imediatamente, realiza commit normalmente como definido pelo IoC)
+        /// </summary>
+        /// <param name="entities">Entidades a serem salvas.</param>
+        /// <param name="saveChanges">Indica se as alterações devem ser salvas imediatamente no banco de dados.</param>
+        public virtual void Add(IEnumerable<T> entities, bool saveChanges = false)
+        {
+            _context.ChangeTracker.AutoDetectChangesEnabled = false;
+
+            foreach (T entity in entities)
+            {
+                Add(entity);
+            }
+
+            if (saveChanges)
+            {
+                _context.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Adiciona as entidades <paramref name="entities"/> ao contexto e executa o query no BD imediatamente (mas não realiza commit imediatamente, realiza commit normalmente como definido pelo IoC)
+        /// </summary>
+        /// <param name="entities">Entidades a serem salvas.</param>
+        public virtual void Add(params T[] entities)
+        {
+            Add(entities.AsEnumerable());
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
-{
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-    using System;
-    using System.Collections.Generic;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository;
 
-    public class HistoricoService : Service, IHistoricoService
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+{
+   
+
+    public class HistoricoService :  IHistoricoService
     {
         private readonly IHistoricoColetaInsumoRepository historicoColetaInsumoRepository;
         private readonly IHistoricoSemanaOperativaRepository historicoSemanaOperativaRepository;

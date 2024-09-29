@@ -743,5 +743,59 @@ namespace ONS.WEBPMO.Domain.Entities.Resources
                 return ResourceManager.GetString("MS083", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to O cronograma de manutenção térmica não foi enviado, deve ser enviado mesmo sem manutenção..
+        /// </summary>
+        public static string MS084
+        {
+            get
+            {
+                return ResourceManager.GetString("MS084", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Alteração só é permitida para UM registro de intervenção, por favor, desmarque outras seleções realizadas.
+        /// </summary>
+        public static string MS085
+        {
+            get
+            {
+                return ResourceManager.GetString("MS085", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Prezado, a seleção atual de manutenções substituirá a seleção previamente cadastrada para esse estudo. Confirma?.
+        /// </summary>
+        public static string MS086
+        {
+            get
+            {
+                return ResourceManager.GetString("MS086", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Campo &apos;Motivo de Rejeição&apos; deve possuir no máximo 1000 caracteres..
+        /// </summary>
+        public static string MS087
+        {
+            get
+            {
+                return ResourceManager.GetString("MS087", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Campo &apos;Motivo de Alteração&apos; deve possuir no máximo 1000 caracteres..
+        /// </summary>
+        public static string MS088
+        {
+            get
+            {
+                return ResourceManager.GetString("MS088", resourceCulture);
+            }
+        }
     }
 }

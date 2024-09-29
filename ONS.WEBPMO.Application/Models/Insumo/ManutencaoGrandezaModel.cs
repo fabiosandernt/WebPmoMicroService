@@ -1,4 +1,5 @@
 ﻿
+using ONS.WEBPMO.Domain.Enumerations;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -63,11 +64,11 @@ namespace ONS.WEBPMO.Application.Models.Insumo
         public IList<SelectListItem> TiposDado { get; set; }
 
         [Display(Name = @"Qtd Dígitos")]
-        [RequiredIf("IsCasasInteirasRequired", true)]
+        //[RequiredIf("IsCasasInteirasRequired", true)]
         public int? QuantidadeCasasInteira { get; set; }
 
         [Display(Name = @"Qtd Decimais")]
-        [RequiredIf("IsCasasInteirasRequired", true)]
+        //[RequiredIf("IsCasasInteirasRequired", true)]
         public int? QuantidadeCasasDecimais { get; set; }
 
         [Required, Display(Name = @"Ativo")]

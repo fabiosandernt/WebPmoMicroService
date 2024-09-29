@@ -1,7 +1,10 @@
 ﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
     using GeracaoBlocos;
+    using ONS.Common.Util.Files;
     using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+    using ONS.WEBPMO.Domain.Entities.PMO;
+    using ONS.WEBPMO.Domain.Enumerations;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;

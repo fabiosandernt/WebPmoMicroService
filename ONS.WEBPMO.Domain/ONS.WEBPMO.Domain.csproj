@@ -12,6 +12,7 @@
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.IQueryable.Extensions" Version="8.0.0" />
+    <PackageReference Include="ONS.Infra.Core" Version="4.8.0" />
 	</ItemGroup>
 
 </Project>

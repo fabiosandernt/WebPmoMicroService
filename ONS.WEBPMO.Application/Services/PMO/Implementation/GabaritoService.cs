@@ -1,11 +1,10 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
-{
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Repository;
 
-    public class GabaritoService : Service, IGabaritoService
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+{
+    public class GabaritoService : IGabaritoService
     {
         private readonly IGabaritoRepository gabaritoRepository;
         private readonly ISemanaOperativaRepository semanaOperativaRepository;

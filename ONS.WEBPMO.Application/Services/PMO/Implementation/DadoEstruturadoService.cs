@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class DadoColetaEstruturadoService : Service, IDadoColetaEstruturadoService
+    public class DadoColetaEstruturadoService :  IDadoColetaEstruturadoService
     {
         private IDadoColetaEstruturadoRepository DadoColetaEstruturadoRepository { get; set; }
 

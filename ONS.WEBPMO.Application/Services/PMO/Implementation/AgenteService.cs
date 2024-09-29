@@ -39,7 +39,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public async Task<Agente> ObterOuCriarAgentePorChave(int chave)
         {
-            var agente = await agenteRepository.GetAsync(chave);
+            var agente = await agenteRepository.GetByIdAsync(chave);
 
             if (agente == null)
             {

@@ -1,8 +1,13 @@
-﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.Infra.Core.Pagination;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class DadoColetaManutencaoService : Service, IDadoColetaManutencaoService
+    public class DadoColetaManutencaoService : IDadoColetaManutencaoService
     {
         private readonly IDadoColetaManutencaoRepository dadoColetaManutencaoRepository;
 

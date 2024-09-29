@@ -1,8 +1,14 @@
 ﻿
 
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
+using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Repository.BDT;
+using OONS.WEBPMO.Domain.Repository.BDT;
+
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
 {   
-    public class BDTService : Service, IBDTService
+    public class BDTService :  IBDTService
     {
         private readonly IUsinaPMORepository usinaPmoRepository;
         private readonly IUsinaPEMRepository usinaPemRepository;

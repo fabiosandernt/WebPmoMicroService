@@ -1,9 +1,23 @@
+using ONS.Common.Exceptions;
+using ONS.Common.Seguranca;
+using ONS.Infra.Core.Files;
+using ONS.Infra.Core.Pagination;
+using ONS.Infra.Temp;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Domain.Repository.BDT;
+using System.Configuration;
 using System.Globalization;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class ColetaInsumoService : Service, IColetaInsumoService
+    public class ColetaInsumoService : IColetaInsumoService
     {
         private readonly IColetaInsumoRepository coletaInsumoRepository;
         private readonly ISemanaOperativaRepository semanaOperativaRepository;
@@ -113,7 +127,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             if (coletaInsumo.SituacaoId != idSituacaoColeta)
             {
-                throw new ONSBusinessException(SGIPMOMessages.MS014);
+                throw new Exception(SGIPMOMessages.MS014);
             }
 
             IList<string> mensagens = new List<string>();
@@ -196,7 +210,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                     ? situacaoColetaInsumoAprovado
                     : VerificarSeDadosInsumoIguaisColetaAnterior(coletaInsumo)
                     ? situacaoColetaInsumoPreAprovado : situacaoColetaInsumoInformado;
-                coletaInsumo.LoginAgenteAlteracao = UserInfo.UserName;
+                coletaInsumo.LoginAgenteAlteracao = "ons\\fabio.sander";//UserInfo.UserName;
                 coletaInsumo.DataHoraAtualizacao = DateTime.Now;
                 historicoService.CriarSalvarHistoricoColetaInsumo(coletaInsumo);
             }
@@ -430,7 +444,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 }
             }
 
-            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.All();
+            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.GetAll();
             IList<DadoColetaDTO> dadosColetaGrandezaPatamar = dadosColetaGrandeza.ToList();
 
             foreach (var dadoColetaDto in dadosColetaGrandezaPatamar)
@@ -453,7 +467,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 }
             }
 
-            IList<TipoLimite> tiposLimites = tipoLimiteRepository.All();
+            IList<TipoLimite> tiposLimites = tipoLimiteRepository.GetAll();
             IList<DadoColetaDTO> dadosColetaGrandezaLimite = dadosColetaGrandeza.ToList();
 
             foreach (var dadoColetaDto in dadosColetaGrandezaLimite)
@@ -547,7 +561,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             //int qtdTotal = dadoColetaEstruturadoRepository.ContarQuantidadeLinhasDadosEstruturados(filter.IdColetaInsumo.Value);
 
             PagedResult<DadoColetaDTO> dadosPaginado = new PagedResult<DadoColetaDTO>(
-                dadosColetaGrandeza, qtdTotal, filter.PageIndex, dadosColetaGrandeza.Count);
+                dadosColetaGrandeza, qtdTotal, (int)filter.PageIndex, dadosColetaGrandeza.Count);
 
             DadosInformarColetaInsumoDTO dadosInformarColetaInsumoDto = new DadosInformarColetaInsumoDTO
             {
@@ -565,8 +579,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             ColetaInsumoFilter filter = new ColetaInsumoFilter
             {
                 IdColetaInsumo = coletaInsumo.Id,
-                PageIndex = 1,
-                PageSize = 1
+                
             };
             int.TryParse(ConfigurationManager.AppSettings["grid.rowListPage"], out rowListPage);
             if (rowListPage == 0)
@@ -620,7 +633,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 }
             }
 
-            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.All();
+            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.GetAll();
             IList<DadoColetaDTO> dadosColetaGrandezaPatamar = dadosColetaGrandeza.ToList();
 
             foreach (var dadoColetaDto in dadosColetaGrandezaPatamar)
@@ -643,7 +656,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 }
             }
 
-            IList<TipoLimite> tiposLimites = tipoLimiteRepository.All();
+            IList<TipoLimite> tiposLimites = tipoLimiteRepository.GetAll();
             IList<DadoColetaDTO> dadosColetaGrandezaLimite = dadosColetaGrandeza.ToList();
 
             foreach (var dadoColetaDto in dadosColetaGrandezaLimite)
@@ -726,7 +739,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             PreencherRowspan(dadosColetaGrandeza);
 
             PagedResult<DadoColetaDTO> dadosPaginado = new PagedResult<DadoColetaDTO>(
-                dadosColetaGrandeza, qtdTotal, filter.PageIndex, dadosColetaGrandeza.Count);
+                dadosColetaGrandeza, qtdTotal, (int)filter.PageIndex, dadosColetaGrandeza.Count);
 
             DadosInformarColetaInsumoDTO dadosInformarColetaInsumoDto = new DadosInformarColetaInsumoDTO
             {
@@ -1026,8 +1039,8 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             if (dadosInsercao.Any())
             {
-                IList<TipoLimite> tiposLimites = tipoLimiteRepository.All();
-                IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.All();
+                IList<TipoLimite> tiposLimites = tipoLimiteRepository.GetAll();
+                IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.GetAll();
 
                 GabaritoConfiguracaoFilter filter = new GabaritoConfiguracaoFilter()
                 {
@@ -1066,7 +1079,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
                 if (saveChanges)
                 {
-                    dadoColetaEstruturadoRepository.SaveChanges();
+                    dadoColetaEstruturadoRepository.Add();
                 }
             }
         }
@@ -2363,7 +2376,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                     {
                         arquivoRepository.Delete(arquivoSemana.Arquivo);
                     }
-                    arquivoSemanaOperativaRepository.Delete(semanaOperativa.Arquivos);
+                    arquivoSemanaOperativaRepository.Delete((ArquivoSemanaOperativa)semanaOperativa.Arquivos);
                 }
             }
         }
@@ -2392,7 +2405,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 {
                     arquivoRepository.Delete(arquivoSemana.Arquivo);
                 }
-                arquivoSemanaOperativaRepository.Delete(semanaOperativa.Arquivos);
+                arquivoSemanaOperativaRepository.Delete((ArquivoSemanaOperativa)semanaOperativa.Arquivos);
 
                 historicoService.CriarSalvarHistoricoSemanaOperativa(semanaOperativa);
             }
@@ -2515,7 +2528,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             {
                 ValidarPermiteManutencaoColetaInsumo(coletaInsumo, dto.IsMonitorar, null);
 
-                coletaInsumo.LoginAgenteAlteracao = Context.GetUserName();
+                coletaInsumo.LoginAgenteAlteracao = "ons\\fabio.sander"; // Context.GetUserName();
                 coletaInsumo.DataHoraAtualizacao = DateTime.Now;
 
                 SemanaOperativa semanaOperativa = coletaInsumo.SemanaOperativa;
@@ -2737,7 +2750,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 {
                     arquivoRepository.Delete(arquivoSemana.Arquivo);
                 }
-                arquivoSemanaOperativaRepository.Delete(semanaOperativa.Arquivos);
+                arquivoSemanaOperativaRepository.Delete((ArquivoSemanaOperativa)semanaOperativa.Arquivos);
             }
         }
 
@@ -2751,8 +2764,8 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             IList<Gabarito> gabaritosBloco = gabaritoRepository.ConsultarGabaritoParticipaBloco(idSemanaOperativa);
 
-            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.All();
-            IList<TipoLimite> tiposLimites = tipoLimiteRepository.All();
+            IList<TipoPatamar> tiposPatamar = tipoPatamarRepository.GetAll();
+            IList<TipoLimite> tiposLimites = tipoLimiteRepository.GetAll();
 
             IList<DadoColetaBloco> dadosBloco = new List<DadoColetaBloco>();
 
@@ -2849,7 +2862,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                     }
                 }
 
-                dadosBloco.Add(dadosColetaBloco);
+                dadosBloco.Add((DadoColetaBloco)dadosColetaBloco);
             }
 
             return dadosBloco;

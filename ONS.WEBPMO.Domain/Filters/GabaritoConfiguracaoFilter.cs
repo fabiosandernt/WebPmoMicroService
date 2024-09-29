@@ -27,5 +27,7 @@ namespace ONS.WEBPMO.Domain.Entities.Filters
         public int? Limit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int? Offset { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Sort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object PageIndex { get; set; }
+        public int PageSize { get; set; }
     }
 }
