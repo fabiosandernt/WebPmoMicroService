@@ -28,6 +28,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="ONS.Infra" Version="1.0.0" />
+    <PackageReference Include="ONS.Infra.Compression" Version="4.8.0" />
+    <PackageReference Include="ONS.Infra.Core" Version="4.8.0" />
+    <PackageReference Include="ONS.Infra.Temp" Version="4.8.0" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>
 

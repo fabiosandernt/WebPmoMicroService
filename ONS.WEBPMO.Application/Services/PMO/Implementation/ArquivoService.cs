@@ -1,5 +1,10 @@
-﻿using ONS.WEBPMO.Application.DTO;
-using ONS.WEBPMO.Application.Models;
+﻿
+
+using ONS.Infra.Compression;
+using ONS.Infra.Compression.Download;
+using ONS.Infra.Compression.Files;
+using ONS.Infra.Temp;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
@@ -24,7 +29,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public Arquivo ObterArquivoDadoNaoEstruturado(Guid idArquivo)
         {
-            return arquivoRepository.GetAsync(idArquivo);
+            return arquivoRepository.Get(idArquivo);
         }
 
         public byte[] ObterArquivoDadoNaoEstruturadoEmBytes(Guid idArquivo)

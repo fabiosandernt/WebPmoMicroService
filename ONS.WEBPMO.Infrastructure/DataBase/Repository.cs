@@ -87,5 +87,11 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
             return consulta;
 
         }
+
+        public T Get(object id)
+        {
+            var consulta = _query.Find(id);
+            return consulta;
+        }
     }
 }
