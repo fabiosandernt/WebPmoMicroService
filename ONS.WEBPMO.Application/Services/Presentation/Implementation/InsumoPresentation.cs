@@ -1,4 +1,5 @@
-﻿using ONS.WEBPMO.Application.DTO;
+﻿using ONS.Infra.Core.Extensions;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository;
@@ -45,8 +46,8 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
                 dto.Ativo = insumo.Ativo;
             }
 
-            var categorias = categoriaInsumoRepository.All().OrderBy(cat => cat.Id);
-            var tiposColeta = tipoColetaRepository.All().OrderBy(tc => tc.Id);
+            var categorias = categoriaInsumoRepository.GetAll().OrderBy(cat => cat.Id);
+            var tiposColeta = tipoColetaRepository.GetAll().OrderBy(tc => tc.Id);
 
             dto.Categorias.Add(new ChaveDescricaoDTO<int>(0, "Selecione..."));
 
@@ -60,8 +61,8 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
         {
             DadosInsumoConsultaDTO dto = new DadosInsumoConsultaDTO();
 
-            var categorias = categoriaInsumoRepository.All().OrderBy(cat => cat.Id);
-            var tiposColeta = tipoColetaRepository.All().OrderBy(tc => tc.Id);
+            var categorias = categoriaInsumoRepository.GetAll().OrderBy(cat => cat.Id);
+            var tiposColeta = tipoColetaRepository.GetAll().OrderBy(tc => tc.Id);
 
             dto.Categorias = categorias.Select(a => new ChaveDescricaoDTO<int>(a.Id, a.Descricao)).ToList();
             dto.TiposColeta = tiposColeta.Select(i => new ChaveDescricaoDTO<int>(i.Id, i.Descricao)).ToList();

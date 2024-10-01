@@ -71,7 +71,7 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
                     idSemanaOperativa.Value, agentes.Select(a => a.Id).ToArray());
             }
 
-            IList<SituacaoColetaInsumo> situacoesColeta = situacaoColetaInsumoRepository.All();
+            IList<SituacaoColetaInsumo> situacoesColeta = situacaoColetaInsumoRepository.GetAll();
 
             DadosPesquisaColetaInsumoDTO dadosPesquisa = new DadosPesquisaColetaInsumoDTO();
             if (ordernarListagens.HasValue && ordernarListagens.Value)
@@ -93,8 +93,8 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
             {
                 SemanaOperativa semanaOperativa = semanaOperativaRepository.FindByKey(idSemanaOperativa.Value);
                 dadosPesquisa.NomeSemanaOperativaSituacao = string.Format("{0} - {1}", semanaOperativa.Nome,
-                    semanaOperativa.Situacao.Descricao);
-                dadosPesquisa.IsSemanaOperativaEmConfiguracao = semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Configuracao;
+                    semanaOperativa.Situacao.DscSituacaosemanaoper);
+                dadosPesquisa.IsSemanaOperativaEmConfiguracao = semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Configuracao;
                 dadosPesquisa.SemanasOperativas.Add(new ChaveDescricaoDTO<int>(semanaOperativa.Id, semanaOperativa.Nome));
                 dadosPesquisa.VersaoStringSemanaOperativa = Convert.ToBase64String(semanaOperativa.Versao);
             }
@@ -182,7 +182,7 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
 
             SemanaOperativa semanaOperativa = semanaOperativaRepository.FindByKey(filtro.IdSemanaOperativa);
             IList<ArquivoSemanaOperativa> arquivosGeracaoBlocos = semanaOperativa.Arquivos
-                .Where(a => a.Situacao.Id == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos || a.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ColetaDados)
+                .Where(a => a.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos || a.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ColetaDados)
                 .ToList();
 
             foreach (ArquivoSemanaOperativa arquivoSemanaOperativa in arquivosGeracaoBlocos)
@@ -197,7 +197,7 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
                 });
             }
 
-            dados.SituacaoSemanaOperativa = (SituacaoSemanaOperativaEnum)semanaOperativa.Situacao.Id;
+            dados.SituacaoSemanaOperativa = (SituacaoSemanaOperativaEnum)semanaOperativa.Situacao.IdTpsituacaosemanaoper;
 
             return dados;
         }
