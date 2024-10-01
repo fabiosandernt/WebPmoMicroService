@@ -13,6 +13,7 @@ namespace ONS.WEBPMO.Domain.Repository.Base
         ValueTask<T> GetByIdAsync(object id);
         Task<IEnumerable<T>> GetAllAsync();
         IList<T> GetAll();
+        IList<T> All(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy);
         Task<IEnumerable<T>> FindAllByCriterioAsync(Expression<Func<T, bool>> expression);
         ValueTask<T> FindOneByCriterioAsync(Expression<Func<T, bool>> expression);
         ValueTask<bool> Any(Expression<Func<T, bool>> expression);

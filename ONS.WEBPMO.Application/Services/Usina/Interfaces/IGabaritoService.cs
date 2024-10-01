@@ -1,15 +1,7 @@
-﻿namespace ONS.WEBPMO.Servico.Usina
+﻿using ONS.WEBPMO.Application.DTO;
+
+namespace ONS.WEBPMO.Servico.Usina
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    //[ServiceContract]
-    [ServiceKnownType(typeof(List<Subsistema>))]
-    [ServiceKnownType(typeof(List<Reservatorio>))]
-    [ServiceKnownType(typeof(List<Usina>))]
-    [ServiceKnownType(typeof(List<UnidadeGeradora>))]
-    [ServiceKnownType(typeof(List<Agente>))]
-    [ServiceKnownType(typeof(List<Gabarito>))]
-    [ServiceKnownType(typeof(List<ColetaInsumo>))]
-    [ServiceKnownType(typeof(List<string>))]
     public interface IGabaritoService
     {
         #region Agentes

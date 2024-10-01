@@ -1,8 +1,12 @@
-﻿using ONS.Infra.Core.Pagination;
-using ONS.WEBPMO.Application.DTO;
+﻿using ONS.Common.Exceptions;
+using ONS.Common.Seguranca;
+using ONS.Infra.Core.Pagination;
+
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
@@ -114,6 +118,11 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 mensagens.Add(string.Format(SGIPMOMessages.MS063,
                     dataInicio.ToString("dd/MM/yyyy"), dataFim.ToString("dd/MM/yyyy")));
             }
+        }
+
+        PagedResult<DadoColetaManutencaoDTO> IDadoColetaManutencaoService.ConsultarDadoColetaManutencaoPorColetaInsumo(DadoColetaInsumoFilter filter)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

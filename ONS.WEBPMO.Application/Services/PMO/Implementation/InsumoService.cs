@@ -1,8 +1,14 @@
 ﻿using AutoMapper;
+using ONS.Common.Exceptions;
+using ONS.Infra.Core.Pagination;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository;
 
@@ -17,6 +23,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         private readonly IGrandezaRepository grandezaRepository;
         private readonly IParametroRepository parametroRepository;
         private readonly ITipoDadoGrandezaRepository tipoDadoGrandezaRepository;
+        private readonly IMapper _mapper;
 
         public InsumoService(
             IInsumoRepository insumoRepository,
@@ -25,7 +32,8 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             ITipoColetaRepository tipoColetaRepository,
             IGrandezaRepository grandezaRepository,
             IParametroRepository parametroRepository,
-            ITipoDadoGrandezaRepository tipoDadoGrandezaRepository)
+            ITipoDadoGrandezaRepository tipoDadoGrandezaRepository,
+            IMapper mapper)
         {
             this.insumoRepository = insumoRepository;
             this.origemColetaService = origemColetaService;
@@ -34,6 +42,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             this.grandezaRepository = grandezaRepository;
             this.parametroRepository = parametroRepository;
             this.tipoDadoGrandezaRepository = tipoDadoGrandezaRepository;
+            _mapper = mapper;
         }
 
         #region Consultas
@@ -114,10 +123,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             return insumoRepository.ConsultarInsumoNaoEstruturado();
         }
 
-        public IList<Insumo> ConsultarTodosInsumos()
-        {
-            return insumoRepository.All().OrderBy(insumo => insumo.Nome).ToList();
-        }
+        
 
         public PagedResult<Insumo> ConsultarInsumosPorFiltro(InsumoFiltro filtro)
         {
@@ -136,7 +142,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public Insumo ConsultarInsumo(int id)
         {
-            return insumoRepository.All().Where(insumo => insumo.Id == id).First();
+            return insumoRepository.GetAll().Where(insumo => insumo.Id == id).First();
         }
 
         #endregion
@@ -162,7 +168,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             foreach (ManutencaoGrandezaDTO grandezaDto in dadosInsumoEstruturado.Grandezas)
             {
-                Grandeza grandeza = Mapper.DynamicMap<Grandeza>(grandezaDto);
+                Grandeza grandeza = _mapper.Map<Grandeza>(grandezaDto);
                 grandeza.TipoDadoGrandeza = tiposDados.Where(tipo => tipo.Id == grandezaDto.TipoDadoGrandezaId).First();
                 grandezas.Add(grandeza);
             }
@@ -234,7 +240,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             foreach (ManutencaoGrandezaDTO grandezaDto in dadosInsumoEstruturado.Grandezas)
             {
-                Grandeza grandeza = Mapper.DynamicMap<Grandeza>(grandezaDto);
+                Grandeza grandeza = _mapper.Map<Grandeza>(grandezaDto);
                 grandeza.TipoDadoGrandeza = tiposDados.First(tipo => tipo.Id == grandezaDto.TipoDadoGrandezaId);
                 grandezas.Add(grandeza);
             }

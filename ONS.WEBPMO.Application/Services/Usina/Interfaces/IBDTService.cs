@@ -1,14 +1,10 @@
-﻿namespace ONS.WEBPMO.Servico.Usina
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.Usina;
+using ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina;
+
+namespace ONS.WEBPMO.Servico.Usina
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    //[ServiceContract]
-    [ServiceKnownType(typeof(List<Subsistema>))]
-    [ServiceKnownType(typeof(List<Reservatorio>))]
-    [ServiceKnownType(typeof(List<Usina>))]
-    [ServiceKnownType(typeof(List<UnidadeGeradora>))]
-    [ServiceKnownType(typeof(List<Agente>))]
-    [ServiceKnownType(typeof(List<Gabarito>))]
-    [ServiceKnownType(typeof(List<ColetaInsumo>))]
+   
     public interface IBDTService
     {
 
@@ -43,7 +39,7 @@
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
         
-        IList<Usina> ConsultarUsinaPorNomeExibicao(string nome = "");
+        IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinaPorNomeExibicao(string nome = "");
 
         /// <summary>
         /// Consulta usinas onde as chaves sejam iguais as passadas por parametro
@@ -51,14 +47,14 @@
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
         
-        IList<Usina> ConsultarUsinaPorChaves(params string[] chaves);
+        IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinaPorChaves(params string[] chaves);
 
         /// <summary>
         /// Consulta usinas sem parametro
         /// </summary>
         /// <returns>Lista de Usinas</returns>
         
-        IList<Usina> ConsultarUsinas();
+        IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinas();
 
         #endregion
 

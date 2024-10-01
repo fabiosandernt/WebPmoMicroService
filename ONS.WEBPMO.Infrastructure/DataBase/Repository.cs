@@ -186,5 +186,22 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         {
             Add(entities.AsEnumerable());
         }
+
+        public IList<T> All(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy)
+        {
+            var consultaOrdenada = orderBy(_query.AsQueryable());
+            return consultaOrdenada.ToList();
+        }
+
+        public void Add(T entity, bool saveChanges = false)
+        {
+            _query.Add(entity); 
+
+            if (saveChanges)
+            {
+                _context.SaveChanges(); 
+            }
+        }
+
     }
 }

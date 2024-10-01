@@ -30,7 +30,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public Arquivo ObterArquivoDadoNaoEstruturado(Guid idArquivo)
         {
-            return arquivoRepository.Get(idArquivo);
+            return arquivoRepository.FindByKey(idArquivo);
         }
 
         public byte[] ObterArquivoDadoNaoEstruturadoEmBytes(Guid idArquivo)

@@ -22,7 +22,7 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
             if (idSemanaOperativa.HasValue)
             {
                 SemanaOperativa semanaOperativa = semanaOperativaRepository.FindByKey(idSemanaOperativa.Value);
-                dadosPesquisa.NomeSemanaOperativaSituacao = string.Format("{0} - {1}", semanaOperativa.Nome, semanaOperativa.Situacao.Descricao);
+                dadosPesquisa.NomeSemanaOperativaSituacao = string.Format("{0} - {1}", semanaOperativa.Nome, semanaOperativa.Situacao.DscSituacaosemanaoper);
                 dadosPesquisa.SemanasOperativas.Add(new ChaveDescricaoDTO<int>(semanaOperativa.Id, semanaOperativa.Nome));
             }
 

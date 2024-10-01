@@ -1,7 +1,7 @@
-﻿namespace ONS.WEBPMO.Servico.Usina
+﻿using ONS.WEBPMO.Domain.Entities.Usina;
+
+namespace ONS.WEBPMO.Servico.Usina
 {
-    //[ServiceContract]
-    [ServiceKnownType(typeof(List<CronogramaPMO>))]
     public interface IPMOService
     {
         /// <summary>

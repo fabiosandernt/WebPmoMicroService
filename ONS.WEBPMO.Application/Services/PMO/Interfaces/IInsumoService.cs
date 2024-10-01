@@ -1,4 +1,6 @@
-﻿using ONS.WEBPMO.Application.Models.Insumo;
+﻿using ONS.Infra.Core.Pagination;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Domain.Entities.Base;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
