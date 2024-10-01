@@ -1,24 +1,14 @@
-﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
+namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class LogNotificacaoMap : EntityTypeConfiguration<LogNotificacao>
+    public class LogNotificacaoMap : IEntityTypeConfiguration<LogNotificacao>
     {
-        public LogNotificacaoMap()
+        public void Configure(EntityTypeBuilder<LogNotificacao> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_lognotificacao");
-            Property(t => t.Id).HasColumnName("id_lognotificacao");
-
-            Property(t => t.AgenteId).HasColumnName("id_agenteinstituicao");
-            HasRequired(t => t.Agente).WithMany(t => t.LogNotificacoes).HasForeignKey(t => t.AgenteId);
-
-            Property(t => t.SemanaOperativaId).HasColumnName("id_semanaoperativa");
-            HasRequired(t => t.SemanaOperativa).WithMany().HasForeignKey(t => t.SemanaOperativaId);
-
-            Property(t => t.Usuario).HasColumnName("nom_usuario").HasMaxLength(150);
-            Property(t => t.EmailsEnviar).HasColumnName("mail_enviar").HasMaxLength(4000);
-            Property(t => t.EmailsEnviados).HasColumnName("mail_enviado").HasMaxLength(4000);
-            Property(t => t.Acao).HasColumnName("dsc_acao");
-            Property(t => t.DataEnvioNotificacao).HasColumnName("din_acao");
+            throw new NotImplementedException();
         }
     }
 }

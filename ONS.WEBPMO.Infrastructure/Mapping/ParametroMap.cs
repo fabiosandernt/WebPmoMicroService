@@ -1,15 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class ParametroMap : EntityTypeConfiguration<Parametro>
+    public class ParametroMap : IEntityTypeConfiguration<Parametro>
     {
-        public ParametroMap()
+        public void Configure(EntityTypeBuilder<Parametro> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_parametropmo");
-            Property(t => t.Id).HasColumnName("id_parametropmo");
-            Property(t => t.Nome).HasColumnName("nom_parametropmo").IsRequired().HasMaxLength(50);
-            Property(t => t.Valor).HasColumnName("val_parametropmo").HasMaxLength(1000);
-            Property(t => t.Descricao).HasColumnName("dsc_parametropmo").HasMaxLength(255);
+            throw new NotImplementedException();
         }
     }
 }

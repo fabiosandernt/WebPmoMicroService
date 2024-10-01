@@ -1,21 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    using ONS.WEBPMO.Domain.Entities.PMO;
-
-    public class SituacaoSemanaOperativaMap : EntityTypeConfiguration<SituacaoSemanaOperativa>
+    public class SituacaoSemanaOperativaMap : IEntityTypeConfiguration<SituacaoSemanaOperativa>
     {
-        public SituacaoSemanaOperativaMap()
+        public void Configure(EntityTypeBuilder<SituacaoSemanaOperativa> builder)
         {
-            // Primary Key
-            HasKey(t => t.Id);
-
-            // Table & Column Mappings
-            ToTable("tb_tpsituacaosemanaoper");
-            Property(t => t.Id).HasColumnName("id_tpsituacaosemanaoper").HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(t => t.Descricao)
-                .HasColumnName("dsc_situacaosemanaoper")
-                .IsRequired()
-                .HasMaxLength(20);
+            throw new NotImplementedException();
         }
     }
 }

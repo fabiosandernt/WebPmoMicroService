@@ -1,17 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class InsumoNaoEstruturadoMap : EntityTypeConfiguration<InsumoNaoEstruturado>
+    public class InsumoNaoEstruturadoMap : IEntityTypeConfiguration<InsumoNaoEstruturado>
     {
-        public InsumoNaoEstruturadoMap()
+        public void Configure(EntityTypeBuilder<InsumoNaoEstruturado> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_insumonaoestruturado");
-            Property(t => t.Id).HasColumnName("id_insumopmo");
-            Property(t => t.IsUtilizadoDECOMP).HasColumnName("flg_utilizadodecomp");
-            Property(t => t.IsUtilizadoConvergencia).HasColumnName("flg_utilizadoconvergencia");
-            Property(t => t.IsUtilizadoPublicacao).HasColumnName("flg_utilizadopublicacao");
-            Property(t => t.IsUtilizadoProcessamento).HasColumnName("flg_utilizadoprocessamento");
-
+            throw new NotImplementedException();
         }
     }
 }

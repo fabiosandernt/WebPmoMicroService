@@ -1,21 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    public class TipoLimiteMap : EntityTypeConfiguration<TipoLimite>
+    public class TipoLimiteMap : IEntityTypeConfiguration<TipoLimite>
     {
-        public TipoLimiteMap()
+        public void Configure(EntityTypeBuilder<TipoLimite> builder)
         {
-            ToTable("tb_tplimite");
-
-            // Primary Key
-            HasKey(t => t.Id);
-
-            // Properties
-            Property(t => t.Id).HasColumnName("id_tplimite")
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
-            Property(t => t.Descricao).HasColumnName("dsc_tplimite")
-                .IsRequired()
-                .HasMaxLength(20);
+            throw new NotImplementedException();
         }
     }
 }

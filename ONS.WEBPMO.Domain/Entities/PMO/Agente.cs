@@ -10,7 +10,7 @@ namespace ONS.WEBPMO.Domain.Entities.PMO
             Gabaritos = new HashSet<Gabarito>();
             LogNotificacoes = new HashSet<LogNotificacao>();
         }
-
+        
         public string NomeLongo { get; set; }
         public string Nome { get; set; }
 

@@ -1,42 +1,29 @@
-﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Infrastructure.Context;
+using ONS.WEBPMO.Infrastructure.DataBase;
+
+namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class SemanaOperativaRepository : Repository<SemanaOperativa>, ISemanaOperativaRepository
     {
-        public IList<SemanaOperativa> ConsultarSemanasOperativasComGabarito()
+        public SemanaOperativaRepository(WEBPMODbContext context) : base(context)
         {
-            return QuerySemanasOperativasComGabarito().ToList();
         }
 
         public IList<SemanaOperativa> ConsultarEstudoPorNome(string nomeEstudo, int quantidadeMaxima)
         {
-            var query = QuerySemanasOperativasComGabarito();
-            if (!string.IsNullOrWhiteSpace(nomeEstudo))
-            {
-                query = query.Where(e => e.Nome.ToLower().Contains(nomeEstudo.ToLower()));
-            }
-            return query.Take(quantidadeMaxima).ToList();
+            throw new NotImplementedException();
         }
 
         public IList<SemanaOperativa> ConsultarEstudoPorNomeEStatus(string nomeEstudo, int? idStatus, int quantidadeMaxima)
         {
-            var query = EntitySet.AsQueryable();
-            if (!string.IsNullOrWhiteSpace(nomeEstudo))
-            {
-                query = query.Where(e => e.Nome.ToLower().Contains(nomeEstudo.ToLower()));
-            }
-            if (idStatus.HasValue)
-            {
-                query = query.Where(e => e.Situacao.Id == idStatus.Value);
-            }
-            return query.Take(quantidadeMaxima).ToList();
+            throw new NotImplementedException();
         }
 
-        private IQueryable<SemanaOperativa> QuerySemanasOperativasComGabarito()
+        public IList<SemanaOperativa> ConsultarSemanasOperativasComGabarito()
         {
-            return EntitySet
-                .Where(e => e.Gabaritos.Any())
-                .OrderByDescending(so => so.DataInicioSemana)
-                .ThenByDescending(so => so.DataFimManutencao);
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,5 +11,6 @@ namespace ONS.WEBPMO.Domain.Entities.PMO
         public string HashVerificacao { get; set; }
         public int Tamanho { get; set; }
         public bool Deleted { get; set; }
+        public virtual ICollection<ArquivoSemanaOperativa> ArquivosSemanaOperativas { get; set; } = new List<ArquivoSemanaOperativa>();
     }
 }

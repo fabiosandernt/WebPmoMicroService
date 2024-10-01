@@ -1,25 +1,22 @@
-﻿using System.Text;
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Infrastructure.Context;
+using ONS.WEBPMO.Infrastructure.DataBase;
+using OONS.WEBPMO.Domain.Repository.BDT;
+using System.Text;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {
-    [UseDbContext(ConnectionStringsNames.BDTModel)]
+    //[UseDbContext(ConnectionStringsNames.BDTModel)]
     public class ReservatorioEERepository : Repository<ReservatorioEE>, IReservatorioEERepository
     {
+        public ReservatorioEERepository(WEBPMODbContext context) : base(context)
+        {
+        }
+        //verificar se usa outra conexão tal como o infomix
+
         public IList<ReservatorioEE> ConsultarReservatoriosEquivalentesDeEnergiaAtivos()
         {
-            StringBuilder sql = new StringBuilder();
-            sql.Append("select "
-                + "    id_reservatorioee as Id_reservatorioee,"
-                + "    nom_curto as Nom_curto_reservatorioee,"
-                + "    cod_reservatorioee as Cod_reservatorioee,"
-                + "    '" + TipoOrigemColetaEnum.Reservatorio + "' as TipoOrigemColeta"//Setado diretamente
-                + " from tb_reservatorioee"
-                + " where dat_desativacao is null");
-
-            var retorno = EntitySet.SqlQuery(sql.ToString()).ToList();
-
-            return retorno;
+            throw new NotImplementedException();
         }
-
     }
 }

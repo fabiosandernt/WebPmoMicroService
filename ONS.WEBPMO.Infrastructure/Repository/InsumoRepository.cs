@@ -1,153 +1,69 @@
 ﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
 {
+    using ONS.Infra.Core.Pagination;
+    using ONS.WEBPMO.Domain.Entities.Filters;
+    using ONS.WEBPMO.Domain.Entities.PMO;
+    using ONS.WEBPMO.Domain.Enumerations;
+    using ONS.WEBPMO.Domain.Repository;
+    using ONS.WEBPMO.Infrastructure.Context;
+    using ONS.WEBPMO.Infrastructure.DataBase;
     using System;
+    using System.Collections.Generic;
 
     public class InsumoRepository : Repository<Insumo>, IInsumoRepository
     {
-        public IList<InsumoEstruturado> ConsultarInsumoEstruturadoComGrandezaAtiva(TipoColetaEnum tipoColeta,
-            CategoriaInsumoEnum? categoria = null)
+        public InsumoRepository(WEBPMODbContext context) : base(context)
         {
-            var query = Context.Set<InsumoEstruturado>()
-                .Where(insumo => insumo.TipoColeta.Id == (int)tipoColeta
-                    && insumo.Grandezas.Any(grandeza => grandeza.Ativo));
-
-            if (categoria.HasValue)
-            {
-                query = query.Where(insumo => insumo.CategoriaInsumo.Id == (int)categoria);
-            }
-
-            return query.OrderBy(insumo => insumo.Nome).ToList();
-        }
-
-        public IList<Insumo> ConsultarPorNomeLike(string nomeInsumo)
-        {
-            var query = EntitySet.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(nomeInsumo))
-            {
-                query = query.Where(i => i.Nome.ToLower().Contains(nomeInsumo.ToLower()));
-            }
-            return query
-                .Distinct()
-                .OrderBy(i => i.Nome)
-                .Take(ONSConfigurationManager.GetSettings(ONSConfigurationManager.ConfigNameResultsByPage, 10))
-                .ToList();
-        }
-
-        public Insumo ConsultarPorNome(string nomeInsumo)
-        {
-            var query = EntitySet.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(nomeInsumo))
-            {
-                query = query.Where(i => i.Nome.ToLower().Trim().Equals(nomeInsumo.ToLower().Trim()));
-            }
-            return query.FirstOrDefault();
-        }
-
-        public Insumo ConsultarPorSigla(string siglaInsumo)
-        {
-            var query = EntitySet.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(siglaInsumo))
-            {
-                query = query.Where(i => i.SiglaInsumo.ToLower().Trim().Equals(siglaInsumo.ToLower().Trim()));
-            }
-            return query.FirstOrDefault();
-        }
-
-        public IList<Insumo> ConsultarInsumosNaoEstruturadoEEstruturadoComGrandezaAtiva()
-        {
-            string tipoInsumoNaoEstruturado = char.ToString((char)TipoInsumoEnum.NaoEstruturado);
-            var query = from insumo in EntitySet
-                        join grandeza in Context.Set<Grandeza>() on insumo.Id equals grandeza.Insumo.Id into grandezas
-                        from grandeza in grandezas.DefaultIfEmpty()
-                        where grandeza == null && insumo.TipoInsumo == tipoInsumoNaoEstruturado || grandeza.Ativo
-                        select insumo;
-
-            return query.ToList();
-        }
-
-        public IList<InsumoNaoEstruturado> ConsultarInsumoNaoEstruturado()
-        {
-            return Context.Set<InsumoNaoEstruturado>().ToList();
         }
 
         public IList<Insumo> ConsultaInsumoPorIds(params int[] ids)
         {
-            return EntitySet.Where(insumo => ids.Contains(insumo.Id)).ToList();
+            throw new NotImplementedException();
         }
 
-        public IList<Insumo> ConsultarPorInsulmoFiltro(InsumoFiltro filtro)
+        public IList<InsumoEstruturado> ConsultarInsumoEstruturadoComGrandezaAtiva(TipoColetaEnum tipoColeta, CategoriaInsumoEnum? categoria = null)
         {
-            return CriarQueryConsultaInsumoFiltro(filtro).ToList();
+            throw new NotImplementedException();
         }
 
-        public PagedResult<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro)
+        public IList<InsumoNaoEstruturado> ConsultarInsumoNaoEstruturado()
         {
-            return FindPaged(CriarQueryConsultaInsumoFiltro(filtro), filtro.PageIndex, filtro.PageSize,
-                insumo => insumo.OrderBy(i => i.OrdemExibicao));
+            throw new NotImplementedException();
+        }
+
+        public IList<Insumo> ConsultarInsumosNaoEstruturadoEEstruturadoComGrandezaAtiva()
+        {
+            throw new NotImplementedException();
         }
 
         public IList<Insumo> ConsultarInsumosPorSemanaOperativaAgentes(int idSemanaOperativa, params int[] idsAgente)
         {
-            var query = from insumo in EntitySet
-                        join coletaInsumo in Context.Set<ColetaInsumo>()
-                            on insumo.Id equals coletaInsumo.Insumo.Id
-                        where coletaInsumo.SemanaOperativa.Id == idSemanaOperativa
-                            && idsAgente.Contains(coletaInsumo.Agente.Id)
-                        select insumo;
-
-            return query.Distinct().ToList();
+            throw new NotImplementedException();
         }
 
-        private IQueryable<Insumo> CriarQueryConsultaInsumoFiltro(InsumoFiltro filtro)
+        public IList<Insumo> ConsultarPorInsulmoFiltro(InsumoFiltro filtro)
         {
-            /* Insumo não estruturado não possui TipoColetaId e CategoriaId */
-            if (!string.IsNullOrEmpty(filtro.TipoInsumo)
-                && filtro.TipoInsumo == TipoInsumoEnum.NaoEstruturado.ToChar()
-                && (filtro.TipoColetaId.HasValue || filtro.CategoriaId.HasValue))
-            {
-                return Enumerable.Empty<Insumo>().AsQueryable();
-            }
+            throw new NotImplementedException();
+        }
 
-            var query = EntitySet.AsQueryable();
+        public PagedResult<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro)
+        {
+            throw new NotImplementedException();
+        }
 
-            if (!string.IsNullOrWhiteSpace(filtro.Nome))
-            {
-                query = query.Where(insumo => insumo.Nome.ToLower().Trim().Contains(filtro.Nome.ToLower().Trim()));
-            }
+        public Insumo ConsultarPorNome(string nomeInsumo)
+        {
+            throw new NotImplementedException();
+        }
 
-            if (!string.IsNullOrWhiteSpace(filtro.SiglaInsumo))
-            {
-                query = query.Where(insumo => insumo.SiglaInsumo.ToLower().Trim().Contains(filtro.SiglaInsumo.ToLower().Trim()));
-            }
+        public IList<Insumo> ConsultarPorNomeLike(string nomeInsumo)
+        {
+            throw new NotImplementedException();
+        }
 
-            if (!string.IsNullOrEmpty(filtro.TipoInsumo))
-            {
-                if (filtro.TipoInsumo == TipoInsumoEnum.NaoEstruturado.ToChar())
-                {
-                    query = query.OfType<InsumoNaoEstruturado>();
-                }
-                else
-                {
-                    query = query.OfType<InsumoEstruturado>();
-                }
-            }
-
-            if (filtro.CategoriaId.HasValue)
-            {
-                query = query.OfType<InsumoEstruturado>()
-                    .Where(estruturado => estruturado.CategoriaInsumo.Id == filtro.CategoriaId);
-            }
-
-            if (filtro.TipoColetaId.HasValue)
-            {
-                query = query.OfType<InsumoEstruturado>()
-                    .Where(estruturado => estruturado.TipoColeta.Id == filtro.TipoColetaId);
-            }
-
-            return query;
+        public Insumo ConsultarPorSigla(string siglaInsumo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

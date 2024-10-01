@@ -1,40 +1,30 @@
-﻿namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Repository.BDT;
+using ONS.WEBPMO.Infrastructure.Context;
+using ONS.WEBPMO.Infrastructure.DataBase;
+
+namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {
-    [UseDbContext(ConnectionStringsNames.BDTModel)]
+    //[UseDbContext(ConnectionStringsNames.BDTModel)]
     public class SubsistemaPMORepository : Repository<SubsistemaPMO>, ISubsistemaPMORepository
     {
-        /// <summary>
-        /// Consulta todos os subsistemas na BDT
-        /// </summary>
-        /// <returns></returns>
-        public IList<SubsistemaPMO> ConsultarTodos()
+        public SubsistemaPMORepository(WEBPMODbContext context) : base(context)
         {
-            return EntitySet.ToList();
         }
 
         public IList<SubsistemaPMO> ConsultarAtivos()
         {
-            return EntitySet.Where(s => s.DataDesativacao == null).ToList();
+            throw new NotImplementedException();
         }
 
         public IList<SubsistemaPMO> ConsultarOutros()
         {
-            string sql = "SELECT "
-            + "TRIM(Extent1.cod_ptointermedsubsistema) AS Id, "
-            + "'' AS NomeLongo, "
-            + "CURRENT As DataEntrada, "
-            + "CURRENT As DataDesativacao, "
-            + "Extent1.nom_ptointermedsubsistema AS NomeCurto, "
-            + "Extent1.cod_subsistemamodenerg AS CodigoModeloEnergia "
-            + "FROM informix.tb_ptointermedsubsistema AS Extent1 "
-            + "INNER JOIN informix.tb_ptointersubsistestudo AS Extent2 ON Extent1.id_ptointermedsubsistema = Extent2.id_ptointermedsubsistema "
-            + "WHERE Extent2.id_tpestudoeleene = 22 ";
+            throw new NotImplementedException();
+        }
 
-            var retorno = EntitySet.SqlQuery(sql).ToList();
-
-            retorno.ForEach(r => r.DataDesativacao = null);
-
-            return retorno;
+        public IList<SubsistemaPMO> ConsultarTodos()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,38 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class DadoColetaMap : EntityTypeConfiguration<DadoColeta>
+    public class DadoColetaMap : IEntityTypeConfiguration<DadoColeta>
     {
-        public DadoColetaMap()
+        public void Configure(EntityTypeBuilder<DadoColeta> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_dadocoleta");
-            Property(t => t.Id).HasColumnName("id_dadocoleta");
-            Property(t => t.TipoDadoColeta)
-                .HasColumnName("tip_dadocoleta")
-                .IsRequired()
-                .IsUnicode(false)
-                .IsFixedLength()
-                .HasMaxLength(1);
-
-            // Relationships
-            Property(t => t.ColetaInsumoId)
-                .HasColumnName("id_coletainsumo");
-            HasRequired(t => t.ColetaInsumo)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.ColetaInsumoId);
-
-            Property(t => t.GabaritoId)
-                .HasColumnName("id_gabarito");
-            HasRequired(t => t.Gabarito)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.GabaritoId)
-                .WillCascadeOnDelete(false);
-
-            Property(t => t.GrandezaId)
-                .HasColumnName("id_grandeza");
-            HasOptional(t => t.Grandeza)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.GrandezaId);
+            throw new NotImplementedException();
         }
     }
 }

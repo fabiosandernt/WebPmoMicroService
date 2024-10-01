@@ -1,6 +1,14 @@
-﻿namespace ONS.WEBPMO.Domain.Repositories.Impl
+﻿using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Infrastructure.Context;
+using ONS.WEBPMO.Infrastructure.DataBase;
+
+namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class ReservatorioRepository : Repository<Reservatorio>, IReservatorioRepository
     {
+        public ReservatorioRepository(WEBPMODbContext context) : base(context)
+        {
+        }
     }
 }

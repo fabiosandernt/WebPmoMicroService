@@ -1,23 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class HistoricoSemanaOperativaMap : EntityTypeConfiguration<HistoricoSemanaOperativa>
+    public class HistoricoSemanaOperativaMap : IEntityTypeConfiguration<HistoricoSemanaOperativa>
     {
-        public HistoricoSemanaOperativaMap()
+        public void Configure(EntityTypeBuilder<HistoricoSemanaOperativa> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_histmodifsemanaoper");
-            Property(t => t.Id).HasColumnName("id_histmodifsemanaoper");
-            Property(t => t.DataHoraAlteracao).HasColumnName("din_histmodifsemanaoper");
-
-            Property(t => t.SemanaOperativaId).HasColumnName("id_semanaoperativa");
-            HasRequired(t => t.SemanaOperativa)
-                .WithMany()
-                .HasForeignKey(t => t.SemanaOperativaId);
-
-            Property(t => t.SituacaoId).HasColumnName("id_tpsituacaosemanaoper");
-            HasRequired(t => t.Situacao)
-                .WithMany()
-                .HasForeignKey(t => t.SituacaoId);
+            throw new NotImplementedException();
         }
     }
 }

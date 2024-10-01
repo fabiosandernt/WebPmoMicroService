@@ -1,22 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    internal class DadoColetaNaoEstruturadoMap : EntityTypeConfiguration<DadoColetaNaoEstruturado>
+    public class DadoColetaNaoEstruturadoMap : IEntityTypeConfiguration<DadoColetaNaoEstruturado>
     {
-        public DadoColetaNaoEstruturadoMap()
+        public void Configure(EntityTypeBuilder<DadoColetaNaoEstruturado> builder)
         {
-            HasKey(t => t.Id);
-            ToTable("tb_dadocoletanaoestruturado");
-            Property(t => t.Id).HasColumnName("id_dadocoleta");
-            Property(t => t.Observacao).HasColumnName("obs_dadocoletanaoestruturado").HasMaxLength(1000);
-
-            HasMany(t => t.Arquivos)
-                .WithMany()
-                .Map(m =>
-                {
-                    m.ToTable("tb_arqdadocoletanaoestruturado");
-                    m.MapLeftKey("id_dadocoleta");
-                    m.MapRightKey("id_arquivo");
-                });
+            throw new NotImplementedException();
         }
     }
 }

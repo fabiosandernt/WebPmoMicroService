@@ -1,20 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ONS.WEBPMO.Domain.Entities.PMO;
+
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
-    public class TipoColetaMap : EntityTypeConfiguration<TipoColeta>
+    public class TipoColetaMap : IEntityTypeConfiguration<TipoColeta>
     {
-        public TipoColetaMap()
+        public void Configure(EntityTypeBuilder<TipoColeta> builder)
         {
-            // Primary Key
-            HasKey(t => t.Id);
-
-            // Table & Column Mappings
-            ToTable("tb_tpcoleta");
-            Property(t => t.Id).HasColumnName("id_tpcoleta").HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
-            Property(t => t.Descricao).HasColumnName("dsc_tpcoleta").IsRequired().HasMaxLength(20);
-            Property(t => t.UsoPmo).HasColumnName("flg_pmo").IsRequired();
-            Property(t => t.BlocoMontador).HasColumnName("flg_blocomontador").IsRequired();
-            Property(t => t.MnemonicoMontador).HasColumnName("flg_mnemonicomontador").IsRequired();
+            throw new NotImplementedException();
         }
     }
 }
