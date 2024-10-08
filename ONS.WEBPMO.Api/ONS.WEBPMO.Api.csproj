@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ONS.WEBPMO.Application\ONS.WEBPMO.Application.csproj" />
+    <ProjectReference Include="..\ONS.WEBPMO.Infrastructure\ONS.WEBPMO.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

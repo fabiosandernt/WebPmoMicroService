@@ -9,7 +9,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
         public void Configure(EntityTypeBuilder<UnidadeGeradora> builder)
         {
             builder.ToTable("tb_aux_unidadegeradora");
-            builder.HasKey(t => t.Id);
+            //builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id_origemcoleta").HasMaxLength(50).IsRequired();
             builder.Property(t => t.PotenciaNominal).HasColumnName("val_potencianominal");
             builder.Property(t => t.CodigoDPP).HasColumnName("cod_dpp");

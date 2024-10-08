@@ -12,7 +12,7 @@ using MatchType = ons.common.schemas.filters.MatchType;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
 {   
-    public class BDTService :  IBDTService
+    public class BDTPMOService :  IBDTPMOService
     {
         private readonly IUsinaPMORepository usinaPmoRepository;
         private readonly IUsinaPEMRepository usinaPemRepository;
@@ -23,7 +23,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
         private readonly ISubmercadoPMORepository submercadoPmoRepository;
         private readonly IMapper _mapper;
 
-        public BDTService(
+        public BDTPMOService(
             IUsinaPMORepository usinaPmoRepository,
             IUsinaPEMRepository usinaPemRepository,
             IReservatorioPMORepository reservatorioPmoRepository,

@@ -8,7 +8,23 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<Parametro> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(t => t.Id);
+
+            builder.ToTable("tb_parametropmo");
+
+            builder.Property(t => t.Id).HasColumnName("id_parametropmo");
+            builder.Property(t => t.Nome)
+                   .HasColumnName("nom_parametropmo")
+                   .IsRequired()
+                   .HasMaxLength(50);
+
+            builder.Property(t => t.Valor)
+                   .HasColumnName("val_parametropmo")
+                   .HasMaxLength(1000);
+
+            builder.Property(t => t.Descricao)
+                   .HasColumnName("dsc_parametropmo")
+                   .HasMaxLength(255);
         }
     }
 }

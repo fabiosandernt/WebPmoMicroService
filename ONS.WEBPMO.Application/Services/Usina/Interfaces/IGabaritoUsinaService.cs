@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Servico.Usina
 {
-    public interface IGabaritoService
+    public interface IGabaritoUsinaService
     {
         #region Agentes
 

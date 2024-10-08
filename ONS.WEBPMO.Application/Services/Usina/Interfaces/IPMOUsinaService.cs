@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Servico.Usina
 {
-    public interface IPMOService
+    public interface IPMOUsinaService
     {
         /// <summary>
         /// Consulta PMO

@@ -5,7 +5,7 @@ using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations
 {
     
-    public interface IBDTService 
+    public interface IBDTPMOService 
     {
         /// <summary>
         /// Consulta UGEs sem parametro

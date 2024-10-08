@@ -1,6 +1,6 @@
 namespace ONS.WEBPMO.Domain.Entities.PMO
 {
-    public partial class SituacaoSemanaOperativa 
+    public partial class SituacaoSemanaOperativa : IdDescricaoBaseEntity
     {
         public int IdTpsituacaosemanaoper { get; set; }
 

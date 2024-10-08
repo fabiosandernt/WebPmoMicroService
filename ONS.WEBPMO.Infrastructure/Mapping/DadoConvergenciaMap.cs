@@ -8,7 +8,27 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoConvergencia> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("tb_dadosconvergencia");
+
+            builder.HasKey(t => t.Id);
+
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_dadosconvergencia")
+                   .ValueGeneratedOnAdd();
+
+            builder.Property(t => t.LoginConvergenciaRepresentanteCCEE)
+                   .HasColumnName("lgn_representanteccee")
+                   .HasMaxLength(60);
+
+            builder.Property(t => t.ObservacaoConvergenciaCCEE)
+                   .HasColumnName("obs_ccee")
+                   .HasMaxLength(1000);
+
+            // Relacionamento um-para-um com SemanaOperativa
+            builder.HasOne(t => t.SemanaOperativa)
+                   .WithOne(t => t.DadoConvergencia)
+                   .HasForeignKey<DadoConvergencia>(t => t.Id)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

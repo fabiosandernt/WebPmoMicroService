@@ -10,10 +10,7 @@
     <Folder Include="Profile\WebSite\" />
     <Folder Include="Profile\Usina\" />
     <Folder Include="Services\PMO\Implementation\LogAuditoria\" />
-    <Folder Include="Services\PMO\Interfaces\" />
     <Folder Include="Services\Presentation\" />
-    <Folder Include="Services\Usina\Interfaces\" />
-    <Folder Include="Services\Usina\Implementation\" />
   </ItemGroup>
 
   <ItemGroup>

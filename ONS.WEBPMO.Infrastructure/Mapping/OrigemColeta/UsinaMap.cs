@@ -10,7 +10,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
         public void Configure(EntityTypeBuilder<Usina> builder)
         {
             builder.ToTable("tb_aux_usina");
-            builder.HasKey(t => t.Id);
+            //builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id_origemcoleta").HasMaxLength(50).IsRequired();
             builder.Property(t => t.NomeLongo).HasColumnName("nom_longo").HasMaxLength(100);
             builder.Property(t => t.NomeCurto).HasColumnName("nom_curto").HasMaxLength(50);

@@ -10,7 +10,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
         {
             builder.ToTable("tb_aux_reservatorio");
 
-            builder.HasKey(t => t.Id);
+            //builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id_origemcoleta").HasMaxLength(50).IsRequired();
 
             builder.Property(t => t.NomeLongo).HasColumnName("nom_longo").HasMaxLength(100);

@@ -19,11 +19,11 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
     public class OrigemColetaService : Service, IOrigemColetaService
     {
         private readonly IOrigemColetaRepository origemColetaRepository;
-        private readonly IBDTService BDTService;
+        private readonly IBDTPMOService BDTService;
 
         public OrigemColetaService(
             IOrigemColetaRepository origemColetaRepository,
-            IBDTService BDTService)
+            IBDTPMOService BDTService)
         {
             this.origemColetaRepository = origemColetaRepository;
             this.BDTService = BDTService;

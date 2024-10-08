@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using ONS.WEBPMO.Application.Models.PMO;
+﻿using Microsoft.AspNetCore.Mvc;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Api.Controllers
 {

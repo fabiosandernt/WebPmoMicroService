@@ -12,12 +12,12 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         private readonly IAgenteRepository agenteRepository;
         private readonly IParametroService parametroService;
 
-        private readonly IBDTService bdtService;
+        private readonly IBDTPMOService bdtService;
 
         public AgenteService(
             IAgenteRepository agenteRepository,
             IParametroService parametroService,
-            IBDTService bdtService)
+            IBDTPMOService bdtService)
         {
             this.agenteRepository = agenteRepository;
             this.parametroService = parametroService;

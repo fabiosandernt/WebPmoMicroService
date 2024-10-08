@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Servico.Usina
 {
-    public class PMOService : IPMOService
+    public class PMOUsinaService : IPMOUsinaService
     {
 
         public List<CronogramaPMO> ObterCronogramaPMO(int ano, int mes)

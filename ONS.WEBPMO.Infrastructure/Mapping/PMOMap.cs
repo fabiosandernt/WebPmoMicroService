@@ -8,7 +8,23 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<PMO> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(t => t.Id);
+
+            builder.ToTable("tb_pmo");
+
+            builder.Property(t => t.Id).HasColumnName("id_pmo");
+            builder.Property(t => t.AnoReferencia).HasColumnName("ano_referencia");
+            builder.Property(t => t.MesReferencia).HasColumnName("mes_referencia");
+            builder.Property(t => t.QuantidadeMesesAdiante).HasColumnName("qtd_mesesadiante");
+
+            builder.Property(t => t.Versao)
+                   .HasColumnName("ver_controleconcorrencia")
+                   .IsRowVersion();
+
+            builder.HasMany(e => e.SemanasOperativas)
+                   .WithOne(e => e.PMO)
+                   .HasForeignKey(e => e.PMOId)
+                   .IsRequired();
         }
     }
 }

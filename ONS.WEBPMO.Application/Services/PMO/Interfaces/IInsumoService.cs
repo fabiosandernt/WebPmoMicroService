@@ -11,7 +11,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
    
     public interface IInsumoService 
     {
-
+        ICollection<VisualizarInsumoModel> GetByQueryable(InsumoFiltro filter);
         Task<IList<VisualizarInsumoModel>> ConsultarTodosInsumos();
         /// <summary>
         /// Consultar insumo com grandeza ativa

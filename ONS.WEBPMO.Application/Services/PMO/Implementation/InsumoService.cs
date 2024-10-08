@@ -12,6 +12,7 @@ using ONS.WEBPMO.Domain.Entities.Resources;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository;
 
+
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
     public class InsumoService : IInsumoService
@@ -536,6 +537,14 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             {
                 mensagens.Add(SGIPMOMessages.MS064);
             }
+        }
+
+        public ICollection<VisualizarInsumoModel> GetByQueryable(InsumoFiltro filter)
+        {
+            var query = this.insumoRepository.GetByQueryableExtension(filter).ToList();
+            var insumos = _mapper.Map<List<VisualizarInsumoModel>>(query);
+            
+            return insumos.ToList();
         }
 
         #endregion
