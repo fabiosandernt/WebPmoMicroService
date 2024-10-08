@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.PMO;
+using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class PMOMapper : Profile
     {
-        protected override void Configure()
+        public PMOMapper()
         {
             CreateMap<PMO, PMOManterModel>();
             CreateMap<SemanaOperativa, SemanaOperativaModel>();

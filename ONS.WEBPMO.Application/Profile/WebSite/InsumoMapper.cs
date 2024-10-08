@@ -1,24 +1,29 @@
 ﻿using AutoMapper;
+using ONS.Common.Util;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.Insumo;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class InsumoMapper : Profile
     {
-        protected override void Configure()
+        public InsumoMapper()
         {
             CreateMap<Insumo, InsumoListagemModel>()
                   .ForMember(destino => destino.NomeTipoInsumo,
-                             opt => opt.ResolveUsing(model => model.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                             opt => opt.MapFrom(model => model.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
                                                                   ? TipoInsumoEnum.Estruturado.ToDescription()
                                                                   : TipoInsumoEnum.NaoEstruturado.ToDescription()))
                   .ForMember(destino => destino.ValorTipoInsumo, opt => opt.MapFrom(model => model.TipoInsumo))
                   .ForMember(destino => destino.PreAprovado,
-                             opt => opt.ResolveUsing(model => model.PreAprovado ? "Sim" : "Não"))
+                             opt => opt.MapFrom(model => model.PreAprovado ? "Sim" : "Não"))
                   .ForMember(destino => destino.SiglaInsumo, opt => opt.MapFrom(model => model.SiglaInsumo))
                   .ForMember(destino => destino.ExportarInsumo,
-                             opt => opt.ResolveUsing(model => model.ExportarInsumo ? "Sim" : "Não"))
+                             opt => opt.MapFrom(model => model.ExportarInsumo ? "Sim" : "Não"))
                   .ForMember(destino => destino.Ativo,
-                             opt => opt.ResolveUsing(model => model.Ativo ? "Sim" : "Não"));
+                             opt => opt.MapFrom(model => model.Ativo ? "Sim" : "Não"));
 
             CreateMap<InsumoNaoEstruturado, ConfiguracaoInsumoNaoEstruturado>()
                   .ForMember(destino => destino.IsBlocoMontador, opt => opt.MapFrom(insumo => insumo.IsUtilizadoDECOMP))
@@ -56,7 +61,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
 
             CreateMap<InsumoEstruturado, DadosManutencaoInsumoEstruturado>()
                 .ForMember(destino => destino.TipoInsumo,
-                    opt => opt.ResolveUsing(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                    opt => opt.MapFrom(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
                         ? TipoInsumoEnum.Estruturado
                         : TipoInsumoEnum.NaoEstruturado));
 

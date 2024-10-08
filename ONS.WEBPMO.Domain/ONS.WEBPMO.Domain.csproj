@@ -12,7 +12,13 @@
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.IQueryable.Extensions" Version="8.0.0" />
+		<PackageReference Include="ons.common.schemas" Version="4.8.0.0" />
     <PackageReference Include="ONS.Infra.Core" Version="4.8.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="ONS.Common">
+	    <HintPath>..\libs\ONS.Common.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.Gabarito;
+using ONS.WEBPMO.Domain.Entities.Filters;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class GabaritoMapper : Profile
     {
-        protected override void Configure()
+        public GabaritoMapper()
         {
             CreateMap<DadosFiltroPesquisaGabaritoDTO, GabaritoConsultaModel>();
 
@@ -110,20 +113,20 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
             CreateMap<ConfiguracaoGabaritoGeracaoComplementarModel, GabaritoConfiguracaoDTO>();
             CreateMap<ConfiguracaoGabaritoReservatorioModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta,
-                           opt => opt.ResolveUsing(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
+                           opt => opt.MapFrom(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
             CreateMap<ConfiguracaoGabaritoSubsistemaModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta,
-                           opt => opt.ResolveUsing(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
+                           opt => opt.MapFrom(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
             CreateMap<ConfiguracaoGabaritoUnidadeGeradoraModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta, opt => opt.MapFrom(model => model.IdsOrigemColeta))
                 .ForMember(dto => dto.IdOrigemColetaPai, opt => opt.MapFrom(model => model.IdUsina));
             CreateMap<ConfiguracaoGabaritoUsinaModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta,
-                           opt => opt.ResolveUsing(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
+                           opt => opt.MapFrom(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
 
             CreateMap<ManutencaoGabaritoModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta,
-                           opt => opt.ResolveUsing(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
+                           opt => opt.MapFrom(model => model.IdOrigemColeta != null ? new List<string> { model.IdOrigemColeta } : new List<string>()));
             CreateMap<ManutencaoGabaritoUnidadeGeradoraModel, GabaritoConfiguracaoDTO>()
                 .ForMember(dto => dto.IdsOrigemColeta, opt => opt.MapFrom(model => model.IdsOrigemColeta))
                 .ForMember(dto => dto.IdOrigemColetaPai, opt => opt.MapFrom(model => model.IdOrigemColeta));
@@ -138,7 +141,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
             CreateMap<ConfiguracaoGabaritoUnidadeGeradoraModel, GabaritoDadosFilter>()
                 .ForMember(filter => filter.IdOrigemColeta, opt => opt.MapFrom(model => model.IdUsina));
 
-            base.Configure();
+          
         }
     }
 }

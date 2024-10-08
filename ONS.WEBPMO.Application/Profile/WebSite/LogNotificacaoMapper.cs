@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models.LogNotificacao;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class LogNotificacaoMapper : Profile
     {
-        protected override void Configure()
+        public LogNotificacaoMapper()
         {
             CreateMap<LogNotificacaoDTO, PesquisaLogNotificacaoModel>();
 

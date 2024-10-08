@@ -1,10 +1,14 @@
-﻿
-
+﻿using AutoMapper;
+using ons.common.schemas.filters;
+using ONS.Common.Instituicao.Services;
+using ONS.Common.Services.Impl;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
 using ONS.WEBPMO.Domain.Entities.BDT;
+using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Repository.BDT;
-using OONS.WEBPMO.Domain.Repository.BDT;
+using MatchType = ons.common.schemas.filters.MatchType;
+
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
 {   
@@ -17,6 +21,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
         private readonly IUnidadeGeradoraPMORepository unidadeGeradoraPmoRepository;
         private readonly ISubsistemaPMORepository subsistemaPmoRepository;
         private readonly ISubmercadoPMORepository submercadoPmoRepository;
+        private readonly IMapper _mapper;
 
         public BDTService(
             IUsinaPMORepository usinaPmoRepository,
@@ -25,7 +30,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
             IReservatorioEERepository reservatorioEERepository,
             IUnidadeGeradoraPMORepository unidadeGeradoraPmoRepository,
             ISubsistemaPMORepository subsistemaPmoRepository,
-            ISubmercadoPMORepository submercadoPmoRepository)
+            ISubmercadoPMORepository submercadoPmoRepository, IMapper mapper)
         {
             this.usinaPmoRepository = usinaPmoRepository;
             this.usinaPemRepository = usinaPemRepository;
@@ -34,6 +39,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
             this.unidadeGeradoraPmoRepository = unidadeGeradoraPmoRepository;
             this.subsistemaPmoRepository = subsistemaPmoRepository;
             this.submercadoPmoRepository = submercadoPmoRepository;
+            _mapper = mapper;
         }
 
         #region Reservatório
@@ -195,7 +201,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
         private IList<TDestination> ConvertToOrigemColeta<TSource, TDestination>(IEnumerable<TSource> origensColetaPmo)
             where TDestination : OrigemColeta
         {
-            return origensColetaPmo.Select(origemColetaPmo => Mapper.Map<TDestination>(origemColetaPmo)).ToList();
+            return origensColetaPmo.Select(origemColetaPmo => _mapper.Map<TDestination>(origemColetaPmo)).ToList();
         }
     }
 }
