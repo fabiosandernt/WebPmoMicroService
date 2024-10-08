@@ -24,10 +24,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="ons.common.schemas" Version="4.8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ONS.WEBPMO.Domain\ONS.WEBPMO.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ONS.Common">
+      <HintPath>..\libs\ONS.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
  

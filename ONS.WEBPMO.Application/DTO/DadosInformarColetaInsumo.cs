@@ -1,6 +1,6 @@
 ﻿
 
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Util.Pagination;
 
 namespace ONS.WEBPMO.Application.DTO
 {

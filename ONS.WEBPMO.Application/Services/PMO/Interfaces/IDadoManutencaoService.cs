@@ -1,7 +1,5 @@
-﻿
-using ONS.Infra.Core.Pagination;
+﻿using ONS.Common.Util.Pagination;
 using ONS.WEBPMO.Domain.DTO;
-using ONS.WEBPMO.Domain.Entities.Base;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 

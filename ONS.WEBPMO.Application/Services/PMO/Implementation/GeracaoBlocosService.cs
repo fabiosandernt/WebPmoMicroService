@@ -1,13 +1,18 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+﻿using ONS.Common.Exceptions;
+using ONS.Common.Services.Impl;
+using ONS.Common.Util.Files;
+using ONS.Infra.Core.Extensions;
+using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
+using System.Text;
+
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    using GeracaoBlocos;
-    using ONS.Common.Util.Files;
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-    using ONS.WEBPMO.Domain.Entities.PMO;
-    using ONS.WEBPMO.Domain.Enumerations;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     public class GeracaoBlocosService : Service, IGeracaoBlocosService
     {
@@ -55,7 +60,7 @@
                 VerificarONSBusinessException(mensagens);
             }
 
-            DadosSemanaOperativaDTO dtoAbrirOuFecharColeta = new DadosSemanaOperativaDTO()
+            ONS.WEBPMO.Domain.DTO.DadosSemanaOperativaDTO dtoAbrirOuFecharColeta = new ONS.WEBPMO.Domain.DTO.DadosSemanaOperativaDTO()
             {
                 IdSemanaOperativa = idSemanaOperativa,
                 VersaoSemanaOperativa = versao
@@ -271,7 +276,7 @@
         /// <param name="mensagens">Lista de mensagens de erro</param>
         private void ValidarSemanaOperativaEmGeracaoBlocos(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            SituacaoSemanaOperativaEnum situacao = (SituacaoSemanaOperativaEnum)semanaOperativa.Situacao.Id;
+            SituacaoSemanaOperativaEnum situacao = (SituacaoSemanaOperativaEnum)semanaOperativa.Situacao.IdTpsituacaosemanaoper;
             if (situacao != SituacaoSemanaOperativaEnum.GeracaoBlocos)
             {
                 mensagens.Add(SGIPMOMessages.MS046);
@@ -287,7 +292,7 @@
         /// <param name="mensagens">Lista de mensagens de erro</param>
         private void ValidarSemanaOperativaEmGeracaoBlocosInsumosAprovados(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ColetaDados)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ColetaDados)
             {
                 mensagens.Add(SGIPMOMessages.MS023);
             }
@@ -301,7 +306,7 @@
         /// <param name="mensagens">Lista de mensagens de erro</param>
         private void ValidarExisteGeracaoBlocos(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Arquivos.Any(arquivo => arquivo.Situacao.Id == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos))
+            if (semanaOperativa.Arquivos.Any(arquivo => arquivo.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos))
             {
                 mensagens.Add(SGIPMOMessages.MS047);
             }

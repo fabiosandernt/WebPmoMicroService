@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ONS.Common.Exceptions;
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Util.Pagination;
 using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;

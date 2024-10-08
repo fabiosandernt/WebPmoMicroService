@@ -1,4 +1,4 @@
-﻿using ONS.WEBPMO.Application.DTO;
+﻿using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Domain.Presentations

@@ -1,9 +1,8 @@
 using ONS.Common.Exceptions;
 using ONS.Common.Seguranca;
 using ONS.Infra.Core.Files;
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Util.Pagination;
 using ONS.Infra.Temp;
-using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
@@ -14,6 +13,7 @@ using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Domain.Repository.BDT;
 using System.Configuration;
 using System.Globalization;
+using ONS.WEBPMO.Domain.DTO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
@@ -1183,7 +1183,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         private void ValidarEstudoSituacaoColetaDados(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ColetaDados)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ColetaDados)
             {
                 mensagens.Add(SGIPMOMessages.MS023);
             }
@@ -1242,7 +1242,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         /// <param name="mensagens">Lista contendo os erros de negócio</param>
         private void ValidarEstudoConvergenciaCCEE(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
             {
                 mensagens.Add(SGIPMOMessages.MS048);
             }
@@ -2269,7 +2269,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             if (semanaOperativa != null)
             {
-                return semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Configuracao;
+                return semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Configuracao;
             }
             else
             {
@@ -2290,7 +2290,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             {
                 if (dadosSemanaOperativaDto.ReenvioDeNotificacao)
                 {
-                    if (semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ColetaDados)
+                    if (semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ColetaDados)
                     {
                         GabaritoParticipantesFilter filter = new GabaritoParticipantesFilter() { IdSemanaOperativa = dadosSemanaOperativaDto.IdSemanaOperativa };
 
@@ -2339,7 +2339,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                     ValidarEstudoConvergenciaCCEE(semanaOperativa, mensagens);
                     VerificarONSBusinessException(mensagens);
 
-                    if (semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Configuracao)
+                    if (semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Configuracao)
                     {
                         Parametro parametro = parametroService.ObterParametro(ParametroEnum.MensagemAberturaColeta);
 
@@ -2422,11 +2422,11 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
             if (semanaOperativa != null)
             {
-                if (semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Configuracao)
+                if (semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Configuracao)
                 {
                     parametro = parametroService.ObterParametro(ParametroEnum.MensagemAberturaColeta);
                 }
-                else if (semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ColetaDados)
+                else if (semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ColetaDados)
                 {
                     parametro = parametroService.ObterParametro(ParametroEnum.MensagemAberturaColeta);
                 }
@@ -2482,7 +2482,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 retorno.NomeAgente = dadoColeta.ColetaInsumo.NomeAgentePerfil;
                 retorno.NomeInsumo = dadoColeta.ColetaInsumo.Insumo.Nome;
                 retorno.NomeSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Nome;
-                retorno.DescricaoSituacaoSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Situacao.Descricao;
+                retorno.DescricaoSituacaoSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Situacao.DscSituacaosemanaoper;
                 retorno.IdAgente = dadoColeta.ColetaInsumo.Agente.Id;
                 retorno.IdColetaInsumo = dadoColeta.ColetaInsumo.Id;
                 retorno.IdDadoColetaInsumo = dadoColeta.Id;
@@ -2490,7 +2490,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 retorno.IdInsumo = dadoColeta.ColetaInsumo.Insumo.Id;
                 retorno.IdSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Id;
                 retorno.IdSituacaoColetaInsumo = dadoColeta.ColetaInsumo.Situacao.Id;
-                retorno.IdSituacaoSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Situacao.Id;
+                retorno.IdSituacaoSemanaOperativa = dadoColeta.ColetaInsumo.SemanaOperativa.Situacao.IdTpsituacaosemanaoper;
                 retorno.MotivoAlteracaoONS = dadoColeta.ColetaInsumo.MotivoAlteracaoONS;
                 retorno.MotivoRejeicaoONS = dadoColeta.ColetaInsumo.MotivoRejeicaoONS;
                 retorno.Observacao = dadoColeta.Observacao;

@@ -28,14 +28,16 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                 .ForMember(model => model.NomeInsumo, opt => opt.MapFrom(coleta => coleta.Insumo.Nome))
                 .ForMember(model => model.NomeSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Nome))
                 .ForMember(model => model.SituacaoColetaInsumo, opt => opt.MapFrom(coleta => coleta.Situacao.Id))
-                .ForMember(model => model.SituacaoSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Situacao.Id))
+                .ForMember(model => model.SituacaoSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Situacao.IdTpsituacaosemanaoper))
                 .ForMember(model => model.VersaoString, opt => opt.MapFrom(coleta => Convert.ToBase64String(coleta.Versao)))
                 .ForMember(model => model.Versao, opt => opt.MapFrom(coleta => coleta.Versao))
                 .ForMember(model => model.SituacaoColetaInsumoDescricao, opt => opt.MapFrom(coleta => coleta.Situacao.Descricao))
                 .ForMember(model => model.IsSemanaPmo, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Revisao == 0))
                 .ForMember(model => model.IsGeracaoComplementar, opt => opt.MapFrom(coleta =>
-                    coleta.Insumo is InsumoEstruturado insumoEstruturado &&
-                    insumoEstruturado.TipoColeta.Id == (int)TipoColetaEnum.GeracaoComplementar))
+                 coleta.Insumo != null &&
+                 coleta.Insumo.GetType() == typeof(InsumoEstruturado) &&
+                 ((InsumoEstruturado)coleta.Insumo).TipoColeta.Id == (int)TipoColetaEnum.GeracaoComplementar))
+
                 .ForMember(model => model.IsInsumoParaDECOMP, opt => opt.MapFrom(coleta => coleta.IsInsumoDECOMP))
                 .ForMember(model => model.NomesGrandezasNaoEstagioAlteradas, opt => opt.MapFrom(coleta => coleta.NomesGrandezasNaoEstagioAlteradas));
 
@@ -108,7 +110,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                 .ForMember(model => model.NomeInsumo, opt => opt.MapFrom(coleta => coleta.Insumo.Nome))
                 .ForMember(model => model.NomeSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Nome))
                 .ForMember(model => model.SituacaoColetaInsumo, opt => opt.MapFrom(coleta => coleta.Situacao.Id))
-                .ForMember(model => model.SituacaoSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Situacao.Id))
+                .ForMember(model => model.SituacaoSemanaOperativa, opt => opt.MapFrom(coleta => coleta.SemanaOperativa.Situacao.IdTpsituacaosemanaoper))
                 .ForMember(model => model.VersaoString, opt => opt.MapFrom(coleta => Convert.ToBase64String(coleta.Versao)))
                 .ForMember(model => model.Versao, opt => opt.MapFrom(coleta => coleta.Versao))
                 .ForMember(model => model.MotivoAlteracaoColetaNaoEstruturado, opt => opt.MapFrom(coleta => coleta.MotivoAlteracaoONS))

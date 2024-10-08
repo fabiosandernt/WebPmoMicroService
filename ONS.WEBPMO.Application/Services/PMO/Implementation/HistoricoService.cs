@@ -39,20 +39,53 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             historicoSemanaOperativaRepository.Add(historico, false);
         }
 
+        //public void ExcluirHistoricoColetaInsumo(int idColetaInsumo)
+        //{
+        //    historicoColetaInsumoRepository.Delete(g => g.ColetaInsumo.Id == idColetaInsumo);
+        //}
         public void ExcluirHistoricoColetaInsumo(int idColetaInsumo)
         {
-            historicoColetaInsumoRepository.Delete(g => g.ColetaInsumo.Id == idColetaInsumo);
-        }
+            var registrosParaExcluir = historicoColetaInsumoRepository.GetAll()
+                .Where(h => h.ColetaInsumoId == idColetaInsumo)
+                .ToList();
 
+            foreach (var registro in registrosParaExcluir)
+            {
+                historicoColetaInsumoRepository.Delete(registro);
+            }
+        }
         public void ExcluirHistoricoColetaInsumoViaSemanaOperativa(int idSemanaOperativa)
         {
-            historicoColetaInsumoRepository.Delete(g => g.ColetaInsumo.SemanaOperativa.Id == idSemanaOperativa);
+            var registrosParaExcluir = historicoColetaInsumoRepository.GetAll()
+                .Where(h => h.ColetaInsumo.SemanaOperativa.Id == idSemanaOperativa)
+                .ToList();
+
+            foreach (var registro in registrosParaExcluir)
+            {
+                historicoColetaInsumoRepository.Delete(registro);
+            }
         }
 
+        //public void ExcluirHistoricoColetaInsumoViaSemanaOperativa(int idSemanaOperativa)
+        //{
+        //    historicoColetaInsumoRepository.Delete(g => g.ColetaInsumo.SemanaOperativa.Id == idSemanaOperativa);
+        //}
         public void ExcluirHistoricoSemanaOperativa(int idSemanaOperativa)
         {
-            historicoSemanaOperativaRepository.Delete(g => g.SemanaOperativa.Id == idSemanaOperativa);
+            var registrosParaExcluir = historicoSemanaOperativaRepository.GetAll()
+                .Where(h => h.SemanaOperativa.Id == idSemanaOperativa)
+                .ToList();
+
+            foreach (var registro in registrosParaExcluir)
+            {
+                historicoSemanaOperativaRepository.Delete(registro);
+            }
         }
+
+        //public void ExcluirHistoricoSemanaOperativa(int idSemanaOperativa)
+        //{
+        //    historicoSemanaOperativaRepository.Delete(g => g.SemanaOperativa.Id == idSemanaOperativa);
+        //}
 
         public void ExcluirHistoricosSemanaOperativa(ISet<SemanaOperativa> semanasOperativas)
         {

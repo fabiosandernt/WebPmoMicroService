@@ -1,8 +1,8 @@
-﻿namespace ONS.WEBPMO.Domain.Presentations
-{
-    using Entities.Filters;
-    using ONS.WEBPMO.Application.DTO;
+﻿using ONS.WEBPMO.Domain.DTO;
+using ONS.WEBPMO.Domain.Entities.Filters;
 
+namespace ONS.WEBPMO.Domain.Presentations
+{
     public interface IGabaritoPresentation  
     {
         

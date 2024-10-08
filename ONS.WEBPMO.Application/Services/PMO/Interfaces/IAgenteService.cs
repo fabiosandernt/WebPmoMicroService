@@ -9,7 +9,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
     {
         
         
-        Task<Agente> ObterOuCriarAgentePorChave(int chave);
+        Agente ObterOuCriarAgentePorChave(int chave);
                 
         
         Agente ObterAgentePorChaveOnline(int idAgente);

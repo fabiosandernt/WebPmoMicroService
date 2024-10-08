@@ -1,6 +1,4 @@
-﻿using ONS.Common.Seguranca;
-using ONS.Infra.Core.Pagination;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
@@ -71,7 +69,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             throw new NotImplementedException();
         }
 
-        public Task<Agente> ObterOuCriarAgentePorChave(int chave)
+        public Agente ObterOuCriarAgentePorChave(int chave)
         {
             throw new NotImplementedException();
         }

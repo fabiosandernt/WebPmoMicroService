@@ -1,7 +1,7 @@
 ﻿using ONS.Infra.Core.Extensions;
-using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;

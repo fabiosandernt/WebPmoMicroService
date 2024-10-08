@@ -1,12 +1,10 @@
-﻿
-
-using ONS.Infra.Compression;
+﻿using ONS.Infra.Compression;
 using ONS.Infra.Compression.Download;
 using ONS.Infra.Compression.Files;
 using ONS.Infra.Temp;
-using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 

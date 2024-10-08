@@ -1,9 +1,7 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
-{
-    using Enums;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
 
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
+{
     public class RegistroConfiguracao
     {
         private readonly List<Campo> campos;

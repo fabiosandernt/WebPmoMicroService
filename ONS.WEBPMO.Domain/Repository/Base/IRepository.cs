@@ -9,6 +9,7 @@ namespace ONS.WEBPMO.Domain.Repository.Base
         Task SaveAsync(T entity);
         Task DeleteAsync(T entity);        
         Task UpdateAsync(T entity);
+        void DeleteByKey(object key);
         T FindByKey(object id);
         ValueTask<T> GetByIdAsync(object id);
         Task<IEnumerable<T>> GetAllAsync();

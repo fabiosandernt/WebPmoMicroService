@@ -1,6 +1,6 @@
 ﻿using ONS.Common.Exceptions;
 using ONS.Common.Seguranca;
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Util.Pagination;
 
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.DTO;

@@ -1,5 +1,4 @@
-﻿
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository.Base;
 

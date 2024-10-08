@@ -1,6 +1,6 @@
 ﻿
 
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Util.Pagination;
 using ONS.WEBPMO.Application.Models.ColetaInsumo.ColetaInsumo;
 
 namespace ONS.WEBPMO.Application.Models.ColetaInsumo

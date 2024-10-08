@@ -1,5 +1,7 @@
 ﻿using ONS.Common.Exceptions;
-using ONS.Infra.Core.Pagination;
+using ONS.Common.Seguranca;
+using ONS.Common.Util;
+using ONS.Common.Util.Pagination;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 using ONS.WEBPMO.Domain.DTO;
@@ -535,8 +537,8 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             if (dto.IdSemanaOperativa.HasValue)
             {
                 SemanaOperativa semanaOperativa = semanaOperativaRepository.FindByKey(dto.IdSemanaOperativa);
-                if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.Configuracao
-                    && semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ColetaDados)
+                if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.Configuracao
+                    && semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ColetaDados)
                 {
                     mensagens.Add(SGIPMOMessages.MS059);
                 }

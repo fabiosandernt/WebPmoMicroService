@@ -1,5 +1,6 @@
-﻿using ONS.WEBPMO.Application.DTO;
+﻿
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 

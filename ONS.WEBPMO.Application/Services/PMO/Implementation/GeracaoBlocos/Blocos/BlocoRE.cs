@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿
+
+using AutoMapper;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
@@ -21,7 +23,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Bloco
         {
             Usina usina = usinaReservatorio as Usina;
             
-            var parametroDto = _parametroService.ObterParametroPorFiltro(ParametroEnum.AcrescimoRestricaoEletricaTermica.ToDescription());
+            var parametroDto = _parametroService.ObterParametro(ParametroEnum.AcrescimoRestricaoEletricaTermica);
 
             var parametro = _mapper.Map<Parametro>(parametroDto);
 

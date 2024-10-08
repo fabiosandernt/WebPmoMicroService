@@ -1,12 +1,21 @@
-﻿namespace ONS.WEBPMO.Application.Services.PMO.Implementation
-{
-    using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection;
+﻿using ONS.Common.Exceptions;
+using ONS.Common.Services.Impl;
+using ONS.Common.Util.Pagination;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.DTO;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
+namespace ONS.WEBPMO.Application.Services.PMO.Implementation
+{  
     public class OrigemColetaService : Service, IOrigemColetaService
     {
         private readonly IOrigemColetaRepository origemColetaRepository;
@@ -249,7 +258,7 @@
 
         public void SincronizarOrigensColetaComBDT()
         {
-            var origensPorTipoGroup = origemColetaRepository.All()
+            var origensPorTipoGroup = origemColetaRepository.GetAll()
                 .GroupBy(origem => origem.TipoOrigemColeta);
 
             foreach (var origensPorTipo in origensPorTipoGroup)

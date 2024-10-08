@@ -1,5 +1,6 @@
 ﻿using AspNetCore.IQueryable.Extensions;
 using Microsoft.EntityFrameworkCore;
+using ONS.Common.Entities;
 using ONS.WEBPMO.Domain.Repository.Base;
 using ONS.WEBPMO.Infrastructure.Context;
 using System.Linq.Expressions;
@@ -201,6 +202,21 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
             {
                 _context.SaveChanges(); 
             }
+        }
+
+        public void DeleteByKey(object key)
+        {
+            
+            var entity = _query.Find(key);
+                        
+            if (entity == null)
+            {
+                throw new ArgumentException($"Entity with key {key} not found.");
+            }
+            
+            _query.Remove(entity);
+            
+            _context.SaveChanges();
         }
 
     }

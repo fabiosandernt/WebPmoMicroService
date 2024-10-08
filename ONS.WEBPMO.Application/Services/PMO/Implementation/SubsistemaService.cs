@@ -1,4 +1,6 @@
-﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+﻿using ONS.Common.Services.Impl;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

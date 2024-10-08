@@ -1,4 +1,14 @@
-﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.Common.Configuration;
+using ONS.Common.Exceptions;
+using ONS.Common.Seguranca;
+using ONS.Common.Services.Impl;
+using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+using ONS.WEBPMO.Domain.DTO;
+using ONS.WEBPMO.Domain.Entities.Filters;
+using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Entities.Resources;
+using ONS.WEBPMO.Domain.Enumerations;
+using ONS.WEBPMO.Domain.Repository;
 using System.Globalization;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
@@ -152,7 +162,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             {
                 if (versaoPMO != null)
                 {
-                    PMO pmo = pmoRepository.FindByKeyConcurrencyValidate(semanaOperativa.PMO.Id, versaoPMO);
+                    ONS.WEBPMO.Domain.Entities.PMO.PMO pmo = pmoRepository.FindByKeyConcurrencyValidate(semanaOperativa.PMO.Id, versaoPMO);
                     if (pmo != null)
                     {
                         pmo.Versao = versaoPMO;
@@ -430,10 +440,10 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             if (semana != null)
             {
                 if (semana.Situacao == null
-                    || semana.Situacao.Id == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos
-                    || semana.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE
-                    || semana.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Publicado
-                    || semana.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ColetaDados)
+                    || semana.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.GeracaoBlocos
+                    || semana.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE
+                    || semana.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Publicado
+                    || semana.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ColetaDados)
                 {
                     throw new ONSBusinessException(SGIPMOMessages.MS052);
                 }
@@ -443,7 +453,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         private void ValidarSituacaoInformarDados(SemanaOperativa semanaOperativa)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ColetaDados)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ColetaDados)
             {
                 throw new ONSBusinessException(SGIPMOMessages.MS031);
             }
@@ -457,7 +467,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         /// <param name="mensagens"></param>
         private void ValidarEstudoSituacaoParaInicializacaoConvergenciaCCEE(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.GeracaoBlocos)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.GeracaoBlocos)
             {
                 mensagens.Add(SGIPMOMessages.MS046);
             }
@@ -470,7 +480,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         /// <param name="mensagens"></param>
         private void ValidarEstudoSituacaoParaConvergirPLD(SemanaOperativa semanaOperativa, IList<string> mensagens, bool levantarException = false)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
             {
                 mensagens.Add(SGIPMOMessages.MS051);
                 if (levantarException) VerificarONSBusinessException(mensagens);
@@ -511,9 +521,9 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         /// <param name="mensagens"></param>
         private void ValidarEstudoSituacaoParaPublicacaoResultados(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.PLDConvergido &&
-                semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE &&
-                semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.Publicado)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.PLDConvergido &&
+                semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE &&
+                semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.Publicado)
             {
                 mensagens.Add(SGIPMOMessages.MS049);
             }
@@ -526,9 +536,9 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         /// <param name="mensagens"></param>
         private void ValidarEstudoSituacaoParaReprocessarPMO(SemanaOperativa semanaOperativa, IList<string> mensagens)
         {
-            if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.PLDConvergido &&
-                semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE &&
-                semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.Publicado)
+            if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.PLDConvergido &&
+                semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE &&
+                semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.Publicado)
             {
                 mensagens.Add(SGIPMOMessages.MS049);
             }
@@ -606,7 +616,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             SemanaOperativa semanaOperativa = semanaOperativaRepository.FindByKey(filtro.IdSemanaOperativa);
             foreach (var arquivoSemanaOperativa in semanaOperativa.Arquivos)
             {
-                if (arquivoSemanaOperativa.Arquivo != null && arquivoSemanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
+                if (arquivoSemanaOperativa.Arquivo != null && arquivoSemanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE)
                 {
                     retorno.ArquivosEnviados.Add(CastArquivoParaDTO(arquivoSemanaOperativa.Arquivo));
                 }
@@ -705,7 +715,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             // Consultando os arquivos que foram enviados durante o estado de Convergência com CCEE
             IList<ArquivoSemanaOperativa> arquivosSemanaOperativa =
                 retorno.SemanaOperativa.Arquivos.Where(
-                    a => a.Situacao.Id == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE).ToList();
+                    a => a.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.ConvergenciaCCEE).ToList();
 
             foreach (var arquivoSemanaOperativa in arquivosSemanaOperativa)
             {
@@ -775,7 +785,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             }
 
             // Consultando os arquivos associados aos insumos q serem exibidos na estapa de Publicação
-            bool IsSemanaOperativaPublicada = semanaOperativa.Situacao.Id == (int)SituacaoSemanaOperativaEnum.Publicado;
+            bool IsSemanaOperativaPublicada = semanaOperativa.Situacao.IdTpsituacaosemanaoper == (int)SituacaoSemanaOperativaEnum.Publicado;
             IList<DadoColetaNaoEstruturado> dadosNaoEstruturados = dadoColetaNaoEstruturadoRepository.ObterDadosColetaNaoEstruturado(filtro);
             foreach (var dadoColetaNaoEstruturado in dadosNaoEstruturados)
             {
@@ -844,7 +854,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 }
 
                 // Tratando o status da semana operativa
-                if (semanaOperativa.Situacao.Id != (int)SituacaoSemanaOperativaEnum.Publicado)
+                if (semanaOperativa.Situacao.IdTpsituacaosemanaoper != (int)SituacaoSemanaOperativaEnum.Publicado)
                 {
                     semanaOperativa.Situacao = situacaoSemanaOperativaPublicado; // Modificando o status da semana operativa
 
