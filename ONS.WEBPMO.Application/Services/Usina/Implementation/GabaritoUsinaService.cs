@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using ONS.WEBPMO.Application.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 
 namespace ONS.WEBPMO.Servico.Usina
 {

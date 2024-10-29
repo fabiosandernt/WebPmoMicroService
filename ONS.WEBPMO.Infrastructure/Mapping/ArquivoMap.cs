@@ -48,5 +48,5 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                 .HasColumnName("num_tamanhoarquivo");
         }
     }
-    
+
 }

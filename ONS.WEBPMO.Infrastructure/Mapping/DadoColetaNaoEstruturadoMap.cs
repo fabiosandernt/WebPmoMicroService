@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoColetaNaoEstruturado> builder)
         {
-            
+
             builder.ToTable("tb_dadocoletanaoestruturado");
             builder.Property(t => t.Id).HasColumnName("id_dadocoleta");
             builder.Property(t => t.Observacao).HasColumnName("obs_dadocoletanaoestruturado").HasMaxLength(1000);
@@ -25,5 +25,5 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                        });
         }
     }
-    
+
 }

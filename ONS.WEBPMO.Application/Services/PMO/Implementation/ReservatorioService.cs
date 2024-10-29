@@ -1,10 +1,9 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class ReservatorioService : Service, IReservatorioService
+    public class ReservatorioService : IReservatorioService
     {
         public IList<Reservatorio> ConsultarReservatoriosPorChaves(params int[] chaves)
         {

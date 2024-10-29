@@ -3,8 +3,8 @@
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     //[ServiceContract]
-    public interface IGrandezaService 
-    {      
+    public interface IGrandezaService
+    {
         Grandeza ObterPorChave(int chave);
     }
 }

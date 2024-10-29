@@ -54,7 +54,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 
             builder.HasOne(t => t.DadoConvergencia)
                   .WithOne(t => t.SemanaOperativa)
-                  .HasForeignKey<DadoConvergencia>(t => t.Id) 
+                  .HasForeignKey<DadoConvergencia>(t => t.Id)
                   .OnDelete(DeleteBehavior.Cascade);
         }
     }

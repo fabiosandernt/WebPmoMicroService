@@ -2,7 +2,6 @@
 using ons.common.providers.schemas;
 using ONS.Common.Entities.Pop;
 using ONS.Common.Seguranca;
-using ONS.Common.Services.Impl;
 using ONS.Common.Util.Email;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
@@ -13,7 +12,7 @@ using System.Net.Mail;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class NotificacaoService : Service, INotificacaoService
+    public class NotificacaoService : INotificacaoService
     {
         private readonly static ILog log = LogManager.GetLogger(typeof(INotificacaoService));
 

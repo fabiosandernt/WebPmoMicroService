@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Infrastructure.Context;
@@ -13,7 +12,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
         }
 
-        public PagedResult<LogDadosInformados> ConsultarPorFiltro(LogDadosInformadosFilter filter)
+        public ICollection<LogDadosInformados> ConsultarPorFiltro(LogDadosInformadosFilter filter)
         {
             throw new NotImplementedException();
         }

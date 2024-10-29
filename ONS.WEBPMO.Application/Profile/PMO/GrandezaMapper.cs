@@ -6,7 +6,7 @@ namespace ONS.WEBPMO.Application.Profile.PMO
 {
     public class GrandezaMapper : AutoMapper.Profile
     {
-        protected GrandezaMapper()
+        public GrandezaMapper()
         {
             CreateMap<ManutencaoGrandezaDTO, Grandeza>();
         }

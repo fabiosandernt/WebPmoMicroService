@@ -2,7 +2,7 @@
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
 {
-    
+
     public class Campo
     {
         public int Tamanho { get; private set; }

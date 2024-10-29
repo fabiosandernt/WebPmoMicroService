@@ -48,6 +48,7 @@ namespace ONS.WEBPMO.Infrastructure.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(WEBPMODbContext).Assembly);
+            modelBuilder.Ignore<ONS.WEBPMO.Domain.Entities.PMO.BinaryData>();
         }
     }
 }

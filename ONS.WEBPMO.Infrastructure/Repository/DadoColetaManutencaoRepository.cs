@@ -1,7 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.DTO;
-using ONS.WEBPMO.Domain.Entities.Filters;
-using ONS.WEBPMO.Domain.Entities.PMO;
+﻿using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
@@ -29,10 +26,10 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             throw new NotImplementedException();
         }
 
-        public PagedResult<DadoColetaManutencaoDTO> ConsultarPorColetaInsumo(DadoColetaInsumoFilter idColetaInsumo)
-        {
-            throw new NotImplementedException();
-        }
+        //public  ICollection<DadoColetaManutencaoDTO> ConsultarPorColetaInsumo(DadoColetaInsumoFilter idColetaInsumo)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void DeletarPorIdGabarito(IList<int> idsGabarito)
         {

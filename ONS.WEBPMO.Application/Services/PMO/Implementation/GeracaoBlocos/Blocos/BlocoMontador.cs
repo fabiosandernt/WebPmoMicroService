@@ -4,7 +4,7 @@ using ONS.WEBPMO.Domain.Enumerations;
 using System.Text;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
-{  
+{
     public abstract class BlocoMontador
     {
         private readonly Dictionary<string, RegistroConfiguracao> mapaRegistros;

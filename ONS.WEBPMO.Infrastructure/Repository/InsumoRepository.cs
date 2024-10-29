@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository;
@@ -7,7 +6,7 @@ using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
-{ 
+{
 
     public class InsumoRepository : Repository<Insumo>, IInsumoRepository
     {
@@ -45,7 +44,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
             throw new NotImplementedException();
         }
 
-        public PagedResult<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro)
+        public ICollection<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro)
         {
             throw new NotImplementedException();
         }

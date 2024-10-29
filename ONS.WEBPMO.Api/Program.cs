@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Localization;
-using System.Globalization;
 using ONS.WEBPMO.Application;
 using ONS.WEBPMO.Infrastructure;
+using System.Globalization;
 
 namespace ONS.WEBPMO.Api
 {

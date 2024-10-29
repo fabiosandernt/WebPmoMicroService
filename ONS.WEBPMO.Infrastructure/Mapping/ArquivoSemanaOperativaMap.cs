@@ -6,7 +6,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {
     public class ArquivoSemanaOperativaMap : IEntityTypeConfiguration<ArquivoSemanaOperativa>
     {
-        
+
 
         public void Configure(EntityTypeBuilder<ArquivoSemanaOperativa> builder)
         {

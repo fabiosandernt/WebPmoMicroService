@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository.Base;
@@ -65,7 +64,7 @@ namespace ONS.WEBPMO.Domain.Repository
         /// </summary>
         /// <param name="filtro"></param>
         /// <returns>Insumos</returns>
-        PagedResult<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro);
+        ICollection<Insumo> ConsultarPorInsumoFiltroPaginado(InsumoFiltro filtro);
 
         /// <summary>
         /// Obtém os insumos do estudo.

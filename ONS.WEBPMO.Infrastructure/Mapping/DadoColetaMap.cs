@@ -30,7 +30,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             builder.HasOne(t => t.Gabarito)
                 .WithMany(t => t.DadosColeta)
                 .HasForeignKey(t => t.GabaritoId);
-                //.OnDelete(false);
+            //.OnDelete(false);
 
             builder.Property(t => t.GrandezaId)
                 .HasColumnName("id_grandeza");

@@ -7,7 +7,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class TipoColetaRepository : Repository<TipoColeta>, ITipoColetaRepository
     {
-       
+
         public TipoColetaRepository(WEBPMODbContext context) : base(context)
         {
         }

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos
-{    
+{
     public class ArquivoMontador
     {
         public string Nome { get; set; }

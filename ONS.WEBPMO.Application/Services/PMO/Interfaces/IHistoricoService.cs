@@ -3,11 +3,11 @@
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     //[ServiceContract]
-    public interface IHistoricoService 
-    {        
-        
-        void CriarSalvarHistoricoColetaInsumo(ColetaInsumo coletaInsumo);        
-        
+    public interface IHistoricoService
+    {
+
+        void CriarSalvarHistoricoColetaInsumo(ColetaInsumo coletaInsumo);
+
         void CriarSalvarHistoricoSemanaOperativa(SemanaOperativa semanaOperativa);
 
         void ExcluirHistoricoColetaInsumo(int idColetaInsumo);

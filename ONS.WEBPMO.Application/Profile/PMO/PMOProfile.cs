@@ -7,7 +7,7 @@ namespace ONS.WEBPMO.Application.Profile.PMO
     {
         public PMOProfile()
         {
-            CreateMap<Parametro, ParametroDTO>().ReverseMap(); 
+            CreateMap<Parametro, ParametroDTO>().ReverseMap();
         }
     }
 }

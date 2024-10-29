@@ -1,11 +1,10 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class DadoColetaNaoEstruturadoService : Service, IDadoColetaNaoEstruturadoService
+    public class DadoColetaNaoEstruturadoService : IDadoColetaNaoEstruturadoService
     {
         private IDadoColetaNaoEstruturadoRepository DadoColetaNaoEstruturadoRepository { get; set; }
         private ISemanaOperativaRepository SemanaOperativaRepository { get; set; }
@@ -32,7 +31,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public DadoColetaNaoEstruturado ObterPorChave(int chave)
         {
-            return DadoColetaNaoEstruturadoRepository.FindByKey(chave);
+            throw new NotImplementedException();
         }
     }
 }

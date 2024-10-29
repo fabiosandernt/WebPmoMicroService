@@ -4,7 +4,7 @@ using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class DadoColetaEstruturadoService :  IDadoColetaEstruturadoService
+    public class DadoColetaEstruturadoService : IDadoColetaEstruturadoService
     {
         private IDadoColetaEstruturadoRepository DadoColetaEstruturadoRepository { get; set; }
 
@@ -15,7 +15,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public DadoColetaEstruturado ObterPorChave(int chave)
         {
-            return DadoColetaEstruturadoRepository.FindByKey(chave);
+            throw new NotImplementedException();
         }
     }
 }

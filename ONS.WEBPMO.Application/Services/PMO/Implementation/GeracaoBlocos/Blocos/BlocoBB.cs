@@ -5,7 +5,7 @@ using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
 {
-   
+
     public class BlocoBB : BlocoMontador
     {
         public BlocoBB(IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)

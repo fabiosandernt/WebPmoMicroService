@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Enumerations;
@@ -16,7 +15,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
         }
 
-        public PagedResult<OrigemColeta> ConsultarOrigemColetasParticipamGabaritoPaginado(GabaritoParticipantesFilter filter)
+        public ICollection<OrigemColeta> ConsultarOrigemColetasParticipamGabaritoPaginado(GabaritoParticipantesFilter filter)
         {
             throw new NotImplementedException();
         }

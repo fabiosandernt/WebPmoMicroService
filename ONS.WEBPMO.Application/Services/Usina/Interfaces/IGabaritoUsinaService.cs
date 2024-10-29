@@ -14,7 +14,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Agentes</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Agentes</returns>
-        
+
         IList<GabaritoParticipantesBaseDTO<AgenteParticipanteGabaritoDTO>> ConsultarAgentesParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -29,7 +29,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Usinas</returns>
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>> ConsultarUsinaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Usinas Participantes</returns>
-        
+
         IList<GabaritoParticipantesBaseDTO<UsinaParticipanteGabaritoDTO>> ConsultarUsinasParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
         #endregion
 
@@ -53,7 +53,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUGEDTO>> ConsultarUGEPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -67,7 +67,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios</returns>
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoReservatorioDTO>> ConsultarReservatorioPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios Participantes do Gabarito</returns>
-        
+
         IList<GabaritoParticipantesBaseDTO<ReservatorioParticipanteGabaritoDTO>> ConsultarReservatoriosParticipantesGabarito(bool isPadrao, string nomeRevisao = "");
 
 
@@ -94,7 +94,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista de Usinas</returns>
         /// <param name="isPadrao">Filtra pelo gabarito padrão</param>
         /// <returns>Lista de Reservatórios</returns>
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoSubsistemaDTO>> ConsultarSubsistemaPorGabarito(bool isPadrao, string nomeRevisao = "");
 
         #endregion
@@ -109,10 +109,10 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <returns>Lista Agentes que podem Enviar dados não estruturados</returns>
         /// <param name="isPadrao">Lista Agentes que podem Enviar dados não estruturados</param>
         /// <returns>Lista de Reservatórios</returns>
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoInsumoNaoEstruturadoDTO>> ConsultarAgentesPodemEnviarDadosNaoEstruturadosPorGabarito(bool isPadrao, string nomeRevisao = "");
 
-        
+
         IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoGeracaoComplementar>> ConsultarAgentesComGeracaoComplementar(bool isPadrao, string nomeRevisao = "");
 
         #endregion

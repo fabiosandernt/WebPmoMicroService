@@ -6,7 +6,7 @@ using ONS.WEBPMO.Infrastructure.DataBase;
 namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
     public class UnidadeGeradoraRepository : Repository<UnidadeGeradora>, IUnidadeGeradoraRepository
-    {        
+    {
         public UnidadeGeradoraRepository(WEBPMODbContext context) : base(context)
         {
         }

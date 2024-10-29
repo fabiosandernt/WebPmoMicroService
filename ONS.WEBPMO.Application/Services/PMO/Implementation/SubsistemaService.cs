@@ -1,10 +1,9 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class SubsistemaService : Service, ISubsistemaService
+    public class SubsistemaService : ISubsistemaService
     {
         public Subsistema ObterSubsistemaPorChave(int chave)
         {

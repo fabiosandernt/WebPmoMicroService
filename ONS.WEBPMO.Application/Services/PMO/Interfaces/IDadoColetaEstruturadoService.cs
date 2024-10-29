@@ -3,10 +3,10 @@
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     //[ServiceContract]
-    public interface IDadoColetaEstruturadoService 
+    public interface IDadoColetaEstruturadoService
     {
-        
-        
+
+
         DadoColetaEstruturado ObterPorChave(int chave);
     }
 }

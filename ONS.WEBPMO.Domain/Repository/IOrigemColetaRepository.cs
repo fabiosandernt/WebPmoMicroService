@@ -1,6 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.DTO;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Enumerations;
 using ONS.WEBPMO.Domain.Repository.Base;
@@ -15,7 +13,7 @@ namespace ONS.WEBPMO.Domain.Repository
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorUsina(string idUsina);
         T FindByKey<T>(object key) where T : OrigemColeta;
 
-        PagedResult<OrigemColeta> ConsultarOrigemColetasParticipamGabaritoPaginado(GabaritoParticipantesFilter filter);
+        ICollection<OrigemColeta> ConsultarOrigemColetasParticipamGabaritoPaginado(GabaritoParticipantesFilter filter);
 
         IList<OrigemColeta> ConsultarPorTipoNome(TipoOrigemColetaEnum tipo, string nome);
         IList<Usina> ConsultarUsinaParticipanteGabaritoPorColetaInsumo(int idColetaInsumo);
@@ -24,6 +22,6 @@ namespace ONS.WEBPMO.Domain.Repository
 
         IList<UnidadeGeradora> ConsultarUnidadeGeradoParticipanteGabaritoPorColetaInsumo(int idColetaInsumo);
 
-        IList<UnidadeGeradoraManutencaoSGIDTO> ConsultarUnidadeGeradoParticipanteGabaritoPorColetaInsumos(List<int> idColetaInsumos);
+        //IList<UnidadeGeradoraManutencaoSGIDTO> ConsultarUnidadeGeradoParticipanteGabaritoPorColetaInsumos(List<int> idColetaInsumos);
     }
 }

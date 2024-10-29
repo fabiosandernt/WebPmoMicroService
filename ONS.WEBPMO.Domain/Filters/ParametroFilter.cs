@@ -10,6 +10,6 @@ namespace ONS.WEBPMO.Domain.Filters
         [Display(Name = "Nome")]
         [QueryOperator(Operator = WhereOperator.Contains)]
         public string Nome { get; set; }
-       
+
     }
 }

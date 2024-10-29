@@ -20,9 +20,9 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             if (parametro == null || string.IsNullOrEmpty(parametro.Valor))
             {
                 string mensagem = string.Format("Parâmetro {0} não cadastrado", parametroEnum.ToDescription());
-                
+
             }
-            return parametro; 
+            return parametro;
         }
     }
 }

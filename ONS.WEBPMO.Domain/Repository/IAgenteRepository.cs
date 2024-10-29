@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository.Base;
 
@@ -7,7 +6,7 @@ namespace ONS.WEBPMO.Domain.Repository
 {
     public interface IAgenteRepository : IRepository<Agente>
     {
-        PagedResult<Agente> ConsultarAgentesGabaritoPaginado(GabaritoParticipantesFilter filter);
+        ICollection<Agente> ConsultarAgentesGabaritoPaginado(GabaritoParticipantesFilter filter);
 
         IList<Agente> ConsultarAgentesGabarito(GabaritoParticipantesFilter filter);
 

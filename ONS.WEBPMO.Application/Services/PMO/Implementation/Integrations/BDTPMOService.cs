@@ -11,8 +11,8 @@ using MatchType = ons.common.schemas.filters.MatchType;
 
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
-{   
-    public class BDTPMOService :  IBDTPMOService
+{
+    public class BDTPMOService : IBDTPMOService
     {
         private readonly IUsinaPMORepository usinaPmoRepository;
         private readonly IUsinaPEMRepository usinaPemRepository;

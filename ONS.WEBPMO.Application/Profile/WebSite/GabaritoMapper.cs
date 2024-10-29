@@ -141,7 +141,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
             CreateMap<ConfiguracaoGabaritoUnidadeGeradoraModel, GabaritoDadosFilter>()
                 .ForMember(filter => filter.IdOrigemColeta, opt => opt.MapFrom(model => model.IdUsina));
 
-          
+
         }
     }
 }

@@ -1,24 +1,23 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     //[ServiceContract]
-    public interface IDadoColetaManutencaoService 
+    public interface IDadoColetaManutencaoService
     {
-        
+
         //[UseNetDataContractSerializer("ColetaInsumo")]
         DadoColetaManutencao ObterPorChave(int chave);
 
-        
-        
-        PagedResult<DadoColetaManutencaoDTO> ConsultarDadoColetaManutencaoPorColetaInsumo(
-            DadoColetaInsumoFilter filter);
 
 
-        
+        ICollection<DadoColetaManutencaoDTO> ConsultarDadoColetaManutencaoPorColetaInsumo(
+           DadoColetaInsumoFilter filter);
+
+
+
         //[UseNetDataContractSerializer("ColetaInsumo")]
         DadoColetaManutencao ObterPorColetaInsumoId(int idColetaInsumo);
 

@@ -2,7 +2,6 @@
 using ONS.WEBPMO.Domain.Repository.BDT;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
-using System.Text;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT
 {

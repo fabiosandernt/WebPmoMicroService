@@ -4,10 +4,9 @@ using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 
-
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class AgenteService :  IAgenteService
+    public class AgenteService : IAgenteService
     {
         private readonly IAgenteRepository agenteRepository;
         private readonly IParametroService parametroService;
@@ -29,7 +28,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             throw new NotImplementedException();
         }
 
-        public Common.Util.Pagination.PagedResult<Agente> ConsultarAgentesParticipamGabaritoPaginado(GabaritoParticipantesFilter filter)
+        public ICollection<Agente> ConsultarAgentesParticipamGabaritoPaginado(GabaritoParticipantesFilter filter)
         {
             throw new NotImplementedException();
         }

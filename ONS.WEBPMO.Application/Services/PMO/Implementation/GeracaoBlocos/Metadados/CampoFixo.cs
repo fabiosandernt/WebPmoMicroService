@@ -1,7 +1,8 @@
 ﻿using ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Enums;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Metadados
-{    public class CampoFixo : Campo
+{
+    public class CampoFixo : Campo
     {
         public object Valor { get; private set; }
         public bool RepetirConteudo { get; private set; }

@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository.Base;
 
@@ -14,7 +13,7 @@ namespace ONS.WEBPMO.Domain.Repository
         IList<ColetaInsumo> FindByKeys(IList<int> idsColetaInsumo);
         ColetaInsumo GetByKey(int idsColetaInsumo);
 
-        PagedResult<ColetaInsumo> ConsultarParaInformarDados(PesquisaMonitorarColetaInsumoFilter filter);
+        ICollection<ColetaInsumo> ConsultarParaInformarDados(PesquisaMonitorarColetaInsumoFilter filter);
 
         ColetaInsumo ObterColetaInsumoAnterior(ColetaInsumo coletaInsumoAtual);
 

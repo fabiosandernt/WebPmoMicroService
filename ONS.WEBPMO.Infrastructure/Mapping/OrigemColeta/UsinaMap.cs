@@ -6,7 +6,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
 {
     public class UsinaMap : IEntityTypeConfiguration<Usina>
     {
-       
+
         public void Configure(EntityTypeBuilder<Usina> builder)
         {
             builder.ToTable("tb_aux_usina");

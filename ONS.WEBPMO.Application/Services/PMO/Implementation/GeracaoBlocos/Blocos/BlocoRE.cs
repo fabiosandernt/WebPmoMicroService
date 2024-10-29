@@ -10,7 +10,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Bloco
 {
     public class BlocoRE : BlocoRestricao
     {
-        private readonly IParametroService _parametroService; 
+        private readonly IParametroService _parametroService;
         private readonly IMapper _mapper;
 
         public BlocoRE(IMapper mapper, IParametroService parametroService, IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)
@@ -22,7 +22,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Bloco
         protected override string ObterCodigoRestricao(IConjuntoGerador usinaReservatorio)
         {
             Usina usina = usinaReservatorio as Usina;
-            
+
             var parametroDto = _parametroService.ObterParametro(ParametroEnum.AcrescimoRestricaoEletricaTermica);
 
             var parametro = _mapper.Map<Parametro>(parametroDto);
@@ -35,6 +35,6 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Bloco
             return base.ObterCodigoRestricao(usinaReservatorio);
         }
 
-        
+
     }
 }

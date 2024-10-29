@@ -1,88 +1,65 @@
-﻿using ONS.WEBPMO.Domain.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    
-    public interface ISemanaOperativaService 
+    public interface ISemanaOperativaService
     {
         /// <summary>
         /// Obtém a SemanaOperativa pela chave.
         /// </summary>
         /// <param name="chave">Chave da SemanaOperativa.</param>
         /// <returns>SemanaOperativa.</returns>
-        
-        //[UseNetDataContractSerializer("Situacao", "PMO")]
-        SemanaOperativa ObterSemanaOperativaPorChave(int chave);
+        ValueTask<SemanaOperativa> ObterSemanaOperativaPorChaveAsync(int chave);
 
         /// <summary>
         /// Obtém a SemanaOperativa em situação válida para informar ValorDado do estudo.
         /// </summary>
         /// <param name="chave">Chave da SemanaOperativa.</param>
         /// <returns>SemanaOperativa.</returns>
-        
-        //[UseNetDataContractSerializer("Situacao")]
-        SemanaOperativa ObterSemanaOperativaPorChaveParaInformarDados(int chave);
+        ValueTask<SemanaOperativa> ObterSemanaOperativaPorChaveParaInformarDadosAsync(int chave);
 
         /// <summary>
         /// Valida se a semana operativa selecionada está em situação possível de abertura de estudo
         /// e retorna a Semana caso válida.
         /// </summary>
-        /// <param name="idSemanaOperativa">Id da semana operativa.</param>
-        /// <returns>Retorna a SemanaOperativa caso esteja em situação válida.</returns>
-        
-        //[UseNetDataContractSerializer("PMO")]
-        SemanaOperativa ObterSemanaOperativaValidaParaAbrirEstudo(DadosSemanaOperativaDTO dto);
+        /// <param name="dto">Dados da semana operativa.</param>
+        /// <returns>Retorna a SemanaOperativa caso válida.</returns>
+        Task<SemanaOperativa> ObterSemanaOperativaValidaParaAbrirEstudoAsync(DadosSemanaOperativaDTO dto);
 
         /// <summary>
-        /// Consulta as semanas operativas que já foram associada a um gabarito.
+        /// Consulta as semanas operativas que já foram associadas a um gabarito.
         /// </summary>
         /// <returns>Lista de SemanaOperativa.</returns>
-        
-        
-        IList<SemanaOperativa> ConsultarSemanasOperativasComGabarito();
+        Task<IList<SemanaOperativa>> ConsultarSemanasOperativasComGabaritoAsync();
 
         /// <summary>
         /// Consulta as semanas operativas com estudo aberto por nome.
         /// </summary>
         /// <returns>Lista de SemanaOperativa.</returns>
-        
-        
-        IList<SemanaOperativa> ConsultarEstudoPorNome(string nomeEstudo);
+        Task<IList<SemanaOperativa>> ConsultarEstudoPorNomeAsync(string nomeEstudo);
 
         /// <summary>
         /// Serviço utilizado para retornar os estudos passíveis de convergência de PLD.
         /// </summary>
-        /// <param name="nomeEstudo"></param>
-        /// <returns></returns>
-        
-        
-        IList<SemanaOperativa> ConsultarEstudoConvergenciaPldPorNome(string nomeEstudo);
+        /// <param name="nomeEstudo">Nome do estudo.</param>
+        /// <returns>Lista de SemanaOperativa.</returns>
+        Task<IList<SemanaOperativa>> ConsultarEstudoConvergenciaPldPorNomeAsync(string nomeEstudo);
 
         /// <summary>
-        /// Gerar as semanas operativas para o PMO.
+        /// Gera as semanas operativas para o PMO.
         /// </summary>
-        /// <param name="ano">Ano do PMO</param>
-        /// <param name="mes">Mês do PMO</param>
-        /// <returns>Lista de SemanaOperativa</returns>
-        
-        
-        ISet<SemanaOperativa> GerarSugestaoSemanasOperativas(int ano, int mes);
+        /// <param name="ano">Ano do PMO.</param>
+        /// <param name="mes">Mês do PMO.</param>
+        /// <returns>Lista de SemanaOperativa.</returns>
+        Task<ISet<SemanaOperativa>> GerarSugestaoSemanasOperativasAsync(int ano, int mes);
 
         /// <summary>
         /// Abre estudo para a semana selecionada.
         /// </summary>
-        /// <param name="dto">Propriedades do DTO: 
-        /// "IdSemanaOperativa": Id da semana operativa.
-        /// "IdSemanaEstudoGabarito": Id da semana onde vai ser "copiado" o gabarito.
-        /// "IsPadrao": Indica se o gabarito deve ser resetado para o grabarito padrão.
-        /// "VersaoPMO": Identificação da versão do PMO a fim de tratar a concorrência de registros
-        /// "VersaoSemanaOperativa": Identificação da versão da Semana Operativa a fim de tratar a concorrência de registros
-        /// </param>
-        
-        
-        void AbrirEstudo(AberturaEstudoDTO dto);
+        /// <param name="dto">Propriedades do DTO.</param>
+        Task AbrirEstudoAsync(AberturaEstudoDTO dto);
 
         /// <summary>
         /// Gera a SemanaOperativa para o PMO.
@@ -92,126 +69,101 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// <param name="dataInicioSemana">Data de início da SemanaOperativa.</param>
         /// <param name="dataFimPMO">Data de fim da SemanaOperativa.</param>
         /// <param name="revisao">Número da revisão.</param>
-        /// <returns>SemanaOperativa</returns>
-        SemanaOperativa GerarSemanaOperativa(int ano, string nomeMes, DateTime dataInicioSemana,
+        /// <returns>SemanaOperativa.</returns>
+        ValueTask<SemanaOperativa> GerarSemanaOperativaAsync(int ano, string nomeMes, DateTime dataInicioSemana,
             DateTime dataFimPMO, int revisao);
 
         /// <summary>
-        /// Atualiza as SemanasOperativas após uma inclusão de uma nova SemanaOperativa.
+        /// Atualiza as SemanasOperativas após a inclusão de uma nova SemanaOperativa.
         /// </summary>
         /// <param name="semanasOperativas">Lista de SemanaOperativa do PMO.</param>
         /// <param name="ano">Ano do PMO.</param>
         /// <param name="nomeMes">Mês do PMO.</param>
-        void AtualizarSemanasOperativasInclusao(IEnumerable<SemanaOperativa> semanasOperativas,
+        Task AtualizarSemanasOperativasInclusaoAsync(IEnumerable<SemanaOperativa> semanasOperativas,
             int ano, string nomeMes);
 
         /// <summary>
-        /// Exclui a semana operativa
+        /// Exclui a semana operativa.
         /// </summary>
-        /// <param name="semanaOperativa">SemanaOperativa</param>
-        void ExcluirSemana(SemanaOperativa semanaOperativa);
+        /// <param name="semanaOperativa">SemanaOperativa.</param>
+        Task ExcluirSemanaAsync(SemanaOperativa semanaOperativa);
 
         /// <summary>
         /// Altera a semana operativa.
         /// </summary>
-        /// <param name="dadosAlteracao">ValorDado para alteração.</param>
-        
-        
-        void AlterarSemanaOperativa(DadosAlteracaoSemanaOperativaDTO dadosAlteracao);
+        /// <param name="dadosAlteracao">Valor para alteração.</param>
+        Task AlterarSemanaOperativaAsync(DadosAlteracaoSemanaOperativaDTO dadosAlteracao);
 
         /// <summary>
         /// Reseta o gabarito de uma semana operativa para o gabarito selecionado.
         /// </summary>
-        /// <param name="dto">Propriedades do DTO: 
-        /// "IdSemanaOperativa": Id da semana operativa.
-        /// "IdSemanaEstudoGabarito": Id da semana onde vai ser "copiado" o gabarito.
-        /// "IsPadrao": Indica se o gabarito deve ser resetado para o grabarito padrão.
-        /// "VersaoPMO": Identificação da versão do PMO a fim de tratar a concorrência de registros
-        /// </param>
-        
-        
-        void ResetarGabarito(ResetGabaritoDTO dto);
+        /// <param name="dto">Propriedades do DTO.</param>
+        Task ResetarGabaritoAsync(ResetGabaritoDTO dto);
 
         /// <summary>
         /// Valida se a SemanaOperativa foi selecionada e retorna a SemanaOperativa.
         /// </summary>
         /// <param name="idSemanaOperativa">Id da semana operativa.</param>
         /// <returns>Retorna a SemanaOperativa caso esteja em situação válida.</returns>
-        
-        //[UseNetDataContractSerializer("PMO", "Situacao")]
-        SemanaOperativa ObterSemanaOperativaValidaParaResetarGabarito(int idSemanaOperativa);
+        ValueTask<SemanaOperativa> ObterSemanaOperativaValidaParaResetarGabaritoAsync(int idSemanaOperativa);
 
         #region Convergência CCEE
 
         /// <summary>
-        /// UC1004 - Convergir Informações CCEE
-        /// Este método tem o objetivo de consultar arquivos de uma determinada semana operativa que serão visualizados no momento de efetuar a Convergência CCEE.
+        /// UC1004 - Convergir Informações CCEE.
+        /// Consulta arquivos de uma determinada semana operativa para efetuar a Convergência CCEE.
         /// </summary>
-        /// <param name="filtro"></param>
-        /// <returns></returns>
-        
-        //[UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
-        ArquivosSemanaOperativaDTO ConsultarArquivosSemanaOperativaConvergenciaCcee(ArquivosSemanaOperativaFilter filtro);
+        /// <param name="filtro">Filtro para consulta.</param>
+        /// <returns>Arquivos da semana operativa.</returns>
+        Task<ArquivosSemanaOperativaDTO> ConsultarArquivosSemanaOperativaConvergenciaCceeAsync(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
-        /// UC1004 - Convergir Informações CCEE 
-        /// Método responsável por efetuar o início de Convergência com CCEE.
+        /// UC1004 - Convergir Informações CCEE.
+        /// Inicia a Convergência com CCEE.
         /// </summary>
-        /// <param name="dto"></param>
-        void IniciarConvergenciaCCEE(InicializacaoConvergenciaCceeDTO dto);
+        /// <param name="dto">Dados de inicialização.</param>
+        Task IniciarConvergenciaCCEEAsync(InicializacaoConvergenciaCceeDTO dto);
 
         #endregion
 
         #region Convergir PLD
 
         /// <summary>
-        /// Serviço que consulta os arquivos de insumos coletados durante o processo de coleta e também os arquivos que foram enviados ao iniciar Convergência com CCEE.
+        /// Consulta os arquivos de insumos coletados durante o processo de coleta e também os arquivos enviados ao iniciar Convergência com CCEE.
         /// </summary>
-        /// <param name="filtro"></param>
-        /// <returns></returns>
-        
-        //[UseNetDataContractSerializer("Arquivos", "SemanaOperativa", "SemanaOperativa.Situacao")]
-        ArquivosSemanaOperativaConvergirPldDTO ConsultarArquivosSemanaOperativaConvergenciaPLD(ArquivosSemanaOperativaFilter filtro);
+        /// <param name="filtro">Filtro para a consulta.</param>
+        /// <returns>Arquivos da semana operativa para convergência de PLD.</returns>
+        Task<ArquivosSemanaOperativaConvergirPldDTO> ConsultarArquivosSemanaOperativaConvergenciaPLDAsync(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
-        /// Método utilizado para realizar a convergência com PLD ("Convergir PLD" ou "Não Convergir PLD")
+        /// Realiza a convergência com PLD.
         /// </summary>
-        /// <param name="dto"></param>
-        
-        
-        
-        void ConvergirPLD(ConvergirPLDDTO dto);
-
+        /// <param name="dto">Dados da convergência.</param>
+        Task ConvergirPLDAsync(ConvergirPLDDTO dto);
 
         #endregion
 
         #region Publicação de Resultados
 
         /// <summary>
-        /// Método utilizado para consultar os arquivos a serem considerados na etapa de publicação de resultados.
+        /// Consulta os arquivos a serem considerados na etapa de publicação de resultados.
         /// </summary>
-        /// <param name="filtro"></param>
-        /// <returns></returns>
-        
-        //[UseNetDataContractSerializer("ArquivosInsumos", "ArquivosEnviados", "SituacaoSemanaOperativa")]
-        ArquivosSemanaOperativaDTO ConsultarArquivosSemanaOperativaPublicacaoResultados(ArquivosSemanaOperativaFilter filtro);
+        /// <param name="filtro">Filtro para a consulta.</param>
+        /// <returns>Arquivos da semana operativa para a publicação de resultados.</returns>
+        Task<ArquivosSemanaOperativaDTO> ConsultarArquivosSemanaOperativaPublicacaoResultadosAsync(ArquivosSemanaOperativaFilter filtro);
 
         /// <summary>
-        /// Método utilizado para efetuar a publicação de resultados de uma semana operativa.
+        /// Efetua a publicação de resultados de uma semana operativa.
         /// </summary>
-        /// <param name="dto"></param>
-        void PublicarResultados(PublicacaoResultadosDTO dto);
+        /// <param name="dto">Dados da publicação.</param>
+        Task PublicarResultadosAsync(PublicacaoResultadosDTO dto);
 
         /// <summary>
-        /// Método utilizado para efetuar o reprocessamento do PMO, que é acionado na mesma tela em que os resultados são publicados.
+        /// Efetua o reprocessamento do PMO na etapa de publicação de resultados.
         /// </summary>
-        /// <param name="dto"></param>
-        
-        
-        
-        void ReprocessarPMO(ReprocessamentoPMODTO dto);
+        /// <param name="dto">Dados do reprocessamento.</param>
+        Task ReprocessarPMOAsync(ReprocessamentoPMODTO dto);
 
         #endregion
-
     }
 }

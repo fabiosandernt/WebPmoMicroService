@@ -1,10 +1,9 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class UsinaService : Service, IUsinaService
+    public class UsinaService : IUsinaService
     {
         public Usina ObterUsinaPorChave(int chave)
         {

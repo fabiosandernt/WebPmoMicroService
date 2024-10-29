@@ -1,7 +1,4 @@
-﻿using ONS.Infra.Core.Extensions;
-using ONS.WEBPMO.Domain.DTO;
-using ONS.WEBPMO.Domain.Entities.PMO;
-using ONS.WEBPMO.Domain.Enumerations;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl
@@ -22,52 +19,14 @@ namespace ONS.WEBPMO.Domain.Presentations.Impl
             this.insumoRepository = insumoRepository;
         }
 
-        public DadosManutencaoInsumoEstruturado ObterDadosManutencaoInsumoEstruturado(int? idInsumo)
-        {
-            DadosManutencaoInsumoEstruturado dto = new DadosManutencaoInsumoEstruturado();
-
-            if (idInsumo.HasValue && idInsumo.Value > 0)
-            {
-                InsumoEstruturado insumo = (InsumoEstruturado)insumoRepository.FindByKey(idInsumo.Value);
-                dto.Id = insumo.Id;
-                dto.IsPreAprovado = insumo.PreAprovado;
-                dto.Nome = insumo.Nome;
-                dto.OrdemExibicao = insumo.OrdemExibicao;
-                dto.IsReservado = insumo.Reservado;
-                dto.TipoInsumo = insumo.TipoInsumo.Equals(TipoInsumoEnum.Estruturado.ToChar())
-                    ? TipoInsumoEnum.Estruturado
-                    : TipoInsumoEnum.NaoEstruturado;
-                dto.CategoriaId = insumo.CategoriaInsumo.Id;
-                dto.TipoColetaId = insumo.TipoColeta.Id;
-                dto.VersaoStringInsumo = Convert.ToBase64String(insumo.Versao);
-                dto.PermiteAlteracao = !insumo.Gabaritos.Any();
-                dto.SiglaInsumo = insumo.SiglaInsumo;
-                dto.ExportarInsumo = insumo.ExportarInsumo;
-                dto.Ativo = insumo.Ativo;
-            }
-
-            var categorias = categoriaInsumoRepository.GetAll().OrderBy(cat => cat.Id);
-            var tiposColeta = tipoColetaRepository.GetAll().OrderBy(tc => tc.Id);
-
-            dto.Categorias.Add(new ChaveDescricaoDTO<int>(0, "Selecione..."));
-
-            dto.Categorias = categorias.Select(a => new ChaveDescricaoDTO<int>(a.Id, a.Descricao)).ToList();
-            dto.TiposColeta = tiposColeta.Select(i => new ChaveDescricaoDTO<int>(i.Id, i.Descricao)).ToList();
-
-            return dto;
-        }
-
         public DadosInsumoConsultaDTO ObterDadosInsumoConsulta()
         {
-            DadosInsumoConsultaDTO dto = new DadosInsumoConsultaDTO();
+            throw new NotImplementedException();
+        }
 
-            var categorias = categoriaInsumoRepository.GetAll().OrderBy(cat => cat.Id);
-            var tiposColeta = tipoColetaRepository.GetAll().OrderBy(tc => tc.Id);
-
-            dto.Categorias = categorias.Select(a => new ChaveDescricaoDTO<int>(a.Id, a.Descricao)).ToList();
-            dto.TiposColeta = tiposColeta.Select(i => new ChaveDescricaoDTO<int>(i.Id, i.Descricao)).ToList();
-
-            return dto;
+        public DadosManutencaoInsumoEstruturado ObterDadosManutencaoInsumoEstruturado(int? idInsumo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

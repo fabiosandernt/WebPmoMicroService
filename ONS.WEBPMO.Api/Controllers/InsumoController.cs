@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using ONS.WEBPMO.Application.DTO;
-using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.Filters;
-using ONS.WEBPMO.Domain.Presentations;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
@@ -14,22 +11,22 @@ namespace ONS.WEBPMO.Api.Controllers
     //[WebPermission("ConfigurarInsumo")]
     public class InsumoController : ControllerBase
     {
-        private readonly IInsumoService _insumoService;       
+        private readonly IInsumoService _insumoService;
 
         public InsumoController(
-            IInsumoService insumoService,            
+            IInsumoService insumoService,
             IMapper mapper)
         {
-            _insumoService = insumoService;         
-            
+            _insumoService = insumoService;
+
         }
 
         [HttpGet("filter")]
-        public async Task<IActionResult> GetByFilter([FromQuery] InsumoFiltro filter)
+        public IActionResult GetByFilter([FromQuery] InsumoFiltro filter)
         {
             try
             {
-                var result = _insumoService.GetByQueryable(filter);
+                var result = _insumoService.GetByQueryableAsync(filter);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -37,5 +34,15 @@ namespace ONS.WEBPMO.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+
+        [HttpGet("GetByIdAsync")]
+        public async Task<IActionResult> GetByIdAsync(int id)
+        {
+            var insumoDto = await _insumoService.ConsultarInsumoAsync(id);
+
+            return Ok(insumoDto);
+        }
+
     }
 }

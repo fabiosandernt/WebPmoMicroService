@@ -1,11 +1,10 @@
 ﻿using log4net;
-using ONS.Common.Services.Impl;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class SGIService : Service, ISGIService
+    public class SGIService : ISGIService
     {
         private readonly static ILog log = LogManager.GetLogger(typeof(ISGIService));
 

@@ -1,12 +1,12 @@
-﻿using ONS.WEBPMO.Application.DTO;
+﻿using AutoMapper;
+using ONS.WEBPMO.Application.DTO;
 using System.Web.Mvc;
-using AutoMapper;
 
 namespace ONS.WEBPMO.WebSite.AutoMapper
 {
     public class ChaveDescricaoMapper : Profile
     {
-        protected ChaveDescricaoMapper()
+        public ChaveDescricaoMapper()
         {
             CreateMap<ChaveDescricaoDTO<int>, SelectListItem>()
                .ForMember(e => e.Value, a => a.MapFrom(e => e.Chave))
@@ -16,6 +16,6 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                 .ForMember(e => e.Value, a => a.MapFrom(e => e.Chave))
                 .ForMember(e => e.Text, a => a.MapFrom(e => e.Descricao));
         }
-        
+
     }
 }

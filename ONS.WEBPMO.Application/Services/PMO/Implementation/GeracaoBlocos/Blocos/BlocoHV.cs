@@ -4,8 +4,8 @@ using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Enumerations;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.GeracaoBlocos.Blocos
-{    
-     public class BlocoHV : BlocoMontador
+{
+    public class BlocoHV : BlocoMontador
     {
         public BlocoHV(IList<DadoColeta> dadosColeta, IList<DadoColetaBloco> dadosColetaBloco, SemanaOperativa semanaOperativa)
             : base(dadosColeta, dadosColetaBloco, semanaOperativa) { }

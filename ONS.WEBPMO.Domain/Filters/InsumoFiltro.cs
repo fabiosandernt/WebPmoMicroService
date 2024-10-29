@@ -11,7 +11,7 @@ namespace ONS.WEBPMO.Domain.Entities.Filters
     {
         [Display(Name = "Nome")]
         [QueryOperator(Operator = WhereOperator.Contains)]
-        public string? NomInsumopmo { get; set; }
+        public string? Nome { get; set; }
 
         [Display(Name = "Sligla")]
         [QueryOperator(Operator = WhereOperator.Contains)]

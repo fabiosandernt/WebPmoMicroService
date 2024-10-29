@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ONS.WEBPMO.Domain.Entities.PMO;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 {

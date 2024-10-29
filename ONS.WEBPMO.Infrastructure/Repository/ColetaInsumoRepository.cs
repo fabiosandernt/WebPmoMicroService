@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Infrastructure.Context;
@@ -33,7 +32,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             throw new NotImplementedException();
         }
 
-        public PagedResult<ColetaInsumo> ConsultarParaInformarDados(PesquisaMonitorarColetaInsumoFilter filter)
+        public ICollection<ColetaInsumo> ConsultarParaInformarDados(PesquisaMonitorarColetaInsumoFilter filter)
         {
             throw new NotImplementedException();
         }

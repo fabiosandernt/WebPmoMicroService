@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using ONS.WEBPMO.Domain.Entities.BDT;
+﻿using ONS.WEBPMO.Domain.Entities.BDT;
 using ONS.WEBPMO.Domain.Entities.Usina;
 using ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina;
 

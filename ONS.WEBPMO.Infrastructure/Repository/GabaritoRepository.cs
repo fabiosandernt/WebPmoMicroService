@@ -1,5 +1,4 @@
-﻿using ONS.Common.Util.Pagination;
-using ONS.WEBPMO.Domain.DTO;
+﻿
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
@@ -14,25 +13,6 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
         }
 
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoGeracaoComplementar>> ConsultarAgentesComGeracaoComplementar(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GabaritoParticipantesBaseDTO<AgenteParticipanteGabaritoDTO>> ConsultarAgentesParticipantesGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoInsumoNaoEstruturadoDTO>> ConsultarAgentesPodemEnviarDadosNaoEstruturadosPorGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public PagedResult<GabaritoAgrupadoAgenteOrigemColetaDTO> ConsultarAgrupadoPorAgenteTipoOrigemPaginado(GabaritoOrigemColetaFilter filter)
-        {
-            throw new NotImplementedException();
-        }
 
         public IList<Gabarito> ConsultarGabaritoParticipaBloco(int idSemanaOperativa)
         {
@@ -49,40 +29,13 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
             throw new NotImplementedException();
         }
 
-        public PagedResult<Gabarito> ConsultarPorGabaritoFilterPaginado(GabaritoConfiguracaoFilter filter)
+        public ICollection<Gabarito> ConsultarPorGabaritoFilterPaginado(GabaritoConfiguracaoFilter filter)
         {
             throw new NotImplementedException();
         }
 
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoReservatorioDTO>> ConsultarReservatorioPorGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
 
-        public IList<GabaritoParticipantesBaseDTO<ReservatorioParticipanteGabaritoDTO>> ConsultarReservatoriosParticipantesGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
 
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoSubsistemaDTO>> ConsultarSubsistemaPorGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUGEDTO>> ConsultarUGEPorGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GabaritoConfiguracaoBaseDTO<ConfiguracaoUsinaDTO>> ConsultarUsinaPorGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GabaritoParticipantesBaseDTO<UsinaParticipanteGabaritoDTO>> ConsultarUsinasParticipantesGabarito(bool isPadrao, string nomeRevisao = "")
-        {
-            throw new NotImplementedException();
-        }
 
         public void DeletarPorIdSemanaOperativa(int idSemanaOperativa)
         {

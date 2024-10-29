@@ -1,14 +1,14 @@
 ﻿using ONS.Infra.Compression.Download;
-using ONS.WEBPMO.Domain.DTO;
+using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
-    
-    public interface IArquivoService 
+
+    public interface IArquivoService
     {
 
-        
+
         byte[] ObterArquivoDadoNaoEstruturadoEmBytes(Guid idArquivo);
 
         /// <summary>
@@ -16,20 +16,20 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        
-        
+
+
         ResponseDownload ObterArquivosCompactados(RequestDownload request);
 
         /// <summary>
         /// Serviço utilizado para limpar os arquivos temporários que já foram gravados no banco de dados.
         /// </summary>
         /// <param name="arquivos"></param>
-        
-        
+
+
         void LimparArquivosTemporariosUpload(ISet<ArquivoDadoNaoEstruturadoDTO> arquivos);
 
-        
-        
+
+
         Arquivo ObterArquivoDadoNaoEstruturado(Guid idArquivo);
 
         /// <summary>
@@ -37,19 +37,19 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        
-        
-        
+
+
+
         void SalvarDadoColetaNaoEstruturada(DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dto, DadosMonitoramentoColetaInsumoDTO dtoDadosAnalise, ColetaInsumo coletaInusmo = null);
 
-        
-        
-        
+
+
+
         void AprovarColetaDadosNaoEstruturados(DadosMonitoramentoColetaInsumoDTO dtoColeta, DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dtoDados);
 
-        
-        
-        
+
+
+
         void RejeitarColetaDadosNaoEstruturados(DadosMonitoramentoColetaInsumoDTO dtoColeta, DadosGravacaoDadoColetaInsumoNaoEstruturadoDTO dtoDados);
 
         /// <summary>
@@ -57,18 +57,18 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// Método responsável por efetuar o início de Convergência com CCEE.
         /// </summary>
         /// <param name="dto"></param>
-        
-        
-        
+
+
+
         void IniciarConvergenciaCCEE(InicializacaoConvergenciaCceeDTO dto);
 
         /// <summary>
         /// Método utilizado para efetuar a publicação de resultados de uma semana operativa.
         /// </summary>
         /// <param name="dto"></param>
-        
-        
-        
+
+
+
         void PublicarResultados(PublicacaoResultadosDTO dto);
 
     }

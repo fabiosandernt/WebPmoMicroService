@@ -4,7 +4,7 @@ using ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina;
 
 namespace ONS.WEBPMO.Servico.Usina
 {
-   
+
     public interface IBDTService
     {
 
@@ -17,7 +17,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        
+
         IList<Reservatorio> ConsultarReservatorioPorNomeExibicao(string nome = "");
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Reservatorios</returns>
-        
+
         IList<Reservatorio> ConsultarReservatorioPorChaves(params string[] chaves);
 
         #endregion
@@ -38,7 +38,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="nomeExibicaoContem">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        
+
         IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinaPorNomeExibicao(string nome = "");
 
         /// <summary>
@@ -46,14 +46,14 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Usinas</returns>
-        
+
         IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinaPorChaves(params string[] chaves);
 
         /// <summary>
         /// Consulta usinas sem parametro
         /// </summary>
         /// <returns>Lista de Usinas</returns>
-        
+
         IList<ONS.WEBPMO.Domain.Entities.Usina.OrigemColetaUsina.Usina> ConsultarUsinas();
 
         #endregion
@@ -65,7 +65,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// Consulta unidades geradoras sem parametro
         /// </summary>
         /// <returns>Lista de Unidades Geradoras</returns>
-        
+
         IList<UnidadeGeradora> ConsultarUnidadesGeradoras();
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaves">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        
+
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorChaves(params string[] chaves);
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaveUsina">Nome de exibição para filtrar</param>
         /// <returns>Lista de Unidades Geradoras</returns>
-        
+
         IList<UnidadeGeradora> ConsultarUnidadeGeradoraPorUsina(string chave);
 
         #endregion
@@ -92,14 +92,14 @@ namespace ONS.WEBPMO.Servico.Usina
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        
+
         IList<Subsistema> ConsultarTodosSubsistemas();
 
         /// <summary>
         /// Consulta todos os subsistemas na BDT
         /// </summary>
         /// <returns>Lista de subsistemas</returns>
-        
+
         IList<Subsistema> ConsultarSubsistemasAtivos();
 
         #endregion
@@ -112,7 +112,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="nome">Valor parcial do nome do agente</param>
         /// <returns>Lista de Agentes</returns>
-        
+
         IList<Agente> ConsultarAgentesPorNome(string nome, int top = int.MaxValue);
 
 
@@ -121,7 +121,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// </summary>
         /// <param name="chaves">Chaves dos Agentes</param>
         /// <returns>Lista de Agentes</returns>
-        
+
         IList<Agente> ConsultarAgentesPorChaves(params string[] chaves);
 
         #endregion
@@ -132,14 +132,14 @@ namespace ONS.WEBPMO.Servico.Usina
         /// Consulta todos os Submercados na BDT
         /// </summary>
         /// <returns>Lista de Submercados</returns>
-        
+
         IList<SubmercadoPMO> ConsultarSubmercados();
 
         /// <summary>
         /// Consulta Usinas PEM
         /// </summary>
         /// <returns>Lista de Usinas PEM</returns>
-        
+
         IList<UsinaPEM> ConsultarDadosUsinasVisaoPEM();
 
         #endregion
@@ -149,7 +149,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// Consulta dados de todos os REEs ativos
         /// </summary>
         /// <returns>Lista de todos os REEs ativos</returns>
-        
+
         IList<ReservatorioEE> ConsultarReservatoriosEquivalentesDeEnergiaAtivos();
         #endregion
     }

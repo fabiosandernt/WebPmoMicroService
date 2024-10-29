@@ -11,7 +11,7 @@ namespace ONS.WEBPMO.Servico.Usina
         /// <param name="ano">Ano para filtrar</param>
         /// <param name="mes">Mes para filtrar</param>
         /// <returns>Lista de CronogramaPMO</returns>
-        
+
         List<CronogramaPMO> ObterCronogramaPMO(int ano, int mes);
     }
 }

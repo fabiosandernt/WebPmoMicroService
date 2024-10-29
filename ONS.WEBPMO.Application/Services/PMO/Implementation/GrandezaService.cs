@@ -1,11 +1,10 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class GrandezaService : Service, IGrandezaService
+    public class GrandezaService : IGrandezaService
     {
         private IGrandezaRepository GrandezaRepository { get; set; }
 
@@ -16,7 +15,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 
         public Grandeza ObterPorChave(int chave)
         {
-            return GrandezaRepository.FindByKey(chave);
+            throw new NotImplementedException();
         }
     }
 }

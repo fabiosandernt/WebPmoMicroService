@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ONS.Common.Entities;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
@@ -9,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoColetaEstruturado> builder)
         {
-            
+
 
             builder.HasIndex(e => e.Id, "in_fk_dadocoleta_dadocoletaestruturado");
             builder.Property(t => t.Id).HasColumnName("id_dadocoleta");

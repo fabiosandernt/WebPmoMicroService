@@ -1,10 +1,9 @@
-﻿using ONS.Common.Services.Impl;
-using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
+﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces.OrigemColeta;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
-    public class UnidadeGeradoraService : Service, IUnidadeGeradoraService
+    public class UnidadeGeradoraService : IUnidadeGeradoraService
     {
         public UnidadeGeradora ObterUnidadeGeradoraPorChave(int chave)
         {

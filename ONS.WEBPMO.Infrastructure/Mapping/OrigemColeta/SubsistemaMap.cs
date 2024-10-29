@@ -6,7 +6,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
 {
     public class SubsistemaMap : IEntityTypeConfiguration<Subsistema>
     {
-        
+
         public void Configure(EntityTypeBuilder<Subsistema> builder)
         {
             //builder.HasKey(t => t.Id);

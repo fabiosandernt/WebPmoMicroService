@@ -1,12 +1,7 @@
-﻿using ONS.Common.Exceptions;
-using ONS.Common.Seguranca;
-using ONS.Common.Util.Pagination;
-
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-using ONS.WEBPMO.Domain.DTO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
-using ONS.WEBPMO.Domain.Entities.Resources;
 using ONS.WEBPMO.Domain.Repository;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
@@ -20,110 +15,39 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             dadoColetaManutencaoRepository = dadoColetaEstruturadoRepository;
         }
 
-        public DadoColetaManutencao ObterPorChave(int chave)
+        public void AlterarDadoColeta(DadoColetaManutencao dadoColeta)
         {
-            return dadoColetaManutencaoRepository.FindByKey(chave);
+            throw new NotImplementedException();
         }
 
-        public PagedResult<DadoColetaManutencaoDTO> ConsultarDadoColetaManutencaoPorColetaInsumo(
-            DadoColetaInsumoFilter filter)
+        public ICollection<DadoColetaManutencaoDTO> ConsultarDadoColetaManutencaoPorColetaInsumo(DadoColetaInsumoFilter filter)
         {
-            return dadoColetaManutencaoRepository.ConsultarPorColetaInsumo(filter);
-        }
-
-        public DadoColetaManutencao ObterPorColetaInsumoId(int idColetaInsumo)
-        {
-            return dadoColetaManutencaoRepository.FindByColetaInsumoId(idColetaInsumo);
-        }
-
-        public void IncluirDadoColeta(DadoColetaManutencao dadoColeta)
-        {
-            IList<string> mensagens = new List<string>();
-            ValidarExisteDadoColetaManutencaoComMesmaData(dadoColeta, mensagens);
-            ValidarPeriodoManutencao(dadoColeta, mensagens);
-            VerificarONSBusinessException(mensagens);
-
-            AtualizarUsuarioDataHoraColetaInsumo(dadoColeta.ColetaInsumo);
-            dadoColetaManutencaoRepository.Add(dadoColeta);
-        }
-
-        public void IncluirDadoColetaSeNaoExiste(IList<DadoColetaManutencao> dadoColetaList)
-        {
-            foreach (DadoColetaManutencao dadoColeta in dadoColetaList)
-            {
-                AtualizarUsuarioDataHoraColetaInsumo(dadoColeta.ColetaInsumo);
-                dadoColetaManutencaoRepository.Add(dadoColeta);
-            }
+            throw new NotImplementedException();
         }
 
         public void Excluir(DadoColetaManutencao dadoColeta)
         {
-            AtualizarUsuarioDataHoraColetaInsumo(dadoColeta.ColetaInsumo);
-            dadoColetaManutencaoRepository.Delete(dadoColeta);
+            throw new NotImplementedException();
         }
 
-        public void AlterarDadoColeta(DadoColetaManutencao dadoColeta)
-        {
-            IList<string> mensagens = new List<string>();
-            ValidarExisteDadoColetaManutencaoComMesmaData(dadoColeta, mensagens);
-            ValidarPeriodoManutencao(dadoColeta, mensagens);
-            VerificarONSBusinessException(mensagens);
-
-            AtualizarUsuarioDataHoraColetaInsumo(dadoColeta.ColetaInsumo);
-        }
-
-        private void AtualizarUsuarioDataHoraColetaInsumo(ColetaInsumo coletaInsumo)
-        {
-            coletaInsumo.DataHoraAtualizacao = DateTime.Now;
-            coletaInsumo.LoginAgenteAlteracao = UserInfo.UserName;
-        }
-
-        #region Validação
-        private void VerificarONSBusinessException(IList<string> mensagens)
-        {
-            if (mensagens.Any())
-            {
-                throw new ONSBusinessException(mensagens);
-            }
-        }
-
-        //[MS034] O sistema não deve permitir que se informe mais de uma manutenção 
-        //para uma unidade geradora de usina em um mesmo período (data de início e término).
-        private void ValidarExisteDadoColetaManutencaoComMesmaData(DadoColetaManutencao dadoColeta, IList<string> mensagens)
-        {
-            bool existeDadoColeta = dadoColeta.Id > 0
-                ? dadoColetaManutencaoRepository.Any(dadoColeta.ColetaInsumo.Id,
-                    dadoColeta.Gabarito.OrigemColeta.Id, dadoColeta.DataInicio, dadoColeta.DataFim, dadoColeta.Id)
-                : dadoColetaManutencaoRepository.Any(dadoColeta.ColetaInsumo.Id,
-                    dadoColeta.Gabarito.OrigemColeta.Id, dadoColeta.DataInicio, dadoColeta.DataFim);
-
-            if (existeDadoColeta)
-            {
-                mensagens.Add(SGIPMOMessages.MS034);
-            }
-        }
-
-        /// <summary>
-        /// Verifica se a data de manutenção está contida dentro do período de manutenção da semana operativa.
-        /// </summary>
-        /// <param name="dado">Dado coleta de manutenção com peíodo a ser validado</param>
-        /// <param name="mensagens">Linta contendo as mensagens de erro levantadas</param>
-        private void ValidarPeriodoManutencao(DadoColetaManutencao dado, IList<string> mensagens)
-        {
-            DateTime dataInicio = dado.ColetaInsumo.SemanaOperativa.DataInicioManutencao;
-            DateTime dataFim = dado.ColetaInsumo.SemanaOperativa.DataFimManutencao;
-
-            if (!(dado.DataInicio < dataFim && dado.DataFim > dataInicio))
-            {
-                mensagens.Add(string.Format(SGIPMOMessages.MS063,
-                    dataInicio.ToString("dd/MM/yyyy"), dataFim.ToString("dd/MM/yyyy")));
-            }
-        }
-
-        PagedResult<DadoColetaManutencaoDTO> IDadoColetaManutencaoService.ConsultarDadoColetaManutencaoPorColetaInsumo(DadoColetaInsumoFilter filter)
+        public void IncluirDadoColeta(DadoColetaManutencao dadoColeta)
         {
             throw new NotImplementedException();
         }
-        #endregion
+
+        public void IncluirDadoColetaSeNaoExiste(IList<DadoColetaManutencao> dadoColetaList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DadoColetaManutencao ObterPorChave(int chave)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DadoColetaManutencao ObterPorColetaInsumoId(int idColetaInsumo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
