@@ -7,10 +7,19 @@ namespace ONS.WEBPMO.Infrastructure.Mapping
     {
         public void Configure(EntityTypeBuilder<ONS.WEBPMO.Domain.Entities.PMO.BinaryData> builder)
         {
-            //builder.HasKey(t => t.Id);
-            //builder.ToTable("tb_arquivo");
-            //builder.Property(t => t.Id).HasColumnName("id_arquivo");
-            //builder.Property(t => t.Data).HasColumnName("arq_conteudo").IsRequired();
+            // Chave primária
+            builder.HasKey(t => t.Id);
+
+            // Nome da tabela
+            builder.ToTable("tb_arquivo");
+
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_arquivo");
+
+            builder.Property(t => t.Data)
+                   .HasColumnName("arq_conteudo")
+                   .IsRequired();
         }
     }
 }

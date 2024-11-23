@@ -16,7 +16,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
 
             builder.Property(t => t.Id)
                    .HasColumnName("id_tpsituacaosemanaoper")
-                   .ValueGeneratedNever(); // Equivalente ao antigo DatabaseGeneratedOption.None
+                   .ValueGeneratedNever(); 
 
             builder.Property(t => t.Descricao)
                    .HasColumnName("dsc_situacaosemanaoper")

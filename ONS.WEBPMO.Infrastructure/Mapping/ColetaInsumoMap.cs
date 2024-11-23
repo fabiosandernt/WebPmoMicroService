@@ -8,66 +8,70 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<ColetaInsumo> builder)
         {
-            builder.HasKey(e => e.Id).HasName("pk_tb_coletainsumo");
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_coletainsumo");
 
-            builder.ToTable("tb_coletainsumo");
+            builder.Property(t => t.MotivoAlteracaoONS)
+                   .HasColumnName("dsc_motivoalteracaoons")
+                   .HasMaxLength(1000);
 
-            builder.HasIndex(e => e.AgenteId, "in_fk_agenteinstituicao_coletainsumo").HasFillFactor(90);
+            builder.Property(t => t.MotivoRejeicaoONS)
+                   .HasColumnName("dsc_motivorejeicaoons")
+                   .HasMaxLength(1000);
 
-            builder.HasIndex(e => e.InsumoId, "in_fk_insumopmo_coletainsumo").HasFillFactor(90);
+            builder.Property(t => t.Versao)
+                   .HasColumnName("ver_controleconcorrencia")
+                   .IsConcurrencyToken()
+                   .IsRowVersion();
 
-            builder.HasIndex(e => e.SemanaOperativaId, "in_fk_semanaoperativa_coletainsumo").HasFillFactor(90);
+            builder.Property(t => t.CodigoPerfilONS)
+                   .HasColumnName("cod_perfilons")
+                   .HasMaxLength(30);
 
-            builder.HasIndex(e => e.SituacaoId, "in_fk_tpsituacaocoletainsumo_coletainsumo").HasFillFactor(90);
+            builder.Property(t => t.DataHoraAtualizacao)
+                   .HasColumnName("din_ultimaalteracao");
 
-            //builder.Property(e => e.IdColetainsumo).HasColumnName("id_coletainsumo");
-            builder.Property(e => e.CodigoPerfilONS)
-                .HasMaxLength(30)
-                .HasColumnName("cod_perfilons");
-            builder.Property(e => e.DataHoraAtualizacao)
-                .HasColumnType("datetime")
-                .HasColumnName("din_ultimaalteracao");
-            builder.Property(e => e.MotivoAlteracaoONS)
-                .HasMaxLength(1000)
-                .HasColumnName("dsc_motivoalteracaoons");
-            builder.Property(e => e.MotivoRejeicaoONS)
-                .HasMaxLength(1000)
-                .HasColumnName("dsc_motivorejeicaoons");
-            builder.Property(e => e.AgenteId).HasColumnName("id_agenteinstituicao");
-            builder.Property(e => e.InsumoId).HasColumnName("id_insumopmo");
-            builder.Property(e => e.SemanaOperativaId).HasColumnName("id_semanaoperativa");
-            builder.Property(e => e.SituacaoId).HasColumnName("id_tpsituacaocoletainsumo");
-            builder.Property(e => e.LoginAgenteAlteracao)
-                .HasMaxLength(150)
-                .HasColumnName("lgn_agenteultimaalteracao");
-            builder.Property(e => e.NomesGrandezasNaoEstagioAlteradas)
-                .HasMaxLength(1000)
-                .HasColumnName("nom_grandezasnaoestagioalteradas");
-            builder.Property(e => e.Versao)
-                .IsRequired()
-                .IsRowVersion()
-                .IsConcurrencyToken()
-                .HasColumnName("ver_controleconcorrencia");
+            builder.Property(t => t.LoginAgenteAlteracao)
+                   .HasColumnName("lgn_agenteultimaalteracao");
 
-            builder.HasOne(d => d.Agente).WithMany(p => p.ColetasInsumos)
-                .HasForeignKey(d => d.AgenteId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_agenteinstituicao_coletainsumo");
+            // Ignorar propriedade
+            builder.Ignore(t => t.NomeAgentePerfil);
 
-            builder.HasOne(d => d.Insumo).WithMany(p => p.ColetasInsumo)
-                .HasForeignKey(d => d.InsumoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_insumopmo_coletainsumo");
+            // Relacionamentos
+            builder.Property(e => e.AgenteId)
+                   .HasColumnName("id_agenteinstituicao");
 
-            builder.HasOne(d => d.SemanaOperativa).WithMany(p => p.ColetasInsumos)
-                .HasForeignKey(d => d.SemanaOperativaId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_semanaoperativa_coletainsumo");
+            builder.HasOne(t => t.Agente)
+                   .WithMany(t => t.ColetasInsumos)
+                   .HasForeignKey(t => t.AgenteId);
 
-            builder.HasOne(d => d.Situacao).WithMany(p => p.ColetaInsumos)
-                .HasForeignKey(d => d.SituacaoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_tpsituacaocoletainsumo_coletainsumo");
+            builder.Property(e => e.InsumoId)
+                   .HasColumnName("id_insumopmo");
+
+            builder.HasOne(t => t.Insumo)
+                   .WithMany(t => t.ColetasInsumo)
+                   .HasForeignKey(t => t.InsumoId);
+
+            builder.Property(e => e.SituacaoId)
+                   .HasColumnName("id_tpsituacaocoletainsumo");
+
+            builder.HasOne(e => e.Situacao)
+                   .WithMany()
+                   .HasForeignKey(e => e.SituacaoId)
+                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao WillCascadeOnDelete(false)
+
+            builder.Property(t => t.SemanaOperativaId)
+                   .HasColumnName("id_semanaoperativa");
+
+            // Relacionamento comentado no original
+            // builder.HasOne(t => t.SemanaOperativa)
+            //        .WithMany(t => t.ColetasInsumos)
+            //        .HasForeignKey(t => t.SemanaOperativaId)
+            //        .OnDelete(DeleteBehavior.Restrict); // Equivalente ao WillCascadeOnDelete(false)
+
+            builder.Property(t => t.NomesGrandezasNaoEstagioAlteradas)
+                   .HasColumnName("nom_grandezasnaoestagioalteradas");
         }
     }
 }

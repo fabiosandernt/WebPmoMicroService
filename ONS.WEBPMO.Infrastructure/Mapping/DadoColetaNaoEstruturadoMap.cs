@@ -9,21 +9,30 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
         public void Configure(EntityTypeBuilder<DadoColetaNaoEstruturado> builder)
         {
 
-            builder.ToTable("tb_dadocoletanaoestruturado");
-            builder.Property(t => t.Id).HasColumnName("id_dadocoleta");
-            builder.Property(t => t.Observacao).HasColumnName("obs_dadocoletanaoestruturado").HasMaxLength(1000);
+            // Chave primária
+            builder.HasKey(t => t.Id);
 
+            // Nome da tabela
+            builder.ToTable("tb_dadocoletanaoestruturado");
+
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_dadocoleta");
+
+            builder.Property(t => t.Observacao)
+                   .HasColumnName("obs_dadocoletanaoestruturado")
+                   .HasMaxLength(1000);
+
+            // Relacionamento muitos-para-muitos
             builder.HasMany(t => t.Arquivos)
-                  .WithMany() // Não existe a propriedade no outro lado
-                  .UsingEntity<Dictionary<string, object>>(
-                       "tb_arqdadocoletanaoestruturado", // Nome da tabela de junção
-                       j => j.HasOne<Arquivo>().WithMany().HasForeignKey("id_arquivo"), // Configuração do lado de "Arquivo"
-                       j => j.HasOne<DadoColetaNaoEstruturado>().WithMany().HasForeignKey("id_dadocoleta"), // Configuração do lado de "DadoColetaNaoEstruturado"
-                       j =>
-                       {
-                           j.HasKey("id_dadocoleta", "id_arquivo"); // Chave composta
-                       });
+                   .WithMany()
+                   .UsingEntity<Dictionary<string, object>>(
+                       "tb_arqdadocoletanaoestruturado",
+                       right => right.HasOne<Arquivo>().WithMany().HasForeignKey("id_arquivo"),
+                       left => left.HasOne<DadoColetaNaoEstruturado>().WithMany().HasForeignKey("id_dadocoleta"),
+                       join => join.ToTable("tb_arqdadocoletanaoestruturado"));
         }
+    }
     }
 
 }

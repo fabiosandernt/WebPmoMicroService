@@ -21,6 +21,20 @@ namespace ONS.WEBPMO.Api.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<ActionResult> GetAllAsync()
+        {
+            try
+            {
+                var insumos = await _insumoService.ConsultarTodosInsumosAsync();
+                return Ok(insumos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("filter")]
         public IActionResult GetByFilter([FromQuery] InsumoFiltro filter)
         {

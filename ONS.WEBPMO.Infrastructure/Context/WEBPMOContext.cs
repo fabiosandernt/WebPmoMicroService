@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 
@@ -42,6 +43,11 @@ namespace ONS.WEBPMO.Infrastructure.Context
         public DbSet<TipoLimite> TipoLimites { get; set; }
         public DbSet<TipoPatamar> TipoPatamars { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseLazyLoadingProxies();
+            base.OnConfiguring(optionsBuilder);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
+using ONS.WEBPMO.Application.Models.PMO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Repository;
@@ -47,15 +48,54 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             throw new NotImplementedException();
         }
 
+        public async Task<PMOManterModel> GetByIdAsync(PMOFilter filtro)
+        {
+            // Busca a entidade pelo ID no repositório
+            var pmoEntity = pmoRepository.ObterPorFiltro(filtro);
+
+            // Retorna null se não encontrar
+            if (pmoEntity == null)
+                return null;
+
+            // Mapeamento manual da entidade para o modelo
+            var pmoModel = new PMOManterModel
+            {
+                Id = pmoEntity.Id,
+                AnoReferencia = pmoEntity.AnoReferencia,
+                MesReferencia = pmoEntity.MesReferencia,
+                QuantidadeMesesAdiante = pmoEntity.QuantidadeMesesAdiante,
+                Versao = pmoEntity.Versao,
+                VersaoPmoString = pmoEntity.Versao != null ? Convert.ToBase64String(pmoEntity.Versao) : null,
+                SemanasOperativas = pmoEntity.SemanasOperativas?.Select(so => new SemanaOperativaModel
+                {
+                    Id = so.Id,
+                    PMOAnoReferencia = so.PMO.AnoReferencia,
+                    PMOMesReferencia = so.PMO.MesReferencia,
+                    DataReuniao = so.DataReuniao,
+                    DataInicioSemana = so.DataInicioSemana,
+                    DataFimSemana = so.DataFimSemana,
+                    DataInicioManutencao = so.DataInicioManutencao,
+                    DataFimManutencao = so.DataFimManutencao,
+                    SituacaoDescricao = so.Situacao != null ? so.Situacao.DscSituacaosemanaoper : "Não definida",
+                    Revisao = so.Revisao,
+                    Versao = so.Versao
+                }).ToList() ?? new List<SemanaOperativaModel>()
+            };
+
+            return pmoModel;
+        }
+
         public Task IncluirSemanaOperativaAsync(InclusaoSemanaOperativaDTO dto)
         {
             throw new NotImplementedException();
         }
 
-        public  async ValueTask<Domain.Entities.PMO.PMO> ObterPMOPorChaveAsync(int chave)
+        public  async ValueTask<PMOManterModel> ObterPMOPorChaveAsync(int chave)
         {
+            
+
             var query = await  pmoRepository.GetByIdAsync(chave);
-            var pmo = _mapper.Map<Domain.Entities.PMO.PMO>(query);
+            var pmo = _mapper.Map<PMOManterModel>(query);
             return pmo;
         }
 
@@ -68,6 +108,11 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         }
 
         public ValueTask<Domain.Entities.PMO.PMO> ObterPMOPorFiltroExternoAsync(PMOFilter filtro)
+        {
+            throw new NotImplementedException();
+        }
+
+        ValueTask<Domain.Entities.PMO.PMO> IPMOService.ObterPMOPorChaveAsync(int chave)
         {
             throw new NotImplementedException();
         }

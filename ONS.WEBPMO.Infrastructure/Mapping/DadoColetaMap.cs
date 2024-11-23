@@ -8,35 +8,47 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoColeta> builder)
         {
+            // Chave primária
             builder.HasKey(t => t.Id);
-            builder.ToTable("tb_dadocoleta");
-            builder.Property(t => t.Id).HasColumnName("id_dadocoleta");
-            builder.Property(t => t.TipoDadoColeta)
-                .HasColumnName("tip_dadocoleta")
-                .IsRequired()
-                .IsUnicode(false)
-                .IsFixedLength()
-                .HasMaxLength(1);
 
-            // Relationships
+            // Nome da tabela
+            builder.ToTable("tb_dadocoleta");
+
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_dadocoleta");
+
+            builder.Property(t => t.TipoDadoColeta)
+                   .HasColumnName("tip_dadocoleta")
+                   .IsRequired()
+                   .IsUnicode(false)
+                   .IsFixedLength()
+                   .HasMaxLength(1);
+
+            // Relacionamentos
             builder.Property(t => t.ColetaInsumoId)
-                .HasColumnName("id_coletainsumo");
+                   .HasColumnName("id_coletainsumo");
+
             builder.HasOne(t => t.ColetaInsumo)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.ColetaInsumoId);
+                   .WithMany(t => t.DadosColeta)
+                   .HasForeignKey(t => t.ColetaInsumoId)
+                   .OnDelete(DeleteBehavior.Cascade); // Equivalente ao HasRequired
 
             builder.Property(t => t.GabaritoId)
-                .HasColumnName("id_gabarito");
+                   .HasColumnName("id_gabarito");
+
             builder.HasOne(t => t.Gabarito)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.GabaritoId);
-            //.OnDelete(false);
+                   .WithMany(t => t.DadosColeta)
+                   .HasForeignKey(t => t.GabaritoId)
+                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao WillCascadeOnDelete(false)
 
             builder.Property(t => t.GrandezaId)
-                .HasColumnName("id_grandeza");
+                   .HasColumnName("id_grandeza");
+
             builder.HasOne(t => t.Grandeza)
-                .WithMany(t => t.DadosColeta)
-                .HasForeignKey(t => t.GrandezaId);
+                   .WithMany(t => t.DadosColeta)
+                   .HasForeignKey(t => t.GrandezaId)
+                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao HasOptional
         }
     }
 }

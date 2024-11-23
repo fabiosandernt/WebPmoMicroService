@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ONS.WEBPMO.Domain.Entities.PMO
 {
-    [NotMapped]
+    //[NotMapped]
     public class BinaryData
     {
 

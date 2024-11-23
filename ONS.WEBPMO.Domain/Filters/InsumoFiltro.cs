@@ -3,11 +3,12 @@ using AspNetCore.IQueryable.Extensions.Attributes;
 using AspNetCore.IQueryable.Extensions.Filter;
 using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
+using ONS.WEBPMO.Domain.Entities.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace ONS.WEBPMO.Domain.Entities.Filters
 {
-    public class InsumoFiltro : ICustomQueryable, IQueryPaging, IQuerySort
+    public class InsumoFiltro : BaseFilter
     {
         [Display(Name = "Nome")]
         [QueryOperator(Operator = WhereOperator.Contains)]
@@ -20,8 +21,6 @@ namespace ONS.WEBPMO.Domain.Entities.Filters
         [Display(Name = "Tipo")]
         [QueryOperator(Operator = WhereOperator.Contains)]
         public string? TipInsumopmo { get; set; }
-        public int? Limit { get; set; } = 10;
-        public int? Offset { get; set; }
-        public string? Sort { get; set; }
+
     }
 }

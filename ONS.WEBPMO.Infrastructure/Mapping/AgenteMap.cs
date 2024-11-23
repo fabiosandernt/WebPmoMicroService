@@ -10,22 +10,28 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
         public void Configure(EntityTypeBuilder<Agente> builder)
         {
 
-            builder.HasKey(e => e.Id)
-                    .HasName("pk_tb_agenteinstituicao")
-                    .IsClustered(false);
+            // Chave primária
+            builder.HasKey(t => t.Id);
 
+            // Nome da tabela
             builder.ToTable("tb_agenteinstituicao");
 
-            builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id_agenteinstituicao");
-            builder.Property(e => e.Nome)
-                .IsRequired()
-                .HasMaxLength(50)
-                .HasColumnName("dsc_apelidorazaosocial");
-            builder.Property(e => e.NomeLongo)
-                .IsRequired()
-                .HasMaxLength(100);
+            // Propriedade Id
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_agenteinstituicao")
+                   .ValueGeneratedNever(); // Equivalente ao DatabaseGeneratedOption.None
+
+            // Propriedade Nome
+            builder.Property(t => t.Nome)
+                   .HasColumnName("dsc_apelidorazaosocial")
+                   .IsRequired()
+                   .HasMaxLength(50);
+
+            // Propriedade NomeLongo
+            builder.Property(t => t.NomeLongo)
+                   .HasColumnName("dsc_razaosocial")
+                   .IsRequired()
+                   .HasMaxLength(100);
 
         }
     }

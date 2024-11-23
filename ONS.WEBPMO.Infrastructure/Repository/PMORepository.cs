@@ -1,8 +1,11 @@
-﻿using ONS.WEBPMO.Domain.Entities.Filters;
+﻿using ONS.WEBPMO.Domain.Entities.Base;
+using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
+using AspNetCore.IQueryable.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
@@ -12,9 +15,16 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
         {
         }
 
-        public PMO ObterPorFiltro(PMOFilter filtro)
+        public PMO ObterPorFiltro(IBaseFilter filtro)
         {
-            throw new NotImplementedException();
+            var query = Query.AsQueryable().AsNoTracking()
+                .Include(x => x.SemanasOperativas)
+                 .ThenInclude(x => x.ColetasInsumos)
+                 .Apply(filtro);
+
+            return query.FirstOrDefault();
+
+
         }
 
         public PMO ObterPorFiltroExterno(PMOFilter filtro)
