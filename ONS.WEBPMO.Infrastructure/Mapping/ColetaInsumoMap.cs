@@ -9,7 +9,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
         public void Configure(EntityTypeBuilder<ColetaInsumo> builder)
         {
             // Configuração das propriedades
-            builder.Property(t => t.Id)
+             builder.Property(t => t.Id)
                    .HasColumnName("id_coletainsumo");
 
             builder.Property(t => t.MotivoAlteracaoONS)

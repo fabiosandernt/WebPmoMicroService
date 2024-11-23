@@ -11,7 +11,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
         public void Configure(EntityTypeBuilder<ArquivoSemanaOperativa> builder)
         {
             // Chave primária
-            builder.HasKey(t => t.Id);
+             builder.HasKey(t => t.Id);
 
             // Nome da tabela
             builder.ToTable("tb_arquivosemanaoperativa");
