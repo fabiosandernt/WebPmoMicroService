@@ -1,11 +1,11 @@
 ﻿using ONS.WEBPMO.Domain.Entities.Base;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
-using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
 using AspNetCore.IQueryable.Extensions;
 using Microsoft.EntityFrameworkCore;
+using ONS.WEBPMO.Domain.Repository.PMO;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl
 {

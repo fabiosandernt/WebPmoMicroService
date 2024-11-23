@@ -26,7 +26,7 @@ namespace ONS.WEBPMO.Domain.Entities.Usina
         public virtual IList<Gabarito> Gabaritos { get; set; }
 
         public int PMOId { get; set; }
-        public virtual PMO PMO { get; set; }
+        public virtual PMOUsina PMO { get; set; }
         public virtual IList<ArquivoSemanaOperativa> Arquivos { get; set; }
 
         public virtual DadoConvergencia DadoConvergencia { get; set; }

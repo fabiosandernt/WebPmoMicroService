@@ -52,7 +52,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             builder.Property(t => t.PMOId)
                    .HasColumnName("id_pmo");
 
-            builder.Property(e => t.SituacaoId)
+            builder.Property(e => e.SituacaoId)
                    .HasColumnName("id_tpsituacaosemanaoper");
 
             // Relacionamento com Gabaritos
@@ -82,9 +82,9 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             // Relacionamento com DadoConvergencia
             builder.HasOne(t => t.DadoConvergencia)
                    .WithOne(t => t.SemanaOperativa)
-                   .HasForeignKey<DadoConvergencia>(t => t.SemanaOperativaId)
+                   .HasForeignKey<DadoConvergencia>(t => t.SemanaOperativa)
                    .OnDelete(DeleteBehavior.Cascade); // Equivalente ao HasOptional, MapKey e WillCascadeOnDelete(true)
         }
     }
-    }
+    
 }

@@ -8,15 +8,16 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<TipoLimite> builder)
         {
+            // Nome da tabela
+            builder.ToTable("tb_tplimite");
+
             // Chave primária
             builder.HasKey(t => t.Id);
 
-            // Mapeamento da tabela e das colunas
-            builder.ToTable("tb_tplimite");
-
+            // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_tplimite")
-                   .ValueGeneratedNever(); // Equivalente ao antigo DatabaseGeneratedOption.None
+                   .ValueGeneratedNever(); // Equivalente a HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
 
             builder.Property(t => t.Descricao)
                    .HasColumnName("dsc_tplimite")

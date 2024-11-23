@@ -2,7 +2,7 @@
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Enumerations;
-using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Domain.Repository.PMO;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
 

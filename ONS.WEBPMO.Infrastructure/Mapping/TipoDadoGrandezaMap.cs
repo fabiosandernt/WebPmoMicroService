@@ -8,15 +8,16 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Models.Mapping
     {
         public void Configure(EntityTypeBuilder<TipoDadoGrandeza> builder)
         {
+            // Nome da tabela
+            builder.ToTable("tb_tpdadograndeza");
+
             // Chave primária
             builder.HasKey(t => t.Id);
 
-            // Mapeamento da tabela e das colunas
-            builder.ToTable("tb_tpdadograndeza");
-
+            // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_tpdadograndeza")
-                   .ValueGeneratedNever(); // Equivalente ao antigo DatabaseGeneratedOption.None
+                   .ValueGeneratedNever(); // Equivalente a HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
 
             builder.Property(t => t.Descricao)
                    .HasColumnName("dsc_tpdadograndeza")

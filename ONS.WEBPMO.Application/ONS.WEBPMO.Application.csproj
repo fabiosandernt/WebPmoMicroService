@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DTO\SAGER\" />
     <Folder Include="Profile\WebSite\" />
     <Folder Include="Profile\Usina\" />
     <Folder Include="Services\PMO\Implementation\LogAuditoria\" />
     <Folder Include="Services\Presentation\" />
+    <Folder Include="Services\SAGER\" />
   </ItemGroup>
 
   <ItemGroup>

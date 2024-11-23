@@ -9,10 +9,21 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
 
         public void Configure(EntityTypeBuilder<Subsistema> builder)
         {
-            //builder.HasKey(t => t.Id);
+            // Nome da tabela
             builder.ToTable("tb_aux_subsistema");
-            builder.Property(t => t.Id).HasColumnName("id_origemcoleta").HasMaxLength(50).IsRequired();
-            builder.Property(t => t.Codigo).HasColumnName("cod_subsistema");
+
+            // Chave primária
+            builder.HasKey(t => t.Id);
+
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_origemcoleta")
+                   .HasMaxLength(50)
+                   .IsRequired();
+
+            builder.Property(t => t.Codigo)
+                   .HasColumnName("cod_subsistema");
         }
+
     }
 }

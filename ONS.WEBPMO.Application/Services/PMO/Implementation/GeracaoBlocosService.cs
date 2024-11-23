@@ -1,5 +1,5 @@
 ﻿using ONS.WEBPMO.Application.Services.PMO.Interfaces;
-using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Domain.Repository.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {

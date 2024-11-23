@@ -3,8 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ONS.WEBPMO.Domain.Repositories.Impl;
 using ONS.WEBPMO.Domain.Repositories.Impl.Repositories;
 using ONS.WEBPMO.Domain.Repositories.Impl.Repositories.BDT;
-using ONS.WEBPMO.Domain.Repository;
 using ONS.WEBPMO.Domain.Repository.BDT;
+using ONS.WEBPMO.Domain.Repository.PMO;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
 

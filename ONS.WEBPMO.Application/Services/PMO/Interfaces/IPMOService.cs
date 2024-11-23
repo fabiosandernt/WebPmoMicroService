@@ -2,11 +2,12 @@
 using ONS.WEBPMO.Application.Models.PMO;
 using ONS.WEBPMO.Domain.Entities.Filters;
 
+
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     public interface IPMOService
     {
-
+        
         Task<PMOManterModel> GetByIdAsync(PMOFilter filter);
         /// <summary>
         /// Obtém o PMO pela chave.

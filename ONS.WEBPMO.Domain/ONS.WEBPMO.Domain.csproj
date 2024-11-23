@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Entities\SAGER\" />
     <Folder Include="Enumerations\" />
     <Folder Include="Repository\BDT\" />
+    <Folder Include="Repository\SAGER\" />
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.IQueryable.Extensions" Version="8.0.0" />

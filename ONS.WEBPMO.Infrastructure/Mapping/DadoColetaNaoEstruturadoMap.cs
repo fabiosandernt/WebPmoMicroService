@@ -33,6 +33,6 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                        join => join.ToTable("tb_arqdadocoletanaoestruturado"));
         }
     }
-    }
+    
 
 }

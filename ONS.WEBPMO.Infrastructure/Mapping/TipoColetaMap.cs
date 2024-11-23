@@ -11,12 +11,13 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             // Chave primária
             builder.HasKey(t => t.Id);
 
-            // Mapeamento da tabela e das colunas
+            // Nome da tabela
             builder.ToTable("tb_tpcoleta");
 
+            // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_tpcoleta")
-                   .ValueGeneratedNever(); // Equivalente ao antigo DatabaseGeneratedOption.None
+                   .ValueGeneratedNever(); // Equivalente a HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
 
             builder.Property(t => t.Descricao)
                    .HasColumnName("dsc_tpcoleta")

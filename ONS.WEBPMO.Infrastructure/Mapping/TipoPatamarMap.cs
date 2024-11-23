@@ -8,15 +8,16 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<TipoPatamar> builder)
         {
+            // Nome da tabela
+            builder.ToTable("tb_tppatamar");
+
             // Chave primária
             builder.HasKey(t => t.Id);
 
-            // Mapeamento da tabela e das colunas
-            builder.ToTable("tb_tppatamar");
-
+            // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_tppatamar")
-                   .ValueGeneratedNever(); // Equivalente ao antigo DatabaseGeneratedOption.None
+                   .ValueGeneratedNever(); // Equivalente a HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
 
             builder.Property(t => t.Descricao)
                    .HasColumnName("dsc_tppatamar")

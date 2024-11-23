@@ -1,5 +1,5 @@
 ﻿using ONS.WEBPMO.Application.DTO;
-using ONS.WEBPMO.Domain.Repository;
+using ONS.WEBPMO.Domain.Repository.PMO;
 
 namespace ONS.WEBPMO.Domain.Presentations.Impl
 {
