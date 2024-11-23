@@ -8,13 +8,16 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoConvergencia> builder)
         {
+            // Nome da tabela
             builder.ToTable("tb_dadosconvergencia");
 
+            // Chave primária
             builder.HasKey(t => t.Id);
 
+            // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_dadosconvergencia")
-                   .ValueGeneratedOnAdd();
+                   .ValueGeneratedOnAdd(); // Equivalente a HasDatabaseGeneratedOption.Identity
 
             builder.Property(t => t.LoginConvergenciaRepresentanteCCEE)
                    .HasColumnName("lgn_representanteccee")
@@ -23,12 +26,6 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             builder.Property(t => t.ObservacaoConvergenciaCCEE)
                    .HasColumnName("obs_ccee")
                    .HasMaxLength(1000);
-
-            // Relacionamento um-para-um com SemanaOperativa
-            builder.HasOne(t => t.SemanaOperativa)
-                   .WithOne(t => t.DadoConvergencia)
-                   .HasForeignKey<DadoConvergencia>(t => t.Id)
-                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

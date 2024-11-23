@@ -8,27 +8,42 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<InsumoEstruturado> builder)
         {
-            //builder.HasKey(t => t.Id);
+            // Chave primária
+            builder.HasKey(t => t.Id);
 
+            // Nome da tabela
             builder.ToTable("tb_insumoestruturado");
 
-            builder.Property(t => t.Id).HasColumnName("id_insumopmo");
-            builder.Property(t => t.QuantidadeMesesAdiante).HasColumnName("qtd_mesesadiante");
-            builder.Property(t => t.TipoBloco).HasColumnName("tip_blocomontador");
-            builder.Property(t => t.OrdemBlocoMontador).HasColumnName("num_ordemblocomontador");
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_insumopmo");
 
-            // Relacionamentos
-            builder.Property(t => t.CategoriaInsumoId).HasColumnName("id_tpcategoriainsumo");
+            builder.Property(t => t.QuantidadeMesesAdiante)
+                   .HasColumnName("qtd_mesesadiante");
+
+            builder.Property(t => t.TipoBloco)
+                   .HasColumnName("tip_blocomontador");
+
+            builder.Property(t => t.OrdemBlocoMontador)
+                   .HasColumnName("num_ordemblocomontador");
+
+            builder.Property(t => t.CategoriaInsumoId)
+                   .HasColumnName("id_tpcategoriainsumo");
+
+            builder.Property(t => t.TipoColetaId)
+                   .HasColumnName("id_tpcoleta");
+
+            // Relacionamento com CategoriaInsumo
             builder.HasOne(t => t.CategoriaInsumo)
                    .WithMany()
                    .HasForeignKey(t => t.CategoriaInsumoId)
-                   .IsRequired();
+                   .OnDelete(DeleteBehavior.Cascade); // Equivalente ao HasRequired
 
-            builder.Property(t => t.TipoColetaId).HasColumnName("id_tpcoleta");
+            // Relacionamento com TipoColeta
             builder.HasOne(t => t.TipoColeta)
                    .WithMany()
                    .HasForeignKey(t => t.TipoColetaId)
-                   .IsRequired(false); // Relacionamento opcional
+                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao HasOptional
         }
     }
 }

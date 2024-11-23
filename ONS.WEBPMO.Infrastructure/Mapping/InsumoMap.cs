@@ -8,23 +8,39 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<Insumo> builder)
         {
+            // Chave primária
             builder.HasKey(t => t.Id);
 
+            // Nome da tabela
             builder.ToTable("tb_insumopmo");
 
-            builder.Property(t => t.Id).HasColumnName("id_insumopmo");
+            // Configuração das propriedades
+            builder.Property(t => t.Id)
+                   .HasColumnName("id_insumopmo");
+
             builder.Property(t => t.Nome)
                    .HasColumnName("nom_insumopmo")
                    .IsRequired()
                    .HasMaxLength(150);
 
-            builder.Property(t => t.OrdemExibicao).HasColumnName("num_ordemexibicao");
-            builder.Property(t => t.PreAprovado).HasColumnName("flg_preaprovado");
-            builder.Property(t => t.Reservado).HasColumnName("flg_reservado");
-            builder.Property(t => t.DataUltimaAtualizacao).HasColumnName("din_ultimaalteracao");
-            builder.Property(t => t.Ativo).HasColumnName("flg_ativo");
+            builder.Property(t => t.OrdemExibicao)
+                   .HasColumnName("num_ordemexibicao");
 
-            builder.Property(t => t.ExportarInsumo).HasColumnName("flg_exportainsumo");
+            builder.Property(t => t.PreAprovado)
+                   .HasColumnName("flg_preaprovado");
+
+            builder.Property(t => t.Reservado)
+                   .HasColumnName("flg_reservado");
+
+            builder.Property(t => t.DataUltimaAtualizacao)
+                   .HasColumnName("din_ultimaalteracao");
+
+            builder.Property(t => t.Ativo)
+                   .HasColumnName("flg_ativo");
+
+            builder.Property(t => t.ExportarInsumo)
+                   .HasColumnName("flg_exportainsumo");
+
             builder.Property(t => t.SiglaInsumo)
                    .HasColumnName("sgl_insumo")
                    .IsRequired()

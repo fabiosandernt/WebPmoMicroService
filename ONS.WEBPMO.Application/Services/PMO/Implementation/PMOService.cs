@@ -76,7 +76,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                     DataFimSemana = so.DataFimSemana,
                     DataInicioManutencao = so.DataInicioManutencao,
                     DataFimManutencao = so.DataFimManutencao,
-                    SituacaoDescricao = so.Situacao != null ? so.Situacao.DscSituacaosemanaoper : "Não definida",
+                    SituacaoDescricao = so.Situacao != null ? so.Situacao.Descricao : "Não definida",
                     Revisao = so.Revisao,
                     Versao = so.Versao
                 }).ToList() ?? new List<SemanaOperativaModel>()
