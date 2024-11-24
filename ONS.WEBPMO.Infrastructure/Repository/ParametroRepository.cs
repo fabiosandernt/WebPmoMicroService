@@ -12,9 +12,12 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Repositories
         {
         }
 
+
         public Parametro ObterPorTipo(ParametroEnum parametro)
         {
-            throw new NotImplementedException();
+            string nomeParametro = parametro.GetDescription();
+            var query = this.Query.FirstOrDefault(param => param.Nome == nomeParametro);
+            return query;
         }
     }
 }

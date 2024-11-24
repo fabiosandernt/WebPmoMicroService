@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ONS.Common.Util;
 using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Domain.Entities.PMO;
@@ -13,7 +12,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
         {
             CreateMap<Insumo, InsumoListagemModel>()
                   .ForMember(destino => destino.NomeTipoInsumo,
-                             opt => opt.MapFrom(model => model.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                             opt => opt.MapFrom(model => model.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                                                                   ? TipoInsumoEnum.Estruturado.ToDescription()
                                                                   : TipoInsumoEnum.NaoEstruturado.ToDescription()))
                   .ForMember(destino => destino.ValorTipoInsumo, opt => opt.MapFrom(model => model.TipoInsumo))
@@ -36,7 +35,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                   .ForMember(destino => destino.IsPreAprovado, opt => opt.MapFrom(insumo => insumo.PreAprovado))
                   .ForMember(destino => destino.VersaoInsumoString, opt => opt.MapFrom(insumo => Convert.ToBase64String(insumo.Versao)))
                   .ForMember(destino => destino.TipoInsumo,
-                             opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                             opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                                                               ? TipoInsumoEnum.Estruturado
                                                               : TipoInsumoEnum.NaoEstruturado));
 
@@ -49,7 +48,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                   .ForMember(destino => destino.IsUtilizadoPublicacao,
                              opt => opt.MapFrom(origem => origem.IsPublicacaoResultados))
                   .ForMember(destino => destino.TipoInsumo,
-                            opt => opt.MapFrom(origem => origem.TipoInsumo.ToChar()))
+                            opt => opt.MapFrom(origem => origem.TipoInsumo.ToString()))
                   .ForMember(destino => destino.PreAprovado,
                             opt => opt.MapFrom(origem => origem.IsPreAprovado))
                   .ForMember(destino => destino.Reservado,
@@ -57,17 +56,17 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
 
             CreateMap<ManutencaoInsumoEstruturadoModel, InsumoEstruturado>()
                 .ForMember(destino => destino.TipoInsumo,
-                    opt => opt.MapFrom(origem => origem.TipoInsumo.ToChar()));
+                    opt => opt.MapFrom(origem => origem.TipoInsumo.ToString()));
 
             CreateMap<InsumoEstruturado, DadosManutencaoInsumoEstruturado>()
                 .ForMember(destino => destino.TipoInsumo,
-                    opt => opt.MapFrom(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                    opt => opt.MapFrom(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                         ? TipoInsumoEnum.Estruturado
                         : TipoInsumoEnum.NaoEstruturado));
 
             CreateMap<InsumoEstruturado, ManutencaoInsumoEstruturadoModel>()
                 .ForMember(destino => destino.TipoInsumo,
-                    opt => opt.MapFrom(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                    opt => opt.MapFrom(origem => origem.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                         ? TipoInsumoEnum.Estruturado.ToDescription()
                         : TipoInsumoEnum.NaoEstruturado.ToDescription()))
                 .ForMember(destino => destino.IsPreAprovado, opt => opt.MapFrom(origem => origem.PreAprovado))
@@ -81,7 +80,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                   .ForMember(destino => destino.Reservado,
                              opt => opt.MapFrom(origem => origem.Reservado ? "Sim" : "Não"))
                   .ForMember(destino => destino.TipoInsumo,
-                             opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                             opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                                                               ? TipoInsumoEnum.Estruturado.ToDescription()
                                                              : TipoInsumoEnum.NaoEstruturado.ToDescription()))
                   .ForMember(destino => destino.ExportarInsumo,
@@ -103,7 +102,7 @@ namespace ONS.WEBPMO.WebSite.AutoMapper
                  .ForMember(destino => destino.Reservado,
                              opt => opt.MapFrom(origem => origem.Reservado ? "Sim" : "Não"))
                  .ForMember(destino => destino.TipoInsumo,
-                            opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToChar()
+                            opt => opt.MapFrom(insumo => insumo.TipoInsumo == TipoInsumoEnum.Estruturado.ToString()
                                                              ? TipoInsumoEnum.Estruturado.ToDescription()
                                                              : TipoInsumoEnum.NaoEstruturado.ToDescription()))
                 .ForMember(destino => destino.ExportarInsumo,

@@ -7,7 +7,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
 {
     public interface IPMOService
     {
-        
+
         Task<PMOManterModel> GetByIdAsync(int id);
         /// <summary>
         /// Obtém o PMO pela chave.
@@ -22,7 +22,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// <param name="ano">Ano do PMO.</param>
         /// <param name="mes">Mês do PMO.</param>
         /// <returns>PMO</returns>
-        Task<ONS.WEBPMO.Domain.Entities.PMO.PMO> GerarPMOAsync(int ano, int mes);
+        ONS.WEBPMO.Domain.Entities.PMO.PMO GerarPMO(IncluirPMODto dto);
 
         /// <summary>
         /// Obtém o PMO de acordo com o filtro passado.

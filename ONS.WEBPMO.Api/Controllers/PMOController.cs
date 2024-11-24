@@ -4,9 +4,6 @@ using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.PMO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.Filters;
-using ONS.WEBPMO.Domain.Entities.Resources;
-using ONS.Infra.Core.Exceptions;
-using ONS.WEBPMO.Application.Services.PMO.Implementation;
 
 namespace ONS.WEBPMO.Api.Controllers
 {
@@ -17,7 +14,7 @@ namespace ONS.WEBPMO.Api.Controllers
         private readonly IPMOService pmoService;
         private readonly ISemanaOperativaService semanaOperativaService;
         private readonly IMapper _mapper;
-        
+
         public PMOController(IPMOService pmoService,
                              ISemanaOperativaService semanaOperativaService,
                              IMapper mapper)
@@ -25,9 +22,9 @@ namespace ONS.WEBPMO.Api.Controllers
             this.pmoService = pmoService;
             this.semanaOperativaService = semanaOperativaService;
             _mapper = mapper;
-            
+
         }
-        [HttpGet("getPmoByFilter")]
+        [HttpGet("GetByFilterAsync")]
         public async Task<IActionResult> GetPmoByFilter([FromQuery] PMOFilter filter)
         {
             try
@@ -42,17 +39,18 @@ namespace ONS.WEBPMO.Api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var result = await pmoService.GetByIdAsync(id);
             return Ok(result);
         }
-       
 
-        [HttpPost("gerar")]
-        public async Task<IActionResult> GerarPMO([FromBody] PMOConsultaModel model)
+
+        [HttpPost("Incluir")]
+        public async Task<IActionResult> GerarPMO([FromBody] IncluirPMODto dto)
         {
-            throw new NotImplementedException();
+            var pmo = pmoService.GerarPMO(dto);
+            return Ok(pmo);
         }
 
         [HttpPut("{id}")]

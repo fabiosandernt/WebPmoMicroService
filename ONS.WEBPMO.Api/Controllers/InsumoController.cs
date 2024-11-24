@@ -48,7 +48,7 @@ namespace ONS.WEBPMO.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
 
         [HttpGet("GetByIdAsync")]
         public async Task<IActionResult> GetByIdAsync(int id)

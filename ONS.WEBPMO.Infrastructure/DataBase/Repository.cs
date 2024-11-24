@@ -61,7 +61,7 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         {
             return await Query.FirstOrDefaultAsync(expression);
         }
-               
+
 
         public IQueryable<T> GetByQueryable(ICustomQueryable filter)
         {
@@ -69,7 +69,8 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         }
         public async Task<T> GetSingleByQueryableAsync(ICustomQueryable filter)
         {
-            return await Query.AsQueryable().Apply(filter).FirstOrDefaultAsync();
+            var query = await Query.AsQueryable().Apply(filter).FirstOrDefaultAsync();
+            return query;
         }
 
         public async Task<List<T>> GetListByQueryableAsync(ICustomQueryable filter)

@@ -1,8 +1,5 @@
-﻿using AspNetCore.IQueryable.Extensions;
-using AspNetCore.IQueryable.Extensions.Attributes;
+﻿using AspNetCore.IQueryable.Extensions.Attributes;
 using AspNetCore.IQueryable.Extensions.Filter;
-using AspNetCore.IQueryable.Extensions.Pagination;
-using AspNetCore.IQueryable.Extensions.Sort;
 using ONS.WEBPMO.Domain.Entities.Base;
 using System.ComponentModel.DataAnnotations;
 

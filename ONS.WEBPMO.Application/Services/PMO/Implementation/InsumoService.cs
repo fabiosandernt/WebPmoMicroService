@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Castle.MicroKernel.Registration;
-using ons.common.providers.schemas;
 using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.Insumo;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
@@ -71,7 +69,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             return insumosDtos;
         }
 
-       
+
         public async Task<IList<VisualizarInsumoModel>> ConsultarTodosInsumos()
         {
             var query = await insumoRepository.GetAllAsync();
@@ -112,8 +110,9 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         public async Task<InsumoDto> ConsultarInsumoAsync(int id)
         {
             var insumo = await insumoRepository.GetByIdAsync(id);
-            
-            var insumoDto = new InsumoDto() {
+
+            var insumoDto = new InsumoDto()
+            {
                 Id = insumo.Id,
                 Nome = insumo.Nome,
                 OrdemExibicao = insumo.OrdemExibicao,
@@ -123,8 +122,8 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
                 SiglaInsumo = insumo.SiglaInsumo,
                 ExportarInsumo = insumo.ExportarInsumo,
                 Ativo = insumo.Ativo
-            };     
-                                 
+            };
+
             return insumoDto;
 
         }
@@ -163,7 +162,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         {
             throw new NotImplementedException();
         }
-       
+
         public Task<IList<VisualizarInsumoModel>> ConsultarTodosInsumosAsync()
         {
             throw new NotImplementedException();
@@ -182,7 +181,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             return insumos;
         }
 
-        
+
 
         public Task<int> InserirInsumoEstruturadoAsync(DadosInclusaoInsumoEstruturadoDTO insumo)
         {

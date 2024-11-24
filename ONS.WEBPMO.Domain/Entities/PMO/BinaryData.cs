@@ -1,7 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace ONS.WEBPMO.Domain.Entities.PMO
+﻿namespace ONS.WEBPMO.Domain.Entities.PMO
 {
     //[NotMapped]
     public class BinaryData

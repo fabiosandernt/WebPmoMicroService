@@ -1,11 +1,11 @@
-﻿using ONS.WEBPMO.Domain.Entities.Base;
+﻿using AspNetCore.IQueryable.Extensions;
+using Microsoft.EntityFrameworkCore;
+using ONS.WEBPMO.Domain.Entities.Base;
 using ONS.WEBPMO.Domain.Entities.Filters;
 using ONS.WEBPMO.Domain.Entities.PMO;
+using ONS.WEBPMO.Domain.Repository.PMO;
 using ONS.WEBPMO.Infrastructure.Context;
 using ONS.WEBPMO.Infrastructure.DataBase;
-using AspNetCore.IQueryable.Extensions;
-using Microsoft.EntityFrameworkCore;
-using ONS.WEBPMO.Domain.Repository.PMO;
 
 namespace ONS.WEBPMO.Domain.Repositories.Impl
 {
@@ -17,8 +17,8 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
 
         public PMO ObterPorFiltro(IBaseFilter filtro)
         {
-            var query = this.Query.AsQueryable().AsNoTracking()
-                    //.Include(x => x.SemanasOperativas)                    
+            var query = Query.AsQueryable().AsNoTracking()
+                    .Include(x => x.SemanasOperativas)
                         .Apply(filtro);
 
             return query.FirstOrDefault();
@@ -26,9 +26,26 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
 
         }
 
-        public PMO ObterPorFiltroExterno(PMOFilter filtro)
+        public PMO ObterPorFiltro(PMOFilter filtro)
         {
             throw new NotImplementedException();
+        }
+
+        public PMO ObterPorFiltroExterno(PMOFilter filtro)
+        {
+            var query = Query.AsQueryable();
+
+            if (filtro.Ano.HasValue)
+            {
+                query = query.Where(p => p.AnoReferencia == filtro.Ano.Value);
+            }
+
+            if (filtro.Mes.HasValue)
+            {
+                query = query.Where(p => p.MesReferencia == filtro.Mes.Value);
+            }
+
+            return query.AsNoTracking().FirstOrDefault();
         }
 
         public int ObterQuantidadeSemanasPMO(int idSemanaOperativa)

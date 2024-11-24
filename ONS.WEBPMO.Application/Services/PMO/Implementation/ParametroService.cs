@@ -7,22 +7,24 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
     public class ParametroService : IParametroService
     {
-        private IParametroRepository ParametroRepository { get; set; }
+        private IParametroRepository parametroRepository { get; set; }
 
         public ParametroService(IParametroRepository ParametroRepository)
         {
-            this.ParametroRepository = ParametroRepository;
+            this.parametroRepository = ParametroRepository;
         }
 
-        public Parametro ObterParametro(ParametroEnum parametroEnum)
+        public Parametro ObterParametro(ParametroEnum paramentoEnum)
         {
-            Parametro parametro = ParametroRepository.ObterPorTipo(parametroEnum);
+
+            Parametro parametro = parametroRepository.ObterPorTipo(paramentoEnum);
             if (parametro == null || string.IsNullOrEmpty(parametro.Valor))
             {
-                string mensagem = string.Format("Parâmetro {0} não cadastrado", parametroEnum.ToDescription());
-
+                string mensagem = string.Format("Parâmetro {0} não cadastrado", paramentoEnum.GetDescription());
+                throw new ArgumentException(mensagem);
             }
             return parametro;
+
         }
     }
 }

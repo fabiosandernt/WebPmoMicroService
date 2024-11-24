@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping
         public void Configure(EntityTypeBuilder<ONS.WEBPMO.Domain.Entities.PMO.BinaryData> builder)
         {
             // Chave primária
-             builder.HasKey(t => t.Id);
+            builder.HasKey(t => t.Id);
 
             // Nome da tabela
             builder.ToTable("tb_arquivo");

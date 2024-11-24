@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ONS.Common.Web;
 using ONS.WEBPMO.Application.DTO;
+using ONS.WEBPMO.Application.Models;
 using ONS.WEBPMO.Application.Models.ColetaInsumo;
 using ONS.WEBPMO.Application.Models.GeracaoBlocos;
 using ONS.WEBPMO.Domain.Entities.Filters;

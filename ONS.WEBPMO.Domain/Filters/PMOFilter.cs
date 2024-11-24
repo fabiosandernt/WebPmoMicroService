@@ -16,7 +16,7 @@ namespace ONS.WEBPMO.Domain.Entities.Filters
         [Display(Name = "Ano")]
         [QueryOperator(Operator = WhereOperator.Equals)]
         public int? Ano { get; set; }
-       
+
 
     }
 }

@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoColetaNaoEstruturado> builder)
         {
-                        
+
 
             // Nome da tabela
             builder.ToTable("tb_dadocoletanaoestruturado");
@@ -31,6 +31,6 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
                        join => join.ToTable("tb_arqdadocoletanaoestruturado"));
         }
     }
-    
+
 
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Localization;
 using ONS.WEBPMO.Application;
+using ONS.WEBPMO.Domain.Resources;
 using ONS.WEBPMO.Infrastructure;
 using System.Globalization;
 
@@ -60,6 +61,7 @@ namespace ONS.WEBPMO.Api
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             var app = builder.Build();
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseRequestLocalization(new RequestLocalizationOptions
             {

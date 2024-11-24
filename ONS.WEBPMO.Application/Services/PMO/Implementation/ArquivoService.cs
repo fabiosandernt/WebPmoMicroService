@@ -1,5 +1,4 @@
-﻿using ONS.Infra.Compression.Download;
-using ONS.WEBPMO.Application.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository.PMO;
@@ -47,10 +46,10 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
             throw new NotImplementedException();
         }
 
-        public ResponseDownload ObterArquivosCompactados(RequestDownload request)
-        {
-            throw new NotImplementedException();
-        }
+        //public ResponseDownload ObterArquivosCompactados(RequestDownload request)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void PublicarResultados(PublicacaoResultadosDTO dto)
         {

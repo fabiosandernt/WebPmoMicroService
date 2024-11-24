@@ -11,7 +11,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
             // Nome da tabela
             builder.ToTable("tb_aux_reservatorio");
 
-           
+
             // Configuração das propriedades
             builder.Property(t => t.Id)
                    .HasColumnName("id_origemcoleta")

@@ -53,7 +53,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// <param name="ano">Ano do PMO.</param>
         /// <param name="mes">Mês do PMO.</param>
         /// <returns>Lista de SemanaOperativa.</returns>
-        Task<ISet<SemanaOperativa>> GerarSugestaoSemanasOperativasAsync(int ano, int mes);
+        ISet<SemanaOperativa> GerarSugestaoSemanasOperativas(int ano, int mes);
 
         /// <summary>
         /// Abre estudo para a semana selecionada.
@@ -70,8 +70,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// <param name="dataFimPMO">Data de fim da SemanaOperativa.</param>
         /// <param name="revisao">Número da revisão.</param>
         /// <returns>SemanaOperativa.</returns>
-        ValueTask<SemanaOperativa> GerarSemanaOperativaAsync(int ano, string nomeMes, DateTime dataInicioSemana,
-            DateTime dataFimPMO, int revisao);
+        SemanaOperativa GerarSemanaOperativa(int ano, string nomeMes, DateTime dataInicioSemana, DateTime dataFimPMO, int revisao);
 
         /// <summary>
         /// Atualiza as SemanasOperativas após a inclusão de uma nova SemanaOperativa.

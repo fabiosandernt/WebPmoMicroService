@@ -1,5 +1,4 @@
-﻿using ONS.Infra.Compression.Download;
-using ONS.WEBPMO.Application.DTO;
+﻿using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Domain.Entities.PMO;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
@@ -18,7 +17,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// <returns></returns>
 
 
-        ResponseDownload ObterArquivosCompactados(RequestDownload request);
+        //ResponseDownload ObterArquivosCompactados(RequestDownload request);
 
         /// <summary>
         /// Serviço utilizado para limpar os arquivos temporários que já foram gravados no banco de dados.

@@ -1,0 +1,107 @@
+[
+  {
+    "Code": "MS001",
+    "Value": "Campo '{0}' deve ser preenchido.",
+    "Comment": "Campo '{Nome do campo}' deve ser preenchido."
+  },
+  {
+    "Code": "MS002",
+    "Value": "Já existe um PMO configurado para o ano e mês informado.",
+    "Comment": null
+  },
+  {
+    "Code": "MS003",
+    "Value": "Não é possível incluir PMO para ano e mês menor que o atual.",
+    "Comment": null
+  },
+  {
+    "Code": "MS004",
+    "Value": "Não foi encontrado nenhum registro com os parâmetros de pesquisa informados",
+    "Comment": null
+  },
+  {
+    "Code": "MS005",
+    "Value": "Campo {0} está inválido.",
+    "Comment": "Campo {Nome do campo} está inválido."
+  },
+  {
+    "Code": "MS006",
+    "Value": "A data {0} não pode ser menor que a data atual.",
+    "Comment": "A data {Nome do campo} não pode ser menor que a data atual."
+  },
+  {
+    "Code": "MS007",
+    "Value": "Um PMO deve ter ao menos uma(1) semana operativa.",
+    "Comment": null
+  },
+  {
+    "Code": "MS008",
+    "Value": "Só é possível abrir estudo para semana que ainda não passou por processo de configuração (que não possui gabarito associado).",
+    "Comment": null
+  },
+  {
+    "Code": "MS009",
+    "Value": "O número de meses a frente do estudo não pode ser maior que 11 (onze).",
+    "Comment": null
+  },
+  {
+    "Code": "MS010",
+    "Value": "Não é possível inserir ou excluir semana em PMO cuja data de início seja menor que a data atual.",
+    "Comment": null
+  },
+  {
+    "Code": "MS011",
+    "Value": "Só é possível excluir semana de PMO que ainda não foi aberta para estudo, ou que ainda esteja em configuração.",
+    "Comment": null
+  },
+  {
+    "Code": "MS013",
+    "Value": "Operação realizada com sucesso.",
+    "Comment": null
+  },
+  {
+    "Code": "MS014",
+    "Value": "Os dados desta tela foram alterados por outro usuário. Acesse novamente para que sejam apresentados os dados atualizados.",
+    "Comment": null
+  },
+  {
+    "Code": "MS015",
+    "Value": "O gabarito já possui um registro de coleta para o insumo {0}, reservatório {1} e agente {2}.",
+    "Comment": "O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, reservatório {Nome do reservatório} e agente {Nome do agente}."
+  },
+  {
+    "Code": "MS016",
+    "Value": "O insumo {0} já está configurado para ser informado pelo agente {1} para o reservatório {2}.",
+    "Comment": "O insumo {Nome do insumo} já está configurado para ser informado pelo agente {Nome do agente} para o reservatório {Nome do reservatório}."
+  },
+  {
+    "Code": "MS017",
+    "Value": "Selecione apenas um item para realização da operação.",
+    "Comment": null
+  },
+  {
+    "Code": "MS018",
+    "Value": "O gabarito já possui um registro de coleta para o insumo {0}, usina {1} e agente {2}.",
+    "Comment": "O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, usina {Nome da usina} e agente {Nome do agente}."
+  },
+  {
+    "Code": "MS019",
+    "Value": "O insumo {0} já está configurado para ser informado pelo agente {1} para a usina {2}.",
+    "Comment": "O insumo {Nome do insumo} já está configurado para ser informado pelo agente {Nome do agente} para a usina {Nome da usina}."
+  },
+  {
+    "Code": "MS020",
+    "Value": "O gabarito já possui um registro de coleta para o insumo {0}, subsistema {1} e agente {2}.",
+    "Comment": "O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, subsistema {Nome do subsistema} e agente {Nome do agente}."
+  },
+  {
+    "Code": "MS021",
+    "Value": "O gabarito já possui um registro de coleta para o insumo {0}, contrato {1} e agente {2}.",
+    "Comment": "O gabarito já possui um registro de coleta para o insumo {Nome do insumo}, contrato {Nome do contrato} e agente {Nome do agente}."
+  },
+  {
+    "Code": "MS022",
+    "Value": "O gabarito já possui um registro de coleta para o insumo {0} e agente {1}.",
+    "Comment": "O gabarito já possui um registro de coleta para o insumo {Nome do insumo} e agente {Nome do agente}."
+  }
+]

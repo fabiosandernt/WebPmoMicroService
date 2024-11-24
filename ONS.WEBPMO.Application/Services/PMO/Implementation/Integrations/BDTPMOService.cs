@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using ons.common.schemas.filters;
-using ONS.Common.Instituicao.Services;
-using ONS.Common.Services.Impl;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces.Integrations;
 using ONS.WEBPMO.Domain.Entities.BDT;
 using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Entities.PMO.OrigemColetaPMO;
 using ONS.WEBPMO.Domain.Repository.BDT;
-using MatchType = ons.common.schemas.filters.MatchType;
+
 
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
@@ -148,40 +145,40 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
 
         #region Agentes
 
-        public IList<Agente> ConsultarAgentesPorNome(string nomeParcial, int top = int.MaxValue)
-        {
-            FiltroInstituicao filtro = new FiltroInstituicao
-            {
-                nomeParcial = new FilterField<string>(nomeParcial, MatchType.Equals),
-                top = 20
-            };
+        //public IList<Agente> ConsultarAgentesPorNome(string nomeParcial, int top = int.MaxValue)
+        //{
+        //    //FiltroInstituicao filtro = new FiltroInstituicao
+        //    //{
+        //    //    //nomeParcial = new FilterField<string>(nomeParcial, MatchType.Equals),
+        //    //    //top = 20
+        //    //};
 
-            return ConsultarAgentes(filtro);
-        }
-        public IList<Agente> ConsultarAgentesPorChaves(params int[] chaves)
-        {
-            FiltroInstituicao filtro = new FiltroInstituicao
-            {
-                idAgente = chaves.Cast<int?>().ToList(),
-                top = -1
-            };
-            return ConsultarAgentes(filtro);
-        }
+        //    return ConsultarAgentes(filtro);
+        //}
+        //public IList<Agente> ConsultarAgentesPorChaves(params int[] chaves)
+        //{
+        //    FiltroInstituicao filtro = new FiltroInstituicao
+        //    {
+        //        idAgente = chaves.Cast<int?>().ToList(),
+        //        //top = -1
+        //    };
+        //    return ConsultarAgentes(filtro);
+        //}
 
-        private IList<Agente> ConsultarAgentes(FiltroInstituicao filtro)
-        {
-            IList<InstituicaoDTO> instituicoes = InstituicaoServiceHelper.ConsultarInstituicoes(filtro);
-            return instituicoes.Select(instituicaoDto => new Agente
-            {
-                Id = instituicaoDto.idAgente,
-                Nome = instituicaoDto.siglaAgente,
-                NomeLongo = string.IsNullOrWhiteSpace(instituicaoDto.razaoSocial)
-                    ? instituicaoDto.siglaAgente
-                    : instituicaoDto.razaoSocial
-            })
-            .OrderBy(a => a.Nome)
-            .ToList();
-        }
+        //private IList<Agente> ConsultarAgentes(FiltroInstituicao filtro)
+        //{
+        //    IList<InstituicaoDTO> instituicoes = InstituicaoServiceHelper.ConsultarInstituicoes(filtro);
+        //    return instituicoes.Select(instituicaoDto => new Agente
+        //    {
+        //        Id = instituicaoDto.idAgente,
+        //        Nome = instituicaoDto.siglaAgente,
+        //        NomeLongo = string.IsNullOrWhiteSpace(instituicaoDto.razaoSocial)
+        //            ? instituicaoDto.siglaAgente
+        //            : instituicaoDto.razaoSocial
+        //    })
+        //    .OrderBy(a => a.Nome)
+        //    .ToList();
+        //}
 
         #endregion
 
@@ -202,6 +199,16 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation.Integrations
             where TDestination : OrigemColeta
         {
             return origensColetaPmo.Select(origemColetaPmo => _mapper.Map<TDestination>(origemColetaPmo)).ToList();
+        }
+
+        public IList<Agente> ConsultarAgentesPorNome(string nomeParcial, int top = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Agente> ConsultarAgentesPorChaves(params int[] chaves)
+        {
+            throw new NotImplementedException();
         }
     }
 }

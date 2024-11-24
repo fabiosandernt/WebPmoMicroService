@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<InsumoNaoEstruturado> builder)
         {
-            
+
             // Nome da tabela
             builder.ToTable("tb_insumonaoestruturado");
 
