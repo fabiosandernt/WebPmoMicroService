@@ -29,7 +29,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro para consulta do PMO</param>
         /// <returns>PMO.</returns>
-        Task<ICollection<PMODTO>> ObterPMOPorFiltroAsync(PMOFilter filter);
+        Task<PMOManterModel> ObterPMOPorFiltroAsync(PMOFilter filter);
 
         /// <summary>
         /// Obtém o PMO de acordo com o filtro passado por uma chamada externa.

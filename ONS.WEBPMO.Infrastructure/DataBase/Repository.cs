@@ -67,6 +67,15 @@ namespace ONS.WEBPMO.Infrastructure.DataBase
         {
             return Query.AsQueryable().Apply(filter);
         }
+        public async Task<T> GetSingleByQueryableAsync(ICustomQueryable filter)
+        {
+            return await Query.AsQueryable().Apply(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<T>> GetListByQueryableAsync(ICustomQueryable filter)
+        {
+            return await Query.AsQueryable().Apply(filter).ToListAsync();
+        }
 
         IQueryable<T> IRepository<T>.Query()
         {

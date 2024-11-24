@@ -14,6 +14,8 @@ namespace ONS.WEBPMO.Domain.Repository.Base
         Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
         Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression);
         IQueryable<T> GetByQueryable(ICustomQueryable filter);
+        Task<T> GetSingleByQueryableAsync(ICustomQueryable filter);
+        Task<List<T>> GetListByQueryableAsync(ICustomQueryable filter);
         IQueryable<T> Query();
         Task<IEnumerable<T>> FindAllByCriterio(Expression<Func<T, bool>> expression);
 

@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using ONS.WEBPMO.Application.DTO;
 using ONS.WEBPMO.Application.Models.PMO;
 using ONS.WEBPMO.Application.Services.PMO.Interfaces;
 using ONS.WEBPMO.Domain.Entities.Filters;
-using ONS.WEBPMO.Domain.Entities.PMO;
 using ONS.WEBPMO.Domain.Repository.PMO;
+using System.Data.Entity;
 
 namespace ONS.WEBPMO.Application.Services.PMO.Implementation
 {
@@ -92,22 +93,21 @@ namespace ONS.WEBPMO.Application.Services.PMO.Implementation
         }
 
         
+               
 
-        public  async ValueTask<PMOManterModel> ObterPMOPorChaveAsync(int chave)
+        public async Task<PMOManterModel> ObterPMOPorFiltroAsync(PMOFilter filter)
         {
-            
 
-            var query = await  pmoRepository.GetByIdAsync(chave);
-            var pmo = _mapper.Map<PMOManterModel>(query);
-            return pmo;
-        }
+            var pmo = await this.pmoRepository.GetSingleByQueryableAsync(filter);
 
-        public async Task<ICollection<PMODTO>> ObterPMOPorFiltroAsync(PMOFilter filter)
-        {
-          
-           var query =  this.pmoRepository.ObterPorFiltro(filter);
-           var pmoDto = _mapper.Map<List<PMODTO>>(query);
-           return pmoDto;
+
+            var pmoModel = _mapper.Map<PMOManterModel>(pmo);
+            return pmoModel;
+
+            //var query = pmoRepository.GetByQueryable(filter);
+            //// Projeta diretamente para o DTO
+            //var pmoDto = await query.ProjectTo<PMODTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync();
+            //return pmoDto;
         }
 
         public ValueTask<Domain.Entities.PMO.PMO> ObterPMOPorFiltroExternoAsync(PMOFilter filtro)
