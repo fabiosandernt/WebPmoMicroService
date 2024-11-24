@@ -8,7 +8,7 @@ namespace ONS.WEBPMO.Application.Services.PMO.Interfaces
     public interface IPMOService
     {
         
-        Task<PMOManterModel> GetByIdAsync(PMOFilter filter);
+        Task<PMOManterModel> GetByIdAsync(int id);
         /// <summary>
         /// Obtém o PMO pela chave.
         /// </summary>

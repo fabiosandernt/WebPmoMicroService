@@ -7,9 +7,7 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     public class InsumoEstruturadoMap : IEntityTypeConfiguration<InsumoEstruturado>
     {
         public void Configure(EntityTypeBuilder<InsumoEstruturado> builder)
-        {
-            // Chave primária
-            builder.HasKey(t => t.Id);
+        {            
 
             // Nome da tabela
             builder.ToTable("tb_insumoestruturado");

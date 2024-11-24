@@ -8,9 +8,6 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
     {
         public void Configure(EntityTypeBuilder<DadoColetaEstruturado> builder)
         {
-            // Chave primária
-             builder.HasKey(t => t.Id);
-
             // Nome da tabela
             builder.ToTable("tb_dadocoletaestruturado");
 
@@ -36,12 +33,13 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             builder.HasOne(t => t.TipoLimite)
                    .WithMany()
                    .HasForeignKey(t => t.TipoLimiteId)
-                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao HasOptional
+                   .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(t => t.TipoPatamar)
                    .WithMany()
                    .HasForeignKey(t => t.TipoPatamarId)
-                   .OnDelete(DeleteBehavior.Restrict); // Equivalente ao HasOptional
+                   .OnDelete(DeleteBehavior.Restrict);
         }
+
     }
 }

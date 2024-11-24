@@ -7,7 +7,7 @@ namespace ONS.WEBPMO.Domain.Entities.PMO
     {
         public string LoginConvergenciaRepresentanteCCEE { get; set; }
         public string ObservacaoConvergenciaCCEE { get; set; }
-
+        public int SemanaOperativaId { get; set; }
         public virtual SemanaOperativa SemanaOperativa { get; set; }
     }
 }

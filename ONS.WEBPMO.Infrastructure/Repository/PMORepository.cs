@@ -17,10 +17,9 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl
 
         public PMO ObterPorFiltro(IBaseFilter filtro)
         {
-            var query = Query.AsQueryable().AsNoTracking()
-                .Include(x => x.SemanasOperativas)
-                 .ThenInclude(x => x.ColetasInsumos)
-                 .Apply(filtro);
+            var query = this.Query.AsQueryable().AsNoTracking()
+                    //.Include(x => x.SemanasOperativas)                    
+                        .Apply(filtro);
 
             return query.FirstOrDefault();
 

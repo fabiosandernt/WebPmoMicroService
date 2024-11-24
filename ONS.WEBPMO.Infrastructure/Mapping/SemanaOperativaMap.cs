@@ -82,8 +82,8 @@ namespace ONS.WEBPMO.Domain.Repositories.Impl.Mapping
             // Relacionamento com DadoConvergencia
             builder.HasOne(t => t.DadoConvergencia)
                    .WithOne(t => t.SemanaOperativa)
-                   .HasForeignKey<DadoConvergencia>(t => t.SemanaOperativa)
-                   .OnDelete(DeleteBehavior.Cascade); // Equivalente ao HasOptional, MapKey e WillCascadeOnDelete(true)
+                   .HasForeignKey<DadoConvergencia>(t => t.SemanaOperativaId) // Chave estrangeira explícita
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
     

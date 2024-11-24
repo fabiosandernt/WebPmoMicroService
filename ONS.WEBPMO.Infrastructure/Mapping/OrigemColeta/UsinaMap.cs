@@ -12,8 +12,7 @@ namespace ONS.WEBPMO.Infrastructure.Mapping.OrigemColeta
             // Nome da tabela
             builder.ToTable("tb_aux_usina");
 
-            // Chave primária
-            builder.HasKey(t => t.Id);
+           
 
             // Configuração das propriedades
             builder.Property(t => t.Id)

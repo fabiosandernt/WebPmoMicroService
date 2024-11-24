@@ -27,8 +27,8 @@ namespace ONS.WEBPMO.Api.Controllers
             _mapper = mapper;
             
         }
-        [HttpGet("filter")]
-        public async Task<IActionResult> GetByFilter([FromQuery] PMOFilter filter)
+        [HttpGet("getPmoByFilter")]
+        public async Task<IActionResult> GetPmoByFilter([FromQuery] PMOFilter filter)
         {
             try
             {
@@ -41,10 +41,10 @@ namespace ONS.WEBPMO.Api.Controllers
             }
         }
 
-        [HttpGet("GetById")]
-        public async Task<IActionResult> GetById([FromQuery] PMOFilter filter)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var result = await pmoService.GetByIdAsync(filter);
+            var result = await pmoService.GetByIdAsync(id);
             return Ok(result);
         }
        
